@@ -1,62 +1,52 @@
-# The "Squid" Lecture Series: Fun-First Edition
-**Focus:** Building Blocks -> Instant Gratification -> Deep Theory.
+# The "Squid" Comprehensive Lecture Series
+**Format:** Engineering Fundamentals -> Implementation -> Advanced Theory.
 
 ---
 
-## **PHASE 1: THE MAKER**
-
-### **Module 0: Hardware Basics**
-*   **0.1 Electronics 101:** V, I, R (Voltage, Current, Resistance) and why it matters.
-*   **0.2 The Protocol Stack:** How a keystroke on your laptop becomes a voltage on the motor.
-
-### **Module 1: Manual Control**
-*   **1.1 Networking for Drones:** UDP vs TCP (Why gaming uses UDP).
-*   **1.2 The "Game Loop":** How to write non-blocking Python code.
+## **PHASE I: THE MAKER**
+*   **0.1 Electronics 101:** Voltage, Current, Logic Levels (3.3V vs 5V).
+*   **0.2 Linux Systems:** The Kernel, GPIO, and Real-Time scheduling.
+*   **1.1 Serial Protocols:** UART, I2C, SPI - How bits move.
+*   **1.2 The Control Loop:** Timing, Jitter, and the importance of 50Hz.
 
 ---
 
-## **PHASE 2: THE WEB DEVELOPER**
-
-### **Module 2: The Stack**
-*   **2.1 WebSockets:** Bi-directional real-time communication.
-*   **2.2 Serialization:** JSON vs Binary Structs (Bandwidth trade-offs).
-*   **2.3 Data Viz:** How to graph 50Hz data without crashing the browser.
-
-### **Module 3: Video Pipelines**
-*   **3.1 Image Formats:** RAW vs JPEG.
-*   **3.2 Latency:** Measuring "Glass-to-Glass" delay.
+## **PHASE II: THE DEVELOPER**
+*   **2.1 Network Physics:** Why Wi-Fi sucks for robots (Latency/Packet Loss).
+*   **2.2 WebSockets:** Bi-directional real-time data pipes.
+*   **3.1 Digital Video:** Codecs, Bitrates, and Hardware Encoding.
 
 ---
 
-## **PHASE 3: THE SCIENTIST**
-
-### **Module 4: Logic Gates**
-*   **4.1 State Machines:** Designing a Robot Brain (Idle -> Arm -> Fly -> Land).
-*   **4.2 Hysteresis:** Preventing the drone from jittering between states.
-
-### **Module 5: Control Theory**
-*   **5.1 The PID Controller:** Explained intuitively without Calculus.
-*   **5.2 Tuning Methodology:** How to safely test code on a flying blender.
+## **PHASE III: THE ENGINEER**
+*   **4.1 Signal Processing:** FFTs, Nyquist Frequency, and Filter Design.
+*   **4.2 Projective Geometry:** Pinhole Cameras and Lens Distortion.
+*   **5.1 Control Theory:** The PID Controller (Math & Intuition).
+*   **5.2 System ID:** How to model a physical system mathematically.
 
 ---
 
-## **PHASE 4: THE ENGINEER**
-
-### **Module 6: Professional Middleware**
-*   **6.1 Introduction to ROS2:** Nodes, Topics, and the Graph.
-*   **6.2 Real-Time Systems:** Why "Garbage Collection" is the enemy.
-
-### **Module 7: Sensor Fusion**
-*   **7.1 Filters:** Low Pass, High Pass, and Complementary.
-*   **7.2 The Kalman Filter:** Managing Uncertainty.
+## **PHASE IV: THE ARCHITECT**
+*   **6.1 Middleware:** Why ROS2? Nodes, Topics, DDS.
+*   **6.2 Real-Time Safety:** State Machines and Failsafes.
+*   **7.1 Probability:** Bayes Rule and Uncertainty.
+*   **7.2 The Kalman Filter:** Linear vs Extended (EKF).
+*   **7.3 Reference Frames:** Quaternions and Coordinate Transforms (TF2).
 
 ---
 
-## **PHASE 5: THE ACE**
+## **PHASE V: THE RESEARCHER**
+*   **8.1 Spatial Data:** Voxel Grids, Point Clouds, and Raycasting.
+*   **8.2 SLAM:** Simultaneous Localization and Mapping theory.
+*   **9.1 Graph Search:** Dijkstra, A*, and Heuristics.
+*   **9.2 Trajectory Optimization:** Polynomial Splines and Jerk Minimization.
+*   **9.3 Aerodynamics:** Fluid Dynamics of Micro-UAVs (Ground/Ceiling Effect).
 
-### **Module 8: Advanced Algorithms**
-*   **8.1 SLAM:** Simultaneous Localization and Mapping.
-*   **8.2 Path Planning:** A* and Splines.
+---
 
-### **Module 9: AI**
-*   **9.1 Reinforcement Learning:** Training the Neural Network.
+## **PHASE VI: THE SPECIALIST**
+*   **10.1 Reinforcement Learning:** MDPs, PPO, and Policy Gradients.
+*   **10.2 Sim-to-Real:** Domain Randomization and the Reality Gap.
+*   **11.1 Guidance Laws:** Proportional Navigation & Pure Pursuit.
+*   **11.2 Game Theory:** Adversarial AI and Self-Play.
+*   **11.3 Ethics:** The responsibility of building autonomous systems.
