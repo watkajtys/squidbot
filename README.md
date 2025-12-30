@@ -28,5 +28,10 @@
 ## 🛠 Hardware List
 *   **Frame:** BetaFPV Pavo20
 *   **Compute:** Raspberry Pi Zero 2 W
-*   **Sensors:** VL53L5CX (8x8 ToF), PMW3901 (Flow), Arducam IMX219
+*   **Sensors:**
+    *   **Mapping:** VL53L5CX (8x8 ToF Matrix)
+    *   **Altitude:** VL53L1X (1D Lidar)
+    *   **Velocity:** PMW3901 (Optical Flow)
+    *   **Outdoor:** NewBeeDrone M10Q (GPS + Compass)
+    *   **Vision:** Arducam IMX219
 *   **Power:** 3S LiPo + Matek BEC
