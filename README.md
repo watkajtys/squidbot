@@ -8,6 +8,7 @@
 *   **`/docs`**: The Curriculum and Lecture notes. Start here.
     *   `COURSE.md`: The step-by-step experiment roadmap.
     *   `LECTURES.md`: The theoretical syllabus.
+    *   `RESOURCES_AND_GLOSSARY.md`: Recommended textbooks and terminology.
 *   **`/hardware`**: CAD files and schematics.
     *   `avionics_mount.scad`: 3D printable mount for Pi Zero 2 W + Sensors.
 *   **`/ros2_ws`**: The Robot Operating System (ROS2) workspace.
