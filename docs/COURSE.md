@@ -76,23 +76,26 @@
 ### **Module 8: Perception & Mapping**
 *   **8.1:** Point Clouds & Voxel Grids.
 *   **8.2:** Occupancy Mapping.
-*   **8.3:** Novelty: Tactile Mapping & Optical Stealth.
-*   **Check:** The Ghost Map.
+*   **8.3:** **The Digital Twin Pipeline:** Exporting the Voxel Map to a collision mesh (`.urdf`) for the Simulator.
+*   **8.4:** Novelty: Tactile Mapping & Optical Stealth.
+*   **Check:** The Ghost Map (and successfully loading it into PyBullet).
 
 ### **Module 9: Trajectory Optimization**
 *   **9.1:** Pathfinding: A* / JPS.
 *   **9.2:** Smoothing: Minimum Snap Splines.
-*   **9.3:** Physics: **Ceiling Perching** (using the second VL53L1X for upward detection).
+*   **9.3:** Physics: Ceiling Perching.
 *   **Check:** The Speed Run.
 
 ---
 
 ## **PHASE VI: THE SPECIALIST (Tactical Engagement)**
 
-### **Module 10: Reinforcement Learning**
-*   **10.1:** Sim Environment (PyBullet).
-*   **10.2:** PPO Training & Domain Randomization.
-*   **10.3:** Sim-to-Real Deployment.
+### **Module 10: Reinforcement Learning (The Brain)**
+*   **10.1:** **Level 1 (Stability):** Training an RL agent to replace the PID controller (Input: IMU, Output: Motor Thrust).
+*   **10.2:** **Level 2 (Obstacles):** Training collision avoidance (Input: 8x8 ToF + Flow, Output: Velocity Command).
+*   **10.3:** **Level 3 (Navigation):** Training the agent to traverse "The Digital Twin" (from Module 8) at max speed).
+*   **10.4:** **Sim-to-Real:** Domain Randomization to survive real-world noise.
+*   **Check:** The "Uncrashable" Drone.
 
 ### **Module 11: Aerial Combat**
 *   **11.1:** Pro-Nav Guidance Laws.
