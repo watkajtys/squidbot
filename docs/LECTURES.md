@@ -1,67 +1,62 @@
-# The Unified "Squid" Lecture Series
-**Format:** Fundamentals -> Implementation -> Advanced Theory.
+# The "Squid" Lecture Series: Fun-First Edition
+**Focus:** Building Blocks -> Instant Gratification -> Deep Theory.
 
 ---
 
-## **PART I: THE UNDERGRADUATE**
+## **PHASE 1: THE MAKER**
 
-### **Module 0: The Build**
-*   **0.1 Anatomy of a Drone:** Power chains, BECs, and Magic Smoke.
-*   **0.2 Linux for Robotics:** Headless setup, SSH, and Systemd services.
-*   **0.3 The Hardware Guide:** Soldering best practices & Thermal management.
+### **Module 0: Hardware Basics**
+*   **0.1 Electronics 101:** V, I, R (Voltage, Current, Resistance) and why it matters.
+*   **0.2 The Protocol Stack:** How a keystroke on your laptop becomes a voltage on the motor.
 
-### **Module 1: The Internal API**
-*   **1.1 Serial Comm (UART):** The MSP Protocol & Byte packing.
-*   **1.2 I2C & Sensors:** Registers, Addresses, and Polling.
-*   **1.3 Scripting:** Writing efficient Python loops (avoiding Garbage Collection pauses).
-
-### **Module 2: Control Basics**
-*   **2.1 The Feedback Loop:** Intuitive guide to PID.
-*   **2.2 Tuning:** Empirical tuning methods (Ziegler-Nichols for Drones).
+### **Module 1: Manual Control**
+*   **1.1 Networking for Drones:** UDP vs TCP (Why gaming uses UDP).
+*   **1.2 The "Game Loop":** How to write non-blocking Python code.
 
 ---
 
-## **PART II: THE ENGINEER**
+## **PHASE 2: THE WEB DEVELOPER**
 
-### **Module 3: ROS2 Architecture**
-*   **3.1 The Graph:** Nodes, Topics, Services, Actions.
-*   **3.2 Data Ops:** The importance of Logging (MCAP) & Replay.
-*   **3.3 Safety Systems:** Watchdogs and Failsafes.
+### **Module 2: The Stack**
+*   **2.1 WebSockets:** Bi-directional real-time communication.
+*   **2.2 Serialization:** JSON vs Binary Structs (Bandwidth trade-offs).
+*   **2.3 Data Viz:** How to graph 50Hz data without crashing the browser.
 
-### **Module 4: Signal Processing**
-*   **4.1 The Frequency Domain:** FFTs and Noise.
-*   **4.2 Projective Geometry:** Pinhole cameras & Calibration.
-*   **4.3 Frames of Reference:** Rotations & Quaternions.
-
-### **Module 5: State Estimation**
-*   **5.1 Probability:** Bayes Rule & Gaussian Distributions.
-*   **5.2 The Kalman Filter:** From 1D to EKF.
-*   **5.3 Sensor Fusion:** Mixing specific sensors (Flow + IMU).
+### **Module 3: Video Pipelines**
+*   **3.1 Image Formats:** RAW vs JPEG.
+*   **3.2 Latency:** Measuring "Glass-to-Glass" delay.
 
 ---
 
-## **PART III: THE RESEARCHER**
+## **PHASE 3: THE SCIENTIST**
 
-### **Module 6: Mapping**
-*   **6.1 Spatial Data:** Point Clouds, Voxels, Octrees.
-*   **6.2 Probabilistic Mapping:** Log-Odds updates.
-*   **6.3 Novel Senses:** Tactile & Phototaxis algorithms.
+### **Module 4: Logic Gates**
+*   **4.1 State Machines:** Designing a Robot Brain (Idle -> Arm -> Fly -> Land).
+*   **4.2 Hysteresis:** Preventing the drone from jittering between states.
 
-### **Module 7: Planning**
-*   **7.1 Search:** A*, RRT, and Heuristics.
-*   **7.2 Optimization:** Polynomial Splines & Jerk minimization.
-*   **7.3 Aerodynamics:** Ground Effect & Ceiling Effect physics.
-
-### **Module 8: AI & RL**
-*   **8.1 RL Basics:** MDPs, Agents, Rewards.
-*   **8.2 PPO:** Proximal Policy Optimization deep dive.
-*   **8.3 The Reality Gap:** Domain Randomization techniques.
+### **Module 5: Control Theory**
+*   **5.1 The PID Controller:** Explained intuitively without Calculus.
+*   **5.2 Tuning Methodology:** How to safely test code on a flying blender.
 
 ---
 
-## **PART IV: THE SPECIALIST**
+## **PHASE 4: THE ENGINEER**
 
-### **Module 9: Combat**
-*   **9.1 Guidance:** Proportional Navigation & Pure Pursuit.
-*   **9.2 Game Theory:** Adversarial AI & Self-Play.
-*   **9.3 Ethics:** The responsibility of autonomous systems.
+### **Module 6: Professional Middleware**
+*   **6.1 Introduction to ROS2:** Nodes, Topics, and the Graph.
+*   **6.2 Real-Time Systems:** Why "Garbage Collection" is the enemy.
+
+### **Module 7: Sensor Fusion**
+*   **7.1 Filters:** Low Pass, High Pass, and Complementary.
+*   **7.2 The Kalman Filter:** Managing Uncertainty.
+
+---
+
+## **PHASE 5: THE ACE**
+
+### **Module 8: Advanced Algorithms**
+*   **8.1 SLAM:** Simultaneous Localization and Mapping.
+*   **8.2 Path Planning:** A* and Splines.
+
+### **Module 9: AI**
+*   **9.1 Reinforcement Learning:** Training the Neural Network.

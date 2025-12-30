@@ -1,89 +1,86 @@
-# The Unified "Squid" Curriculum
-**From Zero to Autonomous Hunter**
-**Platform:** Pavo20 / Pi Zero 2 W / ROS2 / RL
+# The "Squid" Course: Fun-First Progression
+**Platform:** Pavo20 / Pi Zero 2 W / Python / WebSockets
+**Philosophy:** "Play first, Optimize later."
 
 ---
 
-## **PART I: THE UNDERGRADUATE (Foundations)**
-*Goal: Build the drone, learn the Linux environment, and achieve stable hover using simple Python scripts. No complex middleware yet.*
+## **PART I: THE MAKER (Hardware & "Hello World")**
+*Goal: Get the machine built and moving using simple, readable scripts.*
 
-### **Module 0: The Build (Hardware)**
-*   **0.1:** Anatomy & Assembly (Soldering, BEC wiring).
-*   **0.2:** The "Smoke Test" & Safety.
-*   **0.3:** Linux Setup (Headless Pi, SSH, Systemd).
-*   **0.4:** The Hardware Build Guide (Temperature management, mounting).
+### **Module 0: The Build Party**
+*   **0.1:** Anatomy: What is an ESC? What is a Flight Controller?
+*   **0.2:** Soldering 101: The Art of the "Shiny Joint" (Building the Power Train).
+*   **0.3:** The "Smoke Test": Plugging in the battery without exploding.
+*   **0.4:** The Brain Transplant: Setting up Linux on the Pi (Headless).
 
-### **Module 1: The Internal API (Python Scripting)**
-*   **1.1:** Talking to the Flight Controller (UART/MSP).
-*   **1.2:** Reading the Senses (I2C/ToF/Flow).
-*   **1.3:** The "Reflex" Agent (Simple `if/else` obstacle avoidance).
-*   **Capstone:** A script that spins motors when you cover the sensor.
-
-### **Module 2: The Control Loop (PID)**
-*   **2.1:** Theory: The Feedback Loop (P, I, D).
-*   **2.2:** Implementation: Writing a `pid.py` class from scratch.
-*   **2.3:** Tuning: Adjusting gains for a stable 1-meter hover.
-*   **Capstone:** The "Floor is Lava" autonomous hover.
+### **Module 1: The Puppet Master (Manual Control)**
+*   **1.1:** Motor Twitch: Sending your first MSP command to spin Prop #1.
+*   **1.2:** The "Keyboard Pilot": Writing a script to fly the drone like a video game (WASD keys) over Wi-Fi.
+    *   *Fun Factor:* You are flying your drone! (Carefully).
+*   **1.3:** The Kill Switch: Coding the "Spacebar = DROP" safety feature.
 
 ---
 
-## **PART II: THE ENGINEER (Systems & Math)**
-*Goal: Transition to professional tools (ROS2), derive the math, and build a robust state estimator.*
+## **PART II: THE WEB DEVELOPER (Telemetry & Dashboards)**
+*Goal: Use your Web Dev skills to visualize what the drone is "feeling."*
 
-### **Module 3: The Architecture (ROS2)**
-*   **3.1:** Introduction to Nodes, Topics, and Messages.
-*   **3.2:** Porting the Python scripts to ROS2 Nodes.
-*   **3.3:** Data Ops: Logging flight data with MCAP/Foxglove.
-*   **3.4:** Latency & Real-Time Constraints (The Watchdog).
+### **Module 2: The Full Stack Drone**
+*   **2.1:** The Backend: Writing a Python **WebSocket Server** on the Pi.
+*   **2.2:** The API: Streaming Sensor Data (Distance, Battery Voltage, Gyro) as JSON.
+*   **2.3:** The Frontend: Building a simple HTML/JS Dashboard on your Laptop to graph the altitude in real-time.
+    *   *Fun Factor:* "Look at this! I built a flight computer in my browser!"
 
-### **Module 4: Signal Processing & Math (The Deep Dive)**
-*   **4.1:** Vibration Analysis (FFT & Notch Filtering).
-*   **4.2:** Camera Calibration (Intrinsic/Extrinsic Matrices).
-*   **4.3:** Coordinate Transformations (Quaternions & Frames).
-*   **Reference:** *Paper 0.1: The Mathematician.*
-
-### **Module 5: State Estimation (EKF)**
-*   **5.1:** Theory: Bayes Filter & Kalman Filter.
-*   **5.2:** Derivation: The Extended Kalman Filter (Jacobians).
-*   **5.3:** Implementation: Fusing Optical Flow + IMU + ToF.
-*   **Capstone:** "The Push Test" (Recovering from disturbances).
+### **Module 3: The Camera (FPV)**
+*   **3.1:** MJPEG Streaming: Creating a low-latency video feed.
+*   **3.2:** The Overlay: Drawing "Iron Man" style HUD data (Battery, Height) over the video feed on your dashboard.
 
 ---
 
-## **PART III: THE RESEARCHER (Advanced Autonomy)**
-*Goal: Advanced Perception, Trajectory Optimization, and Reinforcement Learning.*
+## **PART III: THE SCIENTIST (Autonomy Logic)**
+*Goal: The drone stops listening to your keyboard and starts thinking.*
 
-### **Module 6: Perception & Mapping**
-*   **6.1:** 3D Point Clouds (From 8x8 ToF).
-*   **6.2:** Voxel Grids & Occupancy Maps.
-*   **6.3:** Novelty: Tactile Mapping (Bumper Car) & Optical Stealth.
-*   **Capstone:** "The Ghost Map" (Digital Twin generation).
+### **Module 4: The Reflexes (Simple Logic)**
+*   **4.1:** "The Wall": If `ToF < 50cm`, stop moving forward.
+*   **4.2:** "The Floor is Lava": If `Altitude < 50cm`, throttle up.
+*   **4.3:** "The Security Guard": Sit on the desk. If the Camera detects motion, arm the motors (Roar).
 
-### **Module 7: Planning & Dynamics**
-*   **7.1:** Pathfinding (A* / JPS).
-*   **7.2:** Trajectory Optimization (Minimum Snap Splines).
-*   **7.3:** Physics Exploitation: Ceiling Perching & Draft Hunting.
-
-### **Module 8: Reinforcement Learning (Sim-to-Real)**
-*   **8.1:** Simulation: Building the Gym-PyBullet environment.
-*   **8.2:** Training: PPO & Domain Randomization.
-*   **8.3:** Deployment: Running the Neural Network on the Pi.
+### **Module 5: The Smooth Operator (PID Control)**
+*   **5.1:** The Theory: Why `if/else` makes the drone wobble.
+*   **5.2:** The Code: Writing a PID class in Python.
+*   **5.3:** Tuning: Adjusting the numbers until it hovers like a statue.
 
 ---
 
-## **PART IV: THE SPECIALIST (Tactical Engagement)**
-*Goal: Dynamic, adversarial scenarios.*
+## **PART IV: THE ENGINEER (Professional Refactoring)**
+*Goal: We hit the limits of Python/JSON. Now we need ROS2.*
 
-### **Module 9: Aerial Combat**
-*   **9.1:** Guidance Laws (Pro-Nav).
-*   **9.2:** Visual Servoing (Lock-on).
-*   **9.3:** Zero-G Maneuvering (Ballistic Interception).
-*   **Capstone:** "The Dogfight" (Intercepting a moving target).
+### **Module 6: The Upgrade (ROS2)**
+*   **6.1:** Why Python is too slow: Measuring Jitter.
+*   **6.2:** Porting the "Backend" to ROS2 Nodes.
+*   **6.3:** Replacing WebSockets with DDS (Industry Standard).
+
+### **Module 7: The Math (State Estimation)**
+*   **7.1:** Sensor Fusion: Combining Flow + IMU.
+*   **7.2:** The Kalman Filter: Fixing the drift.
 
 ---
 
-## **Graduation Requirements**
-1.  **Hardware:** A working Pavo20 with custom 3D mount.
-2.  **Code:** A Git repo with `scripts/` (Part I) and `ros2_ws/` (Part II+).
-3.  **Theory:** Notebooks deriving the EKF and Splines.
-4.  **Data:** Logs proving successful autonomous interception.
+## **PART V: THE ACE (Advanced Combat)**
+*Goal: The original "Hunter-Killer" goals.*
+
+### **Module 8: Mapping & Perception**
+*   **8.1:** 3D Mapping the room.
+*   **8.2:** Finding targets.
+
+### **Module 9: The Dogfight**
+*   **9.1:** Interception Logic.
+*   **9.2:** Zero-G Maneuvers.
+
+---
+
+## **Graduation Checklist**
+1.  **Phase 1:** Fly via Keyboard.
+2.  **Phase 2:** View Telemetry in Browser.
+3.  **Phase 3:** Autonomous Hover.
+4.  **Phase 4:** Port to ROS2.
+5.  **Phase 5:** Autonomous Hunt.
