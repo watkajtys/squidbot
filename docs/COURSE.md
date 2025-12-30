@@ -1,92 +1,89 @@
-# The "Squid" Autonomous Robotics Master Curriculum (Final)
-**Platform:** Pavo20 / Pi Zero 2 W / ROS2 Middleware / Offboard Compute
-**Standard:** Graduate Level Research (Stanford CS287 / MIT 16.413 Equivalent)
+# The Unified "Squid" Curriculum
+**From Zero to Autonomous Hunter**
+**Platform:** Pavo20 / Pi Zero 2 W / ROS2 / RL
 
 ---
 
-## **Architecture: The Hybrid Brain**
-*   **The Body (Drone):** Runs a lightweight **ROS2 Node** on the Pi Zero 2 W. Its only job is to stream raw sensor data and execute motor commands.
-*   **The Mind (Laptop):** Runs the heavy **ROS2 Stack**. This is where the EKF, Mapping, Path Planning, and RL Inference happen.
-*   **The Visualization:** Use **Foxglove Studio** or **RViz2** on the laptop to see the drone's "thoughts" (point clouds, vectors, and camera feed) in real-time.
+## **PART I: THE UNDERGRADUATE (Foundations)**
+*Goal: Build the drone, learn the Linux environment, and achieve stable hover using simple Python scripts. No complex middleware yet.*
+
+### **Module 0: The Build (Hardware)**
+*   **0.1:** Anatomy & Assembly (Soldering, BEC wiring).
+*   **0.2:** The "Smoke Test" & Safety.
+*   **0.3:** Linux Setup (Headless Pi, SSH, Systemd).
+*   **0.4:** The Hardware Build Guide (Temperature management, mounting).
+
+### **Module 1: The Internal API (Python Scripting)**
+*   **1.1:** Talking to the Flight Controller (UART/MSP).
+*   **1.2:** Reading the Senses (I2C/ToF/Flow).
+*   **1.3:** The "Reflex" Agent (Simple `if/else` obstacle avoidance).
+*   **Capstone:** A script that spins motors when you cover the sensor.
+
+### **Module 2: The Control Loop (PID)**
+*   **2.1:** Theory: The Feedback Loop (P, I, D).
+*   **2.2:** Implementation: Writing a `pid.py` class from scratch.
+*   **2.3:** Tuning: Adjusting gains for a stable 1-meter hover.
+*   **Capstone:** The "Floor is Lava" autonomous hover.
 
 ---
 
-## **SEMESTER 1: Foundations & Systems Engineering**
+## **PART II: THE ENGINEER (Systems & Math)**
+*Goal: Transition to professional tools (ROS2), derive the math, and build a robust state estimator.*
 
-### **Module 0: Signal, Noise & Calibration**
-*   **Vibration Analysis:** Use FFT to identify motor resonance. Implement **Bi-directional DShot** (if supported) or software Notch Filters.
-*   **Sensor Calibration:** Camera Intrinsic/Extrinsic calibration. IMU thermal calibration (Does your gyro drift as the Pi gets hot?).
-*   **FMEA (Failure Analysis):** Designing a "Watchdog" that detects motor desync or sensor "freezes" and initiates an emergency "controlled tumble."
+### **Module 3: The Architecture (ROS2)**
+*   **3.1:** Introduction to Nodes, Topics, and Messages.
+*   **3.2:** Porting the Python scripts to ROS2 Nodes.
+*   **3.3:** Data Ops: Logging flight data with MCAP/Foxglove.
+*   **3.4:** Latency & Real-Time Constraints (The Watchdog).
 
-### **Module 1: The ROS2 Nervous System**
-*   **Middleware:** Setting up **ROS2 Humble/Iron**. Defining custom `.msg` types for your ToF array.
-*   **Data Infrastructure:** Setting up **MCAP (Foxglove)** logging. You must record every flight. If it isn't logged, it didn't happen.
-*   **Latency Benchmarking:** Characterizing the Wi-Fi "Jitter." Modeling this delay in your simulation (Time-Delay Compensation).
-*   **Theory:** Publish/Subscribe architecture vs. Request/Response (Services).
+### **Module 4: Signal Processing & Math (The Deep Dive)**
+*   **4.1:** Vibration Analysis (FFT & Notch Filtering).
+*   **4.2:** Camera Calibration (Intrinsic/Extrinsic Matrices).
+*   **4.3:** Coordinate Transformations (Quaternions & Frames).
+*   **Reference:** *Paper 0.1: The Mathematician.*
 
-### **Module 2: State Estimation (The Math Core)**
-*   **Theory:** Hand-derivation of the **Extended Kalman Filter (EKF)**.
-*   **Implementation:** Fusing Optical Flow + 1D Lidar + IMU.
-*   **Novelty (Drifting):** Implementing **Decoupled Yaw Control** (Non-holonomic constraints). Proving you can fly a circle while the camera stays fixed on a point.
-
----
-
-## **SEMESTER 2: Perception, Planning & Physics Hackery**
-
-### **Module 3: Mapping & Spatial Intelligence**
-*   **3D SLAM:** Using the 8x8 ToF Matrix to build a **Voxel Map**.
-*   **Novelty (Tactile):** "Bumper Car" mapping. Using physical impacts to find glass walls.
-*   **Novelty (Stealth):** **Luminance Mapping**. Integrating light-intensity into the navigation cost-function (Phototaxis).
-
-### **Module 4: Classical Path Planning**
-*   **Search:** Implementing **A*** or **JPS (Jump Point Search)** on your 3D Voxel map.
-*   **Optimization:** Converting jagged paths into **Minimum Snap Trajectories** (Polynomial Splines) for surgical, smooth flight.
-*   **Theory:** Constrained Optimization (Lagrange Multipliers).
-
-### **Module 5: Physics Exploitation (SpecOps)**
-*   **Ceiling Spider:** Aerodynamic Suction Perching.
-*   **Toss-to-Launch:** 6-DOF recovery from arbitrary orientation.
-*   **Acoustic Stealth:** RPM-syncing to minimize "Beat Frequencies" and motor whine.
-*   **Draft Hunting:** Using the "I" term of your PID to detect air currents from windows/vents.
+### **Module 5: State Estimation (EKF)**
+*   **5.1:** Theory: Bayes Filter & Kalman Filter.
+*   **5.2:** Derivation: The Extended Kalman Filter (Jacobians).
+*   **5.3:** Implementation: Fusing Optical Flow + IMU + ToF.
+*   **Capstone:** "The Push Test" (Recovering from disturbances).
 
 ---
 
-## **SEMESTER 3: Advanced AI & Tactical Engagement**
+## **PART III: THE RESEARCHER (Advanced Autonomy)**
+*Goal: Advanced Perception, Trajectory Optimization, and Reinforcement Learning.*
 
-### **Module 6: Sim-to-Real Reinforcement Learning**
-*   **Environment:** **Gym-PyBullet-Drones**. Custom URDF with your Pavo20's specific physics.
-*   **Algorithm:** **PPO (Proximal Policy Optimization)**.
-*   **Technique:** **Domain Randomization**. Randomizing mass, thrust, and latency in sim to ensure the brain works in the messy real world.
+### **Module 6: Perception & Mapping**
+*   **6.1:** 3D Point Clouds (From 8x8 ToF).
+*   **6.2:** Voxel Grids & Occupancy Maps.
+*   **6.3:** Novelty: Tactile Mapping (Bumper Car) & Optical Stealth.
+*   **Capstone:** "The Ghost Map" (Digital Twin generation).
 
-### **Module 7: The Interceptor (Aerial Combat)**
-*   **Guidance:** **Proportional Navigation (Pro-Nav)**. Missile-grade interception laws.
-*   **Dogfighting (Self-Play):** Training an RL agent to "win" a game of tag against an earlier version of itself.
-*   **Zero-G Dive:** Silent ballistic interception (motors off) from high-altitude perches.
+### **Module 7: Planning & Dynamics**
+*   **7.1:** Pathfinding (A* / JPS).
+*   **7.2:** Trajectory Optimization (Minimum Snap Splines).
+*   **7.3:** Physics Exploitation: Ceiling Perching & Draft Hunting.
 
----
-
-## **POST-GRADUATE: The Horizon**
-*Where to go after you master the single agent.*
-
-### **Module 8: Future Frontiers**
-*   **Swarm Intelligence:** Distributed SLAM (Map merging) with multiple drones.
-*   **Hardware V2:** Moving from Pi Zero 2 W to a custom PCB with **STM32 + NPU** (Neural Processing Unit) for onboard AI.
-*   **Visual Odometry:** Replacing Optical Flow with Visual SLAM (ORB-SLAM3) for GPS-denied outdoor navigation.
+### **Module 8: Reinforcement Learning (Sim-to-Real)**
+*   **8.1:** Simulation: Building the Gym-PyBullet environment.
+*   **8.2:** Training: PPO & Domain Randomization.
+*   **8.3:** Deployment: Running the Neural Network on the Pi.
 
 ---
 
-## **FINAL THESIS: "The Dark Room Scenario"**
-**A single mission integrating all modules:**
-1.  **Deployment:** Hand-toss into a pitch-black room.
-2.  **Infiltration:** Tactile mapping of the entrance + Optical Stealth navigation.
-3.  **Surveillance:** Finding the target (Roomba) using the Arducam.
-4.  **Assault:** A **Minimum Snap** high-speed approach followed by a **Zero-G Dive** for a silent "strike."
-5.  **Exfiltration:** Navigation back to the start and **Suction Perch** on the ceiling.
+## **PART IV: THE SPECIALIST (Tactical Engagement)**
+*Goal: Dynamic, adversarial scenarios.*
+
+### **Module 9: Aerial Combat**
+*   **9.1:** Guidance Laws (Pro-Nav).
+*   **9.2:** Visual Servoing (Lock-on).
+*   **9.3:** Zero-G Maneuvering (Ballistic Interception).
+*   **Capstone:** "The Dogfight" (Intercepting a moving target).
 
 ---
 
 ## **Graduation Requirements**
-1.  **Theory:** A GitHub folder `/theory` with Jupyter Notebooks proving the math for EKF, Splines, and Pro-Nav.
-2.  **Code:** A clean, documented **ROS2 Workspace**.
-3.  **Data:** A library of `.mcap` flight logs proving every experiment.
-4.  **Video:** A "Highlights Reel" showing the success of each Module's Capstone Experiment.
+1.  **Hardware:** A working Pavo20 with custom 3D mount.
+2.  **Code:** A Git repo with `scripts/` (Part I) and `ros2_ws/` (Part II+).
+3.  **Theory:** Notebooks deriving the EKF and Splines.
+4.  **Data:** Logs proving successful autonomous interception.
