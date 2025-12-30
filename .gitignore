@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.venv
+venv/
+.env
+
+# ROS2
+log/
+build/
+install/
+dist/
+
+# Data
+data/*.mcap
+data/*.bag
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
