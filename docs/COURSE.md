@@ -14,7 +14,8 @@
 
 ### **Module 1: The Bare Metal API**
 *   **1.1:** MSP Protocol: Byte-level motor control.
-*   **1.2:** I2C Drivers: Raw sensor access.
+*   **1.2:** I2C Drivers: Raw sensor access. 
+    *   **The Conflict:** Solving the I2C address collision for the **2x VL53L1X** lidars using the XSHUT pins.
 *   **1.3:** The Game Loop: Timing & Jitter.
 *   **Check:** The Reflex (Sensor-based throttle).
 
@@ -30,7 +31,7 @@
 
 ### **Module 3: FPV & HUD**
 *   **3.1:** Video Pipeline: Hardware Encoding.
-*   **3.2:** Augmented Reality: Overlaying Data.
+*   **3.2:** Augmented Reality: Overlaying Data (Multi-ToF telemetry).
 *   **Check:** Instrument Flight.
 
 ---
@@ -64,7 +65,7 @@
 *   **7.1:** **Time Synchronization:** Aligning IMU (1khz) and Camera (30Hz) timestamps.
 *   **7.2:** The EKF: Jacobian Derivation & Covariance logic.
 *   **7.3:** Sensor Fusion:
-    *   **Indoor:** Flow + IMU + ToF (Altitude).
+    *   **Indoor:** Flow + IMU + ToF (Altitude) + ToF (Ceiling/Obstacle).
     *   **Outdoor:** GPS + Barometer + Compass.
 *   **Check:** The Push Test.
 
@@ -81,7 +82,7 @@
 ### **Module 9: Trajectory Optimization**
 *   **9.1:** Pathfinding: A* / JPS.
 *   **9.2:** Smoothing: Minimum Snap Splines.
-*   **9.3:** Physics: Ceiling Perching.
+*   **9.3:** Physics: **Ceiling Perching** (using the second VL53L1X for upward detection).
 *   **Check:** The Speed Run.
 
 ---
