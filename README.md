@@ -7,6 +7,7 @@
 
 *   **`/docs`**: The Curriculum and Lecture notes. Start here.
     *   `COURSE.md`: The step-by-step experiment roadmap.
+    *   `hardware_reference.md`: The definitive Pinout & Wiring Guide.
     *   `LECTURES.md`: The theoretical syllabus.
     *   `RESOURCES_AND_GLOSSARY.md`: Recommended textbooks and terminology.
 *   **`/hardware`**: CAD files and schematics.
@@ -23,7 +24,7 @@
 
 1.  **Read the Plan:** Check `docs/COURSE.md` for the Semester 1 roadmap.
 2.  **Print the Mount:** Take `hardware/avionics_mount.scad` to your local library.
-3.  **Setup Environment:** (Instructions coming in Module 0).
+3.  **Build It:** Follow `docs/Module_0_The_Build.md` to assemble the drone.
 
 ## 🛠 Hardware List
 *   **Frame:** BetaFPV Pavo20

@@ -1,0 +1,22 @@
+# Core Hardware
+rpi.gpio
+smbus2
+spidev
+
+# Math & Signal Processing
+numpy
+scipy
+matplotlib
+
+# Vision & Camera
+opencv-python-headless
+picamera
+
+# Networking & Dashboard
+flask
+python-socketio
+eventlet
+
+# Utilities
+pyserial
+rich  # For pretty terminal output
