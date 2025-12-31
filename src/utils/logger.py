@@ -1,22 +1,28 @@
-import time
-import csv
+"""
+Module 2.3: The High-Frequency Logger
+Goal: Capture every heartbeat of the drone for post-flight analysis.
+"""
 
-class BlackBox:
+import csv
+import time
+
+class SquidLogger:
     def __init__(self, filename="flight_log.csv"):
         self.filename = filename
-        self.buffer = []
-        # TODO: Write CSV Header
+        self.file = open(self.filename, 'w', newline='')
+        self.writer = csv.writer(self.file)
+        
+        # TODO: Define your headers (e.g., timestamp, accel_x, gyro_y, motor_1)
+        self.headers = ["timestamp", "ax", "ay", "az", "gx", "gy", "gz"]
+        self.writer.writerow(self.headers)
+
+    def log(self, data_dict):
+        """
+        data_dict: A dictionary containing the current state
+        Example: {"ax": 0.1, "gx": 0.01, ...}
+        """
+        # TODO: Write the data row to the CSV
         pass
 
-    def log(self, timestamp, raw_dist, motor_out):
-        """
-        Add a data point to memory.
-        """
-        self.buffer.append([timestamp, raw_dist, motor_out])
-
-    def save(self):
-        """
-        Dump memory to disk.
-        """
-        # TODO: Write self.buffer to self.filename
-        print(f"Log saved to {self.filename}")
+    def close(self):
+        self.file.close()

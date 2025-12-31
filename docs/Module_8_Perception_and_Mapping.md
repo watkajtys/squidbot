@@ -1,4 +1,4 @@
-# Module 8: Perception and Mapping
+# Module 8: Perception & Mapping
 **"Seeing the world in 3D."**
 
 ## **8.1 The Point Cloud**

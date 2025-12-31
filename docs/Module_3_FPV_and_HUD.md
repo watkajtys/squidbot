@@ -1,4 +1,4 @@
-# Module 3: FPV & HUD
+# Module 3: FPV & HUD (Augmented Reality)
 **"Flying by wire. Seeing by numbers."**
 
 In Module 2, you built a data dashboard. In Module 3, we add the most bandwidth-heavy sensor of all: Vision. You will build a low-latency video streaming pipeline and overlay your Lidar data onto it, creating an Augmented Reality (AR) Heads-Up Display (HUD).

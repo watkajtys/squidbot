@@ -18,7 +18,7 @@ Align the timeline.
 *   **Buffer:** We must keep a history of IMU states to "rewind" and apply the camera correction at the correct timestamp.
 
 ### **Lab Procedure**
-1.  **The Stamp:** Ensure every ROS2 message has a `header.stamp`.
+1.  **The Stamp:** Ensure every ROS 2 message has a `header.stamp`.
 2.  **The Interpolator:** Write a function that takes two IMU readings ($t_1, t_2$) and estimates the state at $t_{cam}$ (where $t_1 < t_{cam} < t_2$).
 
 ---
@@ -43,7 +43,7 @@ Predict and Correct.
 Fuse Optical Flow (Velocity) with Lidar (Altitude).
 
 ### **Lab Procedure**
-1.  **The Tool:** We will not write a full EKF from scratch (that is a PhD thesis). We will use the `robot_localization` ROS2 package.
+1.  **The Tool:** We will not write a full EKF from scratch (that is a PhD thesis). We will use the `robot_localization` ROS 2 package.
 2.  **Configuration (`ekf.yaml`):**
     *   **Input 1:** IMU (Measure: `accel`, `gyro`).
     *   **Input 2:** Optical Flow (Measure: `vel_x`, `vel_y`).

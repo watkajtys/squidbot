@@ -31,7 +31,7 @@ Understand where "Down" is.
 ## **4.2 Vibration Analysis & Filtering**
 
 ### **Objective**
-Kill the noise found in Theory Lab 0.1.
+Kill the noise found in [Theory Lab 0.1](theory/Theory_0_Concepts.md#1-the-physics-of-vibration-frequency-domain).
 
 ### **Theory**
 *   **Low Pass Filter (LPF):** Allows slow movements (turning), blocks fast ones (vibration).

@@ -12,8 +12,8 @@ This document supports the Master Curriculum. Refer to this when you encounter n
 *   **Python:** [Real Python](https://realpython.com/) (Focus on: Classes, Threading, Sockets, NumPy).
 *   **Git:** [Pro Git Book](https://git-scm.com/book/en/v2) (Focus on: Basic branching and committing).
 
-### **2. Middleware (ROS2)**
-*   **Official Docs:** [ROS2 Humble Documentation](https://docs.ros.org/en/humble/).
+### **2. Middleware (ROS 2)**
+*   **Official Docs:** [ROS 2 Humble Documentation](https://docs.ros.org/en/humble/).
 *   **The "Bible":** [Articulated Robotics (YouTube)](https://www.youtube.com/@ArticulatedRobotics). *Watch his "Zero to Hero" series.*
 *   **Visualization:** [Foxglove Studio Docs](https://docs.foxglove.dev/docs/introduction).
 
@@ -67,7 +67,7 @@ This document supports the Master Curriculum. Refer to this when you encounter n
 
 1.  **VS Code:** Your Code Editor.
     *   *Extensions:* Python, C/C++, Remote - SSH (for coding on the Pi).
-2.  **Docker:** For running ROS2 containers without breaking your laptop's OS.
+2.  **Docker:** For running ROS 2 containers without breaking your laptop's OS.
 3.  **QGroundControl / Betaflight Configurator:** For low-level drone setup.
 4.  **OpenSCAD:** For editing the 3D printed mount.
-5.  **Foxglove Studio:** For visualizing flight logs (.mcap files).
+5.  **Foxglove Studio:** The industry-standard web-based visualizer. Used for viewing 3D Coordinate Frames (TFs), Point Clouds, and Telemetry in real-time or from flight logs. Replace standard `print()` debugging with Foxglove layouts.

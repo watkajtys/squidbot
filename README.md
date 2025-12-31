@@ -20,14 +20,14 @@ This project is structured as a full-stack robotics course, taking you from raw 
     *   `SYLLABUS.md`: The high-level roadmap and prerequisites.
     *   `LECTURES.md`: The theoretical study guide with academic reading lists.
     *   `COURSE.md`: The integrated step-by-step experiment guide.
-    *   `deep_dives/`: PhD-level theoretical support for complex math.
+    *   `theory/`: PhD-level theoretical support for complex math.
 *   **`/hardware`**: CAD files (`.scad`) and wiring schematics.
 *   **`/simulation`**: PyBullet physics environment and URDF models.
 *   **`/src`**: Python source code for drivers, controllers, and utilities.
 *   **`/tools`**: Automation scripts (e.g., `setup_pi.sh`).
 
 ## 🚀 Getting Started (Module 0)
-1.  **Prerequisites:** Read [Hardware Foundations](docs/Hardware_Foundations.md) and [The Mathematician](docs/deep_dives/Paper_0.1_The_Mathematician.md).
+1.  **Prerequisites:** Read [Hardware Foundations](docs/Hardware_Foundations.md) and [The Mathematician](docs/theory/Paper_0.1_The_Mathematician.md).
 2.  **Environment:** Run `sudo ./tools/setup_pi.sh` on your Raspberry Pi Zero 2 W.
 3.  **Labs:** Complete the [Module 0 Bench Labs](docs/Module_0_Labs.md) before assembly.
 4.  **Validation:** Run `python3 src/final_check.py` to verify your installation.
@@ -40,3 +40,11 @@ This project is structured as a full-stack robotics course, taking you from raw 
 
 ## 🛡 Safety & Legal
 See the [Safety Manual](docs/safety_manual.md) and [Module 0: Legal Compliance](docs/Module_0_The_Build.md) for FAA/EASA regulations. **PROPS OFF ON THE BENCH.**
+
+---
+
+## 🧘 The "Burnout Shield"
+This curriculum is academically dense. To ensure you finish:
+1.  **Follow the [Squid Games](docs/SQUID_GAMES.md):** Treat every Phase as a game with a "Win" condition. Record a video of your success before diving back into the math.
+2.  **The 80/20 Rule:** If the math in a Theory Deep Dive is making you want to quit, skip to the Lab. Real robots are built by doing, not just reading.
+3.  **Fly for Fun:** Spend at least 30 minutes a week flying the drone manually in FPV mode. Remind yourself *why* you're building this.

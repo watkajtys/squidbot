@@ -4,6 +4,8 @@
 
 This document serves as both a syllabus and a detailed study guide. It maps the theoretical concepts to specific academic resources, textbooks, and papers. While the *Labs* (`COURSE.md`) focus on getting things to fly, this guide focuses on *why* they fly.
 
+**Crucial Prerequisite:** Before beginning, internalize [The Squid Standard: Units & Conventions](theory/The_Standard_Convention.md). If you mix degrees and radians, the math below will fail.
+
 ---
 
 ## **PHASE I: FOUNDATIONS (The Physics)**
@@ -33,6 +35,10 @@ This document serves as both a syllabus and a detailed study guide. It maps the 
     *   **Phase Lag:** The mathematical law that says every filter adds time-delay.
     *   **Group Delay:** Why some frequencies are delayed more than others, distorting the "shape" of the signal.
 
+#### **Mental Models: Systems Engineering**
+*   **The "Shadow" of the Past:** When you read a sensor, you aren't seeing the *now*. You are seeing the world as it was 10ms-100ms ago. Your code must always account for this "Ghost" reality.
+*   **Jitter is Noise:** A 10ms loop that occasionally takes 15ms is worse than a steady 20ms loop. In control theory, timing consistency (determinism) is more important than raw speed.
+
 ### **Lecture 1: Embedded Communication & Numerics**
 #### Core Readings
 *   **Signal Integrity:** "High-Speed Digital Design: A Handbook of Black Magic" by Johnson & Graham. *(Industry Standard)*.
@@ -56,6 +62,10 @@ This document serves as both a syllabus and a detailed study guide. It maps the 
         *   **LU:** For solving linear systems.
         *   **Cholesky:** For symmetric positive-definite matrices (Covariance matrices).
         *   **SVD:** For determining the Rank and Condition Number ($\\kappa(A) = \frac{\\sigma_{max}}{\\sigma_{min}}$).
+
+#### **Mental Models: Digital Communication**
+*   **Digital Trust (CRC):** Don't trust the wire. Every bit you receive is guilty until proven innocent by the checksum.
+*   **Numerical Decay:** Every time you add or multiply two floating-point numbers, you lose a tiny bit of truth. Over thousands of loops, this "decay" can make your drone think it is upside-down.
 
 ---
 
@@ -138,6 +148,35 @@ This document serves as both a syllabus and a detailed study guide. It maps the 
         *   **Overdamped ($\\zeta > 1$):** The drone is \"lazy\" and takes too long to reach the target.
         *   **Critically Damped ($\\zeta = 1$):** The \"Goldilocks\" zone. Fastest return to target with ZERO bounce.
 
+### **Lecture 5.5: System Identification (SysID)**
+#### Key Concepts
+*   **5.5.1 Parameter Estimation:**
+    *   Determining physical constants ($K_t, J, m$) from experimental data.
+    *   **The Least Squares Method:** Minimizing $\\sum (y_i - f(x_i, \\beta))^2$.
+*   **5.5.2 Frequency Response Analysis:**
+    *   Using Sine Sweeps to find the drone's \"Bandwidth.\"
+    *   **Coherence:** Measuring how much of the output is actually caused by your input vs. noise.
+
+#### **Mental Models: Control & ID**
+*   **Know Thy Machine:** A perfect PID controller on a drone with wrong inertia values is just a \"fast guesser.\" You cannot control what you have not measured.
+*   **The \"Tug of War\":** Tuning is a trade-off between **Responsiveness** (fast) and **Robustness** (stable). If you make it too fast, it will vibrate itself to death.
+
+### **Lecture 5.9: Geometric Control on $SO(3)$**
+#### Key Concepts
+*   **5.9.1 The Error State on Lie Groups:**
+    *   Why Euler Angles fail in inverted flight.
+*   **5.9.2 Recovery Control Laws:**
+    *   Shortest-path rotation matrices for extreme attitude recovery.
+
+### **Lecture 5.8: Receding Horizon Control (MPC)**
+#### Core Readings
+*   **MPC:** \"Model Predictive Control: Theory, Computation, and Design\" by Rawlings, Mayne, Diehl.
+*   **Quadrotor MPC:** \"Model Predictive Control for Quadrotors\" by Bemporad et al.
+
+#### Key Concepts
+*   **5.8.1 Prediction Horizon ($N$):** Solving for the optimal trajectory over a time-window.
+*   **5.8.2 Constrained Optimization:** Explicitly handling motor limits and collision avoidance within the control law.
+
 
 ---
 
@@ -163,6 +202,14 @@ This document serves as both a syllabus and a detailed study guide. It maps the 
     *   **Kalman Gain:** $K_k = P_{k|k-1} H^T (H P_{k|k-1} H^T + R)^{-1}$.
     *   **Update:** $\\hat{x}_k = \\hat{x}_{k|k-1} + K_k(z_k - H\\hat{x}_{k|k-1})$.
     *   **Covariance Update:** $P_k = (I - K_k H) P_{k|k-1}$ (Joseph Form for numerical stability).
+
+### **Lecture 7.6: Interacting Multiple Model (IMM) Filters**
+#### Key Concepts
+*   **7.6.1 Maneuvering Target Tracking:**
+    *   Why a single EKF fails against a "Dogfighter."
+*   **7.6.2 Filter Banks:**
+    *   Parallel execution of Constant Velocity, Constant Turn, and High-G models.
+    *   **Probability Mixing:** Using the measurement innovation to weight the filters.
 
 ### **Lecture 8: Optimization Theory (The Engine of VIO)**
 #### Key Concepts
@@ -191,6 +238,23 @@ This document serves as both a syllabus and a detailed study guide. It maps the 
     *   **Log-Odds:** $L(m|z) = L(m|z_{t-1}) + L(z|m) - L_0$. Avoiding floating point underflow.
     *   **Ray Casting:** Bresenham's Line Algorithm in 3D.
 
+### **Lecture 9.5: Path Planning & Search**
+#### Core Readings
+*   **Search:** "Artificial Intelligence: A Modern Approach" by Russell & Norvig (Chapter 3: Solving Problems by Searching).
+*   **Sampling:** "Incremental Sampling-based Algorithms for Optimal Motion Planning" by Karaman & Frazzoli (IJRR 2011).
+
+#### Key Concepts
+*   **9.5.1 Discrete Search (A*):**
+    *   Optimality and Completeness.
+    *   **Heuristic Selection:** Admissibility ($h(n) \leq h^*(n)$) vs. Consistency.
+*   **9.5.2 Sampling-Based Planners (RRT/RRT*):**
+    *   **Probabilistic Completeness:** The probability of finding a path goes to 1 as time goes to infinity.
+    *   **Collision Checking:** Efficiently querying the Occupancy Grid.
+
+#### **Mental Models: Perception & Planning**
+*   **The Voxel "Cost":** To a robot, a wall isn't just a wall; it's an "Infinite Cost." A chair is a "High Cost." Planning is just finding the "Cheapest" path through the room.
+*   **Global vs. Local:** A "Local" planner (like a vector field) is fast but can get stuck in a "U-shaped" room. A "Global" planner (A*) sees the whole maze and finds the exit.
+
 ### **Lecture 10: Trajectory Generation**
 #### Core Readings
 *   **Differential Flatness:** "Minimum Snap Trajectory Generation and Control for Quadrotors" by Mellinger and Kumar (ICRA 2011). *(Free PDF available online)*.
@@ -202,6 +266,13 @@ This document serves as both a syllabus and a detailed study guide. It maps the 
 *   **10.2 Quadratic Programming (QP):**
     *   Standard Form: $\\min \\frac{1}{2}x^T Q x + c^T x$ subject to $Ax \\leq b$.
     *   **Minimum Snap:** Constructing the $Q$ matrix from the 4th derivative of polynomials.
+
+### **Lecture 10.1: Reinforcement Learning Foundations**
+#### Key Concepts
+*   **10.1.1 The Markov Property:**
+    *   State, Action, Reward, and Policy.
+*   **10.1.2 Policy Gradients & PPO:**
+    *   Why PPO is the gold standard for robotics (stability and safety).
 
 ---
 
@@ -220,7 +291,14 @@ This document serves as both a syllabus and a detailed study guide. It maps the 
     *   **Log-Derivative Trick:** $\\nabla_\theta J(\\theta) = E[\\nabla_\theta \\log \\pi_\theta(a|s) R]$.
     *   **The Baseline:** Reducing variance by subtracting Value function $V(s)$ (Advantage function).
 *   **11.3 PPO (Proximal Policy Optimization):**
-    *   **Clipped Surrogate Objective:** $L^{CLIP}(\\theta) = E[\\min(r_t(\\theta)\\hat{A}_t, \\text{clip}(r_t(\\theta), 1-\\epsilon, 1+\\epsilon)\\hat{A}_t)]$.
+    *   **Clipped Surrogate Objective:** $L^{CLIP}(\theta) = E[\min(r_t(\theta)\hat{A}_t, \text{clip}(r_t(\theta), 1-\epsilon, 1+\epsilon)\hat{A}_t)]$.
+
+### **Lecture 11.5: Multi-Agent Reinforcement Learning**
+#### Key Concepts
+*   **11.5.1 Self-Play:**
+    *   Curriculum learning via competition.
+*   **11.5.2 CTDE:**
+    *   Centralized Training, Decentralized Execution. The "Big Brain" Critic and "Small Brain" Actor.
     *   **KL Divergence:** Preventing the policy from changing too fast (Trust Region).
 
 ### **Lecture 12: Differential Games**
@@ -233,6 +311,27 @@ This document serves as both a syllabus and a detailed study guide. It maps the 
 *   **12.2 Optimal Control:**
     *   **Hamilton-Jacobi-Bellman (HJB) Equation:** The continuous-time version of the Bellman equation.
     *   **Pontryagin's Minimum Principle:** Necessary conditions for optimality.
+
+### **Lecture 12.3: Pursuit-Evasion Games**
+#### Key Concepts
+*   **12.3.1 Reachability Analysis:**
+    *   **The HJI Equation:** Hamilton-Jacobi-Isaacs. Calculating the "Winning" vs "Losing" sets.
+*   **12.3.2 Apollonius Circles:**
+    *   Calculating meeting points for drones with different maximum velocities ($V_{pursuer} / V_{evader}$).
+
+### **Lecture 12.4: Energy-Maneuverability (E-M) Theory**
+#### Key Concepts
+*   **12.4.1 Specific Excess Power ($P_s$):**
+    *   The rate of energy gain or loss during maneuvers.
+*   **12.4.2 Turn Performance:**
+    *   The trade-off between Turn Rate ($\dot{\psi}$) and Energy Bleed. Calculating "Corner Speed."
+
+### **Lecture 12.5: Bayesian Search Theory**
+#### Key Concepts
+*   **12.5.1 Search Heatmaps:**
+    *   Recursive belief updates using Probability of Detection ($P_d$).
+*   **12.5.2 Optimal Search Patterns:**
+    *   Generating trajectories that maximize Information Gain.
 
 ---
 
@@ -270,8 +369,24 @@ This document serves as both a syllabus and a detailed study guide. It maps the 
     *   **The Laplacian Matrix:** $L = D - A$.
     *   **Fiedler Eigenvalue:** The second smallest eigenvalue $\\lambda_2$ determines the speed of consensus convergence.
 *   **14.2 Distributed Control:**
-    *   **Consensus Protocol:** $\\dot{x}_i = \\sum_{j \\in N_i} (x_j - x_i)$.
+    *   **Consensus Protocol:** $\dot{x}_i = \sum_{j \in N_i} (x_j - x_i)$.
     *   **Safety Barriers:** Control Barrier Functions (CBF) for collision avoidance.
+
+### **Lecture 14.3: Multi-Agent Coordination (Swarm Intelligence)**
+#### Key Concepts
+*   **14.3.1 Decentralized Collision Avoidance:**
+    *   **RVO and ORCA:** Finding the safe velocity half-space using Linear Programming.
+*   **14.3.2 Market-Based Task Allocation:**
+    *   **Auction Algorithms:** Distributed bidding for task assignment (Assignment Problem).
+*   **14.3.3 Emergent Tactics:**
+    *   Role-based behavior (Interceptor vs. Wingman) without central command.
+
+### **Lecture 14.6: Communication-Aware Swarm Control**
+#### Key Concepts
+*   **14.6.1 Event-Triggered Control (ETC):**
+    *   Reducing bandwidth by only transmitting when the state-error exceeds a boundary.
+*   **14.6.2 Consensus under Time-Delay:**
+    *   Handling "Ghost" data using state prediction.
 
 ### **Lecture 15: Deep Perception**
 #### Core Readings

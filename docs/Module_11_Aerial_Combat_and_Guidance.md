@@ -1,4 +1,4 @@
-# Module 11: Aerial Combat
+# Module 11: Aerial Combat & Guidance
 **"Fox Two."**
 
 Civilian drones avoid obstacles. Military drones intercept them.

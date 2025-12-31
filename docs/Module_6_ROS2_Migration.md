@@ -1,7 +1,7 @@
-# Module 6: The ROS2 Migration
+# Module 6: The ROS 2 Migration
 **"Welcome to the Industry Standard."**
 
-Up to this point, we have written "Bare Metal" Python scripts. This works for simple projects, but it doesn't scale. If you want 10 different algorithms to talk to each other without crashing, you need a Middleware. We use **Robot Operating System 2 (ROS2)**.
+Up to this point, we have written "Bare Metal" Python scripts. This works for simple projects, but it doesn't scale. If you want 10 different algorithms to talk to each other without crashing, you need a Middleware. We use **Robot Operating System 2 (ROS 2)**.
 
 ---
 
@@ -16,7 +16,7 @@ Stop writing monolithic `while True` loops. Start writing "Nodes."
 *   **DDS (Data Distribution Service):** The magic under the hood that moves data between nodes (even over WiFi).
 
 ### **Lab Procedure**
-1.  **Setup:** Install ROS2 Humble on your Pi (or use the provided Docker container).
+1.  **Setup:** Install ROS 2 Humble on your Pi (or use the provided Docker container).
 2.  **The Graph:** Draw your system.
     *   `tof_node` (Publishes: `Range`)
     *   `imu_node` (Publishes: `Imu`)
@@ -30,7 +30,7 @@ Stop writing monolithic `while True` loops. Start writing "Nodes."
 ## **6.2 The Port**
 
 ### **Objective**
-Refactor Module 1 & 5 code into ROS2 Classes.
+Refactor Module 1 & 5 code into ROS 2 Classes.
 
 ### **Lab Procedure**
 1.  **Create Package:** `ros2 pkg create --build-type ament_python squid_control`
@@ -44,7 +44,7 @@ Refactor Module 1 & 5 code into ROS2 Classes.
     *   In the callback, run the PID update and publish to `/cmd_motor`.
 
 ### **Deliverable**
-*   A working ROS2 launch file that starts the driver and controller.
+*   A working ROS 2 launch file that starts the driver and controller.
 *   `ros2 topic echo /cmd_motor` showing live data.
 
 ---
@@ -102,6 +102,6 @@ A simple node starts publishing as soon as you run it. This is dangerous. What i
 The goal is Feature Parity. The drone should fly *exactly* as well as it did in Module 5, but now the code is modular.
 
 1.  **Test:** Repeat the "Hover Test" (Module 5).
-2.  **Verify:** If the drone jitters, check your topic frequency (`ros2 topic hz /sensors/imu`). Latency in ROS2 can be tricky!
+2.  **Verify:** If the drone jitters, check your topic frequency (`ros2 topic hz /sensors/imu`). Latency in ROS 2 can be tricky!
 
 **Submission:** A screenshot of Foxglove Studio displaying your flight data.

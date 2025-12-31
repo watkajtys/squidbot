@@ -1,4 +1,4 @@
-# Module 0: The Build & Setup
+# Module 0: The Build & Legal Compliance
 **"Hardware is the body. Linux is the soul."**
 
 Before we write code, we must build the machine. This module covers the physical assembly of the Squid drone and the configuration of its operating system.
@@ -39,12 +39,8 @@ We are grafting a "Big Brain" (Raspberry Pi Zero 2 W) onto a "Fast Spinal Cord" 
 ### **The Flight Controller Setup**
 Before you close everything up, you must configure the "Spinal Cord" (Betaflight).
 1.  **Install:** Betaflight Configurator on your Laptop.
-2.  **Connect:** Plug the Flight Controller into your Laptop via USB.
-3.  **Ports Tab:**
-    *   Find the UART port where you soldered the Pi (usually UART 1 or 2).
-    *   Toggle **"MSP"** (Configuration/MSP) to **ON**.
-    *   Click **Save and Reboot**.
-    *   *Note:* Remember this UART number. You will need it later.
+2.  **Config:** Follow the [Betaflight Passthrough Guide](Betaflight_Passthrough_Config.md) to prepare the FC for external control.
+3.  **Ports:** In the "Ports" tab, ensure the UART you soldered to is set to **MSP** at 115200 baud.
 
 ---
 

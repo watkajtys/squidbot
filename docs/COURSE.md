@@ -12,7 +12,7 @@
 
 *   **0.A:** [Hardware Foundations](Hardware_Foundations.md) - Electronics, Soldering, and Tools.
 
-*   **0.B:** [Theory Handbook](Theory_0_Concepts.md) - Vibration, Camera Models, and Real-Time Physics.
+*   **0.B:** [Theory Handbook](theory/Theory_0_Concepts.md) - Vibration, Camera Models, and Real-Time Physics.
 
 *   **0.C:** [Pre-Flight Labs](Module_0_Labs.md) - Bench testing, Linux, and Wi-Fi mapping.
 
@@ -92,11 +92,13 @@
 
 ### **Module 4: Signal Processing & Geometry**
 
-*   **4.1:** Coordinate Frames: [Theory 1: Coordinate Systems](Theory_1_Coordinate_Systems.md).
+*   **4.1:** Coordinate Frames: [Theory 1: Coordinate Systems](theory/Theory_1_Coordinate_Systems.md).
 
 *   **4.2:** Vibration Analysis: FFTs & Notch Filters.
 
     *   **Sub-Lab:** **Phase Lag Visualization.** Measuring the time-cost of your filters.
+
+*   **4.3:** System ID: [Measuring Thrust & Inertia](../src/labs/lab_4_sysid.py).
 
 *   **Check:** The Flatline (Clean Data).
 
@@ -104,7 +106,7 @@
 
 ### **Module 5: Control Theory**
 
-*   **Prerequisite:** [Theory 4: PID to LQR](deep_dives/Theory_4_PID_to_LQR.md).
+*   **Prerequisite:** [Theory 4: PID to LQR](theory/Theory_4_PID_to_LQR.md).
 
 *   **5.1:** The Feedback Loop: PID Derivation.
 
@@ -126,7 +128,7 @@
 
 
 
-### **Module 6: The ROS2 Migration**
+### **Module 6: The ROS 2 Migration**
 
 *   **6.4:** Safety: [Lifecycle Nodes](Module_6_ROS2_Migration.md#64-safety-architecture-lifecycle-nodes).
 
@@ -136,7 +138,7 @@
 
 ### **Module 7: State Estimation (The Truth)**
 
-*   **Prerequisite:** [Theory 2: The EKF](deep_dives/Theory_2_The_EKF.md).
+*   **Prerequisite:** [Theory 2: The EKF](theory/Theory_2_The_EKF.md).
 
 *   **7.3:** Sensor Fusion.
 
@@ -158,7 +160,7 @@
 
 ### **Module 8: Perception & Mapping**
 
-*   **Prerequisite:** [Theory 5: SLAM & Factor Graphs](deep_dives/Theory_5_SLAM_and_Factor_Graphs.md).
+*   **Prerequisite:** [Theory 5: SLAM & Factor Graphs](theory/Theory_5_SLAM_and_Factor_Graphs.md).
 
 *   **8.1:** Point Clouds.
 
@@ -170,9 +172,11 @@
 
 ### **Module 9: Trajectory Optimization**
 
-*   **Prerequisite:** [Theory 3: Splines & Optimization](deep_dives/Theory_3_Splines_and_Optimization.md).
+*   **Prerequisite:** [Theory 3: Splines & Optimization](theory/Theory_3_Splines_and_Optimization.md).
 
 *   **9.4:** Advanced: [Geometric Control on SE(3)](Module_9_Trajectory_Optimization.md#94-advanced-tracking-geometric-control-on-se3).
+
+*   **9.5:** Search: [Implementing A-Star](../src/labs/lab_9_planning.py).
 
 *   **Check:** The Speed Run.
 
@@ -192,13 +196,15 @@
 
     *   **Sub-Lab:** **Reward Hacking.** Watching an AI learn to "cheat" a bad reward function.
 
+    *   **Sub-Lab:** **The Digital Twin Audit.** Comparing a flight log to the Sim to measure "Reality Gap."
+
 *   **Check:** The Uncrashable Drone.
 
 
 
 ### **Module 11: Aerial Combat**
 
-*   **11.4:** Advanced: [The QR Courier](Module_11_Aerial_Combat.md#114-sub-lab-the-qr-courier).
+*   **11.4:** Advanced: [The QR Courier](Module_11_Aerial_Combat_and_Guidance.md#114-sub-lab-the-qr-courier).
 
 *   **Check:** The Dark Room Scenario.
 
@@ -206,7 +212,7 @@
 
 ### **Module 12: Outdoor Autonomy**
 
-*   **Prerequisite:** [Theory 7: Behavior Trees](deep_dives/Theory_7_Behavior_Trees.md).
+*   **Prerequisite:** [Theory 7: Behavior Trees](theory/Theory_7_Behavior_Trees.md).
 
 *   **12.1:** GPS.
 
@@ -226,9 +232,9 @@
 
 ### **Module 13: Visual Inertial Odometry (VIO)**
 
-*   **Prerequisite:** [Theory 6: VIO & Preintegration](deep_dives/Theory_6_VIO_and_Preintegration.md).
+*   **Prerequisite:** [Theory 6: VIO & Preintegration](theory/Theory_6_VIO_and_Preintegration.md).
 
-*   **Theory Bonus:** [The Initialization Problem](deep_dives/Theory_6_VIO_and_Preintegration.md#5-the-initialization-problem).
+*   **Theory Bonus:** [The Initialization Problem](theory/Theory_6_VIO_and_Preintegration.md#5-the-initialization-problem).
 
 *   **Check:** The Loop Closure.
 
@@ -239,3 +245,11 @@
 *   **14.2:** Lab: [The Consensus Drill](Module_14_Swarm_Theory.md#142-sub-lab-the-consensus-drill).
 
 *   **Check:** The Synchronized Dance.
+
+
+
+### **Module 15: Deep Perception**
+
+*   **15.1:** Lab: [Siamese Networks for Loop Closure].
+
+*   **Check:** The Memory (Global Localization).
