@@ -33,55 +33,29 @@ To prevent "Theory Burnout," use these challenges as your milestones. Don't move
 *   **The Win:** Your SLAM algorithm (Module 8) correctly identifies the mirror and doesn't try to fly into the "Ghost Room."
 *   **Elite Upgrade:** "The Raven." Find a high perch (shelf/cabinet) above 1.5m and land on it autonomously using your **Perch Finder** logic.
 
-## Phase VI: The "Combat" Game
+## Phase VI: The "Tactical" Game
 *   **The Challenge:** "The Red Rover."
 *   **Goal:** Use the camera to find a red ball. The drone must "Lock On" and maintain exactly 1 meter distance, even if you move the ball.
 *   **The Win:** A "Fox Two" lock-on where the drone follows you like a loyal pet.
+*   **Integrated Project:** [The Ghost in the Machine](PROJECTS.md#project-3-the-ghost-in-the-machine-tactical-autonomy). Intercept a virtual enemy while respecting physical safety boundaries.
 
-## Phase VII: The Frontier (Experimental)
-
+## Phase VII: The "Frontier" Game
 *   **The Challenge:** "The Synchronized Dance."
-
-*   **Goal:** With 3 drones, make them all rotate in a circle while maintaining a perfect triangle formation.
-
+*   **Goal:** With 3 drones (or 1 real + 2 virtual), make them rotate in a circle while maintaining a perfect formation.
 *   **The Win:** Pure Swarm Intelligence.
-
-*   **Elite Upgrade:** "The Silent Hunt." Briefly disconnect the Wi-Fi; the drones must use **Event-Triggered Ghost Models** to maintain formation in the silence.
-
-
+*   **Elite Upgrade:** "The Silent Hunt." Briefly disconnect the Wi-Fi; the drone must use **Event-Triggered Ghost Models** to maintain its trajectory in the silence.
+*   **Integrated Project:** [The Silent Guardian](PROJECTS.md#project-2-the-silent-guardian-stealth--stability). Maintain a rock-solid hover and adapt gains using **Liquid Neural Networks**.
 
 ---
 
+# THE CAPSTONES: Final Graduation Missions
+**Refer to:** [FINAL_CHALLENGE.md](FINAL_CHALLENGE.md)
 
+This is the final exam. There is no guide. There is only the objective. Choose your path:
 
-# 🏁 THE CAPSTONE: "The Search & Rescue Mission"
-
-**This is the final exam. There is no guide. There is only the objective.**
-
-
-
-### **The Scenario**
-
-A "Survivor" (an AprilTag) is hidden somewhere in an unknown, multi-room environment. The environment contains obstacles, low-light zones, and a "No-Fly Zone" (a red-taped area).
-
-
-
-### **The Mission Requirements**
-
-1.  **Autonomous Takeoff:** No manual input allowed.
-
-2.  **Exploration:** The drone must autonomously map the environment using **SLAM**.
-
-3.  **Hazard Avoidance:** Must not enter the "No-Fly Zone" or hit any walls.
-
-4.  **Target Acquisition:** Locate the AprilTag survivor using the camera.
-
-5.  **Precision Perch:** Once the survivor is found, find the nearest "Perch" (flat surface > 1m high) and land on it to monitor the scene.
-
-6.  **Telemetry:** Provide a full **Post-Mortem MCAP Log** and a **Foxglove Dashboard** video of the entire flight.
-
-
+*   **Path A: The Tactical Architect (Operation Deep Ink)** - Focus on robust control and estimation in GPS-denied zones.
+*   **Path B: The Swarm Commander (Operation Hive Mind)** - Focus on consensus, formation, and multi-agent coordination.
+*   **Path C: The AI Researcher (Operation Neural Nest)** - Focus on Reinforcement Learning, LNNs, and Sim-to-Real transfer.
 
 ### **The Reward**
-
-Completion of this mission marks you as a **Squid Systems Architect**. You have mastered the stack from the soldering iron to swarm intelligence.
+Completion of any mission marks you as a **Squid Systems Architect**. You have mastered the stack from the soldering iron to swarm intelligence.

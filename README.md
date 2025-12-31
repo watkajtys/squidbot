@@ -28,7 +28,6 @@ Most robotics education focuses on tool usage. The Squid Project focuses on tool
     *   **study_guides/**: The core educational nodes with mental models and "Frontier Facts."
     *   **theory/**: Mathematical deep-dives into Jacobians, Factor Graphs, and Lie Theory.
     *   **LECTURES.md**: The theoretical study guide with academic reading lists.
-    *   **COURSE.md**: The integrated step-by-step experiment guide.
 *   **ros2_ws/**: A scaffolded ROS 2 (Humble/Iron) workspace for distributed drone intelligence.
 *   **src/**: Production-ready Python source code for drivers, controllers, and laboratory experiments.
 *   **simulation/**: PyBullet and Gym physics environments for "Sim-to-Real" validation.

@@ -27,6 +27,11 @@ This document supports the Master Curriculum. Refer to this when you encounter n
 *   **Implementation:** [Stable Baselines3 Docs](https://stable-baselines3.readthedocs.io/).
 *   **Simulation:** [Gym-PyBullet-Drones Repo](https://github.com/utiasDSL/gym-pybullet-drones).
 
+### **5. The Frontier (2025+ Research)**
+*   **Liquid Neural Networks:** [MIT CSAIL - Liquid Neural Networks](https://news.mit.edu/2021/liquid-machine-learning-0128). *The future of adaptive edge AI.*
+*   **3D Gaussian Splatting:** [Luma AI / 3DGS Paper](https://repo-lpni.github.io/3dgs/). *Differentiable 3D representation.*
+*   **Reachability:** [Berkeley Hybrid Systems Lab](https://hybrid.eecs.berkeley.edu/). *Hamilton-Jacobi Reachability for safety.*
+
 ---
 
 ## 📖 Glossary of Terms
@@ -41,33 +46,29 @@ This document supports the Master Curriculum. Refer to this when you encounter n
 *   **Holonomic vs. Non-Holonomic:**
     *   *Holonomic:* Can move in any direction (like a drone).
     *   *Non-Holonomic:* Constrained movement (like a car; it cannot slide sideways).
-    *   *Note:* A drone is Holonomic, but we sometimes fly it Non-Holonomically (banking turns) for speed.
 *   **PID (Proportional-Integral-Derivative):** The standard control loop.
-    *   *P:* Reacts to present error.
-    *   *I:* Reacts to past error (accumulation).
-    *   *D:* Reacts to predicted future error (rate of change).
-*   **EKF (Extended Kalman Filter):** An algorithm that fuses noisy sensor data (IMU + Optical Flow) into a single, accurate estimate of position. It uses Linear Algebra (Jacobians) to handle curved flight paths.
+*   **MPC (Model Predictive Control):** A 'Chess Grandmaster' controller that looks $N$ steps into the future to optimize the current command while respecting constraints.
+*   **CBF (Control Barrier Function):** A mathematical 'Guardian' that filters control inputs to ensure the drone never leaves a 'Safe Set' (hitting a wall).
+*   **HJI (Hamilton-Jacobi-Isaacs):** A differential equation used in reachability analysis to calculate 'Capture Sets'.
+*   **EKF (Extended Kalman Filter):** Fuses noisy sensor data into a single, accurate estimate of position.
 
 ### **Perception & Mapping**
-*   **SLAM (Simultaneous Localization and Mapping):** The chicken-and-egg problem of building a map while figuring out where you are inside it.
-*   **Voxel:** A "3D Pixel." We use Voxel Grids to represent the room as a Minecraft-like block world.
+*   **SLAM (Simultaneous Localization and Mapping):** Building a map while figuring out where you are inside it.
+*   **3DGS (3D Gaussian Splatting):** Representing the world as millions of tiny, differentiable 3D ellipsoids.
+*   **Voxel:** A "3D Pixel." We use Voxel Grids to represent the room as a block world.
 *   **Point Cloud:** A raw collection of X,Y,Z points returned by the Lidar/ToF sensor.
-*   **Visual Servoing:** Controlling a robot's motion based directly on visual feedback (e.g., "Keep the red ball in the center of the frame").
 
 ### **AI & Reinforcement Learning**
-*   **Agent:** The drone (the thing making decisions).
-*   **Policy:** The "Brain." The function (Neural Network) that maps inputs (Sensors) to outputs (Motor Commands).
-*   **Sim-to-Real Gap:** The phenomenon where an AI works perfectly in simulation but fails in real life due to friction, noise, or latency.
-*   **Domain Randomization:** A technique to fix the Sim-to-Real gap by randomly changing the simulator's physics (gravity, friction) during training, forcing the AI to become robust.
-*   **PPO (Proximal Policy Optimization):** A specific RL algorithm. It is stable and reliable, making it the industry standard for robotics.
+*   **LNN (Liquid Neural Network):** Neural networks based on continuous-time differential equations that can 'adapt' time-constants in real-time.
+*   **Sim-to-Real Gap:** When an AI works in simulation but fails in real life.
+*   **PPO (Proximal Policy Optimization):** The industry standard RL algorithm for robotics.
 
 ---
 
 ## 🛠 Required Software Stack
 
 1.  **VS Code:** Your Code Editor.
-    *   *Extensions:* Python, C/C++, Remote - SSH (for coding on the Pi).
 2.  **Docker:** For running ROS 2 containers without breaking your laptop's OS.
 3.  **QGroundControl / Betaflight Configurator:** For low-level drone setup.
 4.  **OpenSCAD:** For editing the 3D printed mount.
-5.  **Foxglove Studio:** The industry-standard web-based visualizer. Used for viewing 3D Coordinate Frames (TFs), Point Clouds, and Telemetry in real-time or from flight logs. Replace standard `print()` debugging with Foxglove layouts.
+5.  **Foxglove Studio:** The industry-standard web-based visualizer. Used for viewing 3D Coordinate Frames (TFs), Point Clouds, and Telemetry in real-time.
