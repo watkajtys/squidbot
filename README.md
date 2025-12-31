@@ -15,18 +15,18 @@ Most robotics education focuses on tool usage. The Squid Project focuses on tool
 *   **[COURSE_MAP.md](COURSE_MAP.md)**: The high-level visual roadmap of the curriculum.
 *   **[COURSE.md](COURSE.md)**: The integrated step-by-step experiment guide.
 *   **curriculum/**: Centralized educational assets.
-    *   **theory_deep_dives/**: Mathematical deep-dives into Jacobians and Lie Theory.
-    *   **phase_resources/**: Study guides and mental models.
-    *   **phase_1_mechanic/** to **phase_7_frontier/**: Module experiments.
-*   **src/labs/**: 31 scaffolded labs organized by Phase subfolders.
+    *   **Library/**: Mathematical deep-dives (EKF, MPC, Swarm Theory).
+    *   **Phases/**: Module lectures and study guides organized by Phase 1-7.
+    *   **Support/**: Hardware guides, setup tools, and debugging references.
+*   **src/Labs/**: 31 scaffolded labs organized by Phase subfolders.
 *   **src/drivers/**: Production Python drivers for MSP, ToF, and Optical Flow.
 *   **simulation/**: PyBullet SITL (Software-in-the-Loop) engine.
 *   **tests/**: Mathematical validation suite.
 
 ## Getting Started
-1.  **Prerequisites:** Read the **[SYLLABUS.md](SYLLABUS.md)** and **[Hardware Foundations](curriculum/support_tools/Hardware_Foundations.md)**.
-2.  **Environment:** Follow the **[Pi Zero Survival Guide](curriculum/support_tools/PI_ZERO_SURVIVAL_GUIDE.md)** for initial setup.
-3.  **Labs:** Start with **[Lab 0.1](src/labs/phase_1/lab_0_1_realtime_jitter.py)** to verify your timing budget.
+1.  **Prerequisites:** Read the **[SYLLABUS.md](SYLLABUS.md)** and **[Hardware Foundations](curriculum/Support/Hardware/Hardware_Foundations.md)**.
+2.  **Environment:** Follow the **[Pi Zero Survival Guide](curriculum/Support/Setup/PI_ZERO_SURVIVAL_GUIDE.md)** for initial setup.
+3.  **Labs:** Start with **[Lab 0.1](src/Labs/Phase_1_The_Mechanic/Module_00_The_Build/lab_0_1_realtime_jitter.py)** to verify your timing budget.
 
 ## The Burnout Shield
 This curriculum is academically dense. To ensure completion:

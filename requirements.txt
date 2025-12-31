@@ -26,3 +26,10 @@ gym-pybullet-drones
 stable-baselines3
 onnxruntime
 shimmy>=0.2.1
+tflite-runtime  # For Module 15 Edge AI
+
+# Advanced GNC & Research
+gtsam  # For Module 13 VIO Factor Graphs
+py_trees  # For Module 12 Behavior Trees
+pandas  # For Module 2/7 Forensic Analysis
+pyzbar  # For Module 11 QR Decoding

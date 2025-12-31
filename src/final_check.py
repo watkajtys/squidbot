@@ -41,9 +41,10 @@ def main():
     paths = [
         'src/drivers', 
         'src/utils', 
-        'docs/hardware_reference.md',
+        'curriculum/Support/Hardware/hardware_reference.md',
         'simulation/quadrotor.urdf',
-        'tools/setup_pi.sh'
+        'tools/setup_pi.sh',
+        'src/Labs/Phase_1_The_Mechanic/Module_00_The_Build/lab_0_1_realtime_jitter.py'
     ]
     results_path = [check_file(p) for p in paths]
 

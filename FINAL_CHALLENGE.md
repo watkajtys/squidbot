@@ -1,3 +1,7 @@
+[Previous Module](curriculum/Phases/Phase_7_The_Frontier/Module_15_5_Edge_AI/Module_15_5_Lecture.md) | [Course Map](COURSE_MAP.md) | GRADUATION
+
+---
+
 # THE SQUID CAPSTONES: Final Graduation Missions
 **Standard:** Systems Architect (Graduate Level)
 

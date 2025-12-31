@@ -39,7 +39,7 @@ To prevent "Theory Burnout," use these challenges as your milestones. Don't move
 *   **The Win:** A "Fox Two" lock-on where the drone follows you like a loyal pet.
 *   **Integrated Project:** [The Ghost in the Machine](PROJECTS.md#project-3-the-ghost-in-the-machine-tactical-autonomy). Intercept a virtual enemy while respecting physical safety boundaries.
 
-## Phase VII: The "Frontier" Game
+## Phase VII: The Frontier "Game"
 *   **The Challenge:** "The Synchronized Dance."
 *   **Goal:** With 3 drones (or 1 real + 2 virtual), make them rotate in a circle while maintaining a perfect formation.
 *   **The Win:** Pure Swarm Intelligence.
