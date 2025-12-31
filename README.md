@@ -21,6 +21,9 @@ Most robotics education focuses on tool usage. The Squid Project focuses on tool
 7.  **Phase VII: The Frontier** (Visual Inertial Odometry, Swarm Consensus, and Deep Perception)
 
 ## Project Structure
+*   **[COURSE_MAP.md](docs/COURSE_MAP.md)**: The high-level visual roadmap of the curriculum.
+*   **[COURSE.md](docs/COURSE.md)**: The integrated step-by-step experiment guide linking theory to labs.
+*   **[The Squid Standard](docs/theory/The_Standard_Convention.md)**: Units, coordinate frames, and coding conventions.
 *   **docs/**: 16 comprehensive modules, academic lectures, and high-density study guides.
     *   **study_guides/**: The core educational nodes with mental models and "Frontier Facts."
     *   **theory/**: Mathematical deep-dives into Jacobians, Factor Graphs, and Lie Theory.

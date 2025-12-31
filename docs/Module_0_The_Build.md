@@ -63,6 +63,10 @@ Set up the Pi without a monitor or keyboard.
     *   Wait 2 minutes.
     *   On your laptop terminal: `ssh pi@squid-drone.local`.
     *   **Password:** The one you set in step 2.
+4.  **Run the Automation Script:**
+    *   Instead of manual configuration, run our setup script:
+    *   `curl -sSL https://raw.githubusercontent.com/[REPLACE_WITH_REPO]/main/tools/setup_pi.sh | sudo bash`
+    *   Or locally: `sudo ./tools/setup_pi.sh` from the project root.
 
 ### **Troubleshooting: "Could not resolve hostname"**
 If you are on Windows and `squid-drone.local` fails:

@@ -75,8 +75,8 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
     1. [Theory 4: PID to LQR](docs/theory/Theory_4_PID_to_LQR.md)
     2. [Theory 5.6: Nonlinear Control and LQR](docs/theory/Theory_5.6_Nonlinear_Control_and_LQR.md)
     3. [Theory 5.7: Time-Optimal Control](docs/theory/Theory_5.7_Time_Optimal_Control.md)
-    4. [Theory 5.8: MPC](docs/theory/Theory_5_8_Model_Predictive_Control.md)
-    5. [Theory 5.9: Extreme Recovery](docs/theory/Theory_5.9_Recovery_from_Extreme_Attitudes.md)
+    4. [Theory 5.8: MPC](docs/theory/Theory_5.8_Model_Predictive_Control.md) ([Lab 5.8: MPC Lite](src/labs/lab_5_8_mpc_lite.py))
+    5. [Theory 5.9: Extreme Recovery](docs/theory/Theory_5.9_Recovery_from_Extreme_Attitudes.md) ([Lab 5.9: Recovery](src/labs/lab_5_9_recovery.py))
 
 #### Phase IV: The Architect (Scale and Safety)
 *   **Module 6: The ROS 2 Migration**
@@ -84,7 +84,7 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
     **Prerequisites:** 
     1. [Theory 2: The EKF](docs/theory/Theory_2_The_EKF.md)
     2. [Theory 7.1: Deriving Jacobians](docs/theory/Theory_7.1_Deriving_Jacobians.md)
-    3. [Theory 7.5: Allan Variance](docs/theory/Theory_7.5_Allan_Variance.md)
+    3. [Theory 7.5: Allan Variance](docs/theory/Theory_7.5_Allan_Variance.md) ([Lab 7.5: Allan Variance](src/labs/lab_7_5_allan_variance.py))
     4. [Theory 7.6: IMM Adversarial Tracking](docs/theory/Theory_7.6_IMM_Adversarial_Tracking.md)
 
 #### Phase V: The Researcher (Autonomy)
@@ -98,20 +98,20 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
 *   **Module 9: Trajectory Optimization**
     **Prerequisites:** 
     1. [Theory 3: Splines and Optimization](docs/theory/Theory_3_Splines_and_Optimization.md)
-    2. [Theory 9.5: Path Planning and Search](docs/theory/Theory_9_5_Path_Planning_and_Search.md)
+    2. [Theory 9.5: Path Planning and Search](docs/theory/Theory_9.5_Path_Planning_and_Search.md)
 
 #### Phase VI: The Specialist (Tactics and AI)
 *   **Module 10: Reinforcement Learning**
     **Prerequisites:** 
-    1. [Theory 10.1: RL Foundations](docs/theory/Theory_10_1_RL_Foundations.md)
-    2. [Theory 10.2: Reward Engineering](docs/theory/Theory_10_2_Reward_Engineering_for_Robotics.md)
-    3. [Theory 10.5: MARL and Self-Play](docs/theory/Theory_10_5_MARL_and_Self_Play.md)
-    4. [Theory 10.6: Sim-to-Real Transfer](docs/theory/Theory_10_6_Sim_to_Real_Transfer.md)
+    1. [Theory 10.1: RL Foundations](docs/theory/Theory_10.1_RL_Foundations.md)
+    2. [Theory 10.2: Reward Engineering for Robotics](docs/theory/Theory_10.2_Reward_Engineering_for_Robotics.md)
+    3. [Theory 10.5: MARL and Self-Play](docs/theory/Theory_10.5_MARL_and_Self_Play.md)
+    4. [Theory 10.6: Sim-to-Real Transfer](docs/theory/Theory_10.6_Sim_to_Real_Transfer.md)
 *   **Module 11: Aerial Combat and Guidance**
     **Prerequisites:** 
     1. [Theory 11.2: Pro-Nav and Closing Geometry](docs/theory/Theory_11.2_ProNav_and_Closing_Geometry.md)
     2. [Theory 11.3: Energy-Maneuverability Theory](docs/theory/Theory_11.3_Energy_Maneuverability_Theory.md)
-    3. [Theory 11.5: Bayesian Search Theory](docs/theory/Theory_11.5_Bayesian_Search_Theory.md)
+    3. [Theory 11.5: Bayesian Search Theory](docs/theory/Theory_11.5_Bayesian_Search_Theory.md) ([Lab 11.5: Search Heatmap](src/labs/lab_11_5_search_heatmap.py))
 *   **Module 12: Outdoor Autonomy**
     Integrating GPS. **Prerequisites:** 
     1. [Theory 7: Behavior Trees](docs/theory/Theory_7_Behavior_Trees.md)
@@ -128,13 +128,13 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
 *   **Module 14: Swarm Theory**
     Algebraic Graph Theory and Consensus. **Prerequisites:** 
     1. [Theory 14.3: Safety Barriers](docs/theory/Theory_14.3_Safety_Barriers.md)
-    2. [Theory 14.4: Distributed Task Allocation](docs/theory/Theory_14.4_Distributed_Task_Allocation.md)
+    2. [Theory 14.4: Distributed Task Allocation](docs/theory/Theory_14.4_Distributed_Task_Allocation.md) ([Lab 14.4: Multi-Agent Trap](src/labs/lab_14_4_multi_agent_trap.py))
     3. [Theory 14.5: Multi-Agent Collision Avoidance (RVO)](docs/theory/Theory_14.5_Multi_Agent_Collision_Avoidance_RVO.md)
     4. [Theory 14.6: Communication-Aware Swarm Control](docs/theory/Theory_14.6_Communication_Aware_Swarm_Control.md)
 *   **Module 15: Deep Perception (Advanced)**
     CNNs and Metric Learning. **Prerequisites:** 
-    1. [Theory 15.5: Spatio-Temporal Change Detection](docs/theory/Theory_15_5_Spatio_Temporal_Change_Detection.md)
-    2. [Theory 15.6: Acoustic Localization](docs/theory/Theory_15_6_Acoustic_Localization.md)
+    1. [Theory 15.5: Spatio-Temporal Change Detection](docs/theory/Theory_15.5_Spatio_Temporal_Change_Detection.md)
+    2. [Theory 15.6: Acoustic Localization](docs/theory/Theory_15.6_Acoustic_Localization.md)
 
 ---
 
