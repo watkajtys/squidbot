@@ -231,3 +231,12 @@ The Squid is a custom-designed micro-drone optimized for indoor autonomy and edu
 *   **Mathematical Maturity:** Review our **[Mathematical Readiness Diagnostic](curriculum/Support/Reference/MATHEMATICAL_READINESS.md)** before starting.
 *   **Programming**: Intermediate Python experience. Familiarity with Object-Oriented Programming (Classes) is essential.
 *   **Hardware**: Willingness to solder and debug electronic circuits.
+
+---
+
+### **The Final Word**
+This course is hard because robotics is hard. Physics does not negotiate. It does not care if your code is "clean"; it only cares if your math is right.
+
+But do not let that stop you. Every expert was once a beginner who refused to quit. You have the map. You have the tools. You have the safety nets. 
+
+**Trust the process. Respect the hardware. And when in doubt, fly.**

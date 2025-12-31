@@ -35,5 +35,12 @@ This curriculum is academically dense. To ensure completion:
 2.  **The 80/20 Rule:** If the math in a Theory Deep Dive is making you want to quit, skip to the Lab. Real robots are built by doing, not just reading.
 3.  **Fly for Fun:** Remind yourself why you are building this by flying in FPV mode weekly.
 
+## The Promise
+You are about to start with a bag of loose parts and a blank text editor. You will end with a machine that has a mind of its own.
+
+You will not just learn Python; you will learn how to make Python talk to the real world. You will not just learn Math; you will learn how to make Math move. The path is steep, and things will break. But the moment your code lifts that machine off the desk for the first time... there is no feeling like it in the world.
+
+**You are ready.**
+
 ---
 **Standard**: Academically aligned with M.Sc. Robotics / PhD Candidate Preparatory standards.
