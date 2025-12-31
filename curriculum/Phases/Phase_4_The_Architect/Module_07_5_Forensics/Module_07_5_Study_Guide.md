@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 7.5: The Forensic Regression Suite
 **Module 7.5: The Architect (System Verification and CI/CD)**
 

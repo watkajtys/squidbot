@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 5: Control Theory
 **Module 5: The Math of Flight**
 

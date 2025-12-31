@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 6.5: Heartbeat and The Human-in-the-Loop
 **Module 6.5: The Architect (Failsafes and Reliability)**
 

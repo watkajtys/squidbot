@@ -36,4 +36,4 @@ The compass is the most sensitive part of the drone.
 *   **Shutter:** This is a "Rolling Shutter" camera. If the drone vibrates, the image will look like "Jello."
 *   **The Fix:** Use the Notch Filters (Module 4) to clean up the physical vibration.
 *   **FOV:** The 160-degree lens has significant "Barrel Distortion." You must use the `lab_3_calibration.py` logic to "unflatten" the world for the AI to understand it.
---- [Return to Course Map](../../COURSE_MAP.md)
+--- [Return to Course Map](../../../COURSE_MAP.md)

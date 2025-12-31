@@ -72,4 +72,4 @@ Don't try to master the math *before* you start the labs.
 2.  Do the **Lab**. 
 3.  When the code doesn't work, **then** go watch the resource video on that specific concept. 
 
-**"The code makes the math real; the math makes the code stable."**--- [Return to Course Map](../../COURSE_MAP.md)
+**"The code makes the math real; the math makes the code stable."**--- [Return to Course Map](../../../COURSE_MAP.md)

@@ -65,4 +65,4 @@
 | **Slow Oscillations** | $P$ gain too low | Increase $P$ |
 | **Fast Oscillations** | $P$ gain too high | Decrease $P$ |
 | **Drift on Takeoff** | Accelerometer Bias | Level drone & calibrate |
-| **"Toilet Bowl"** | Magnetometer Interference | Move Mag away from power wires |--- [Return to Course Map](../../COURSE_MAP.md)
+| **"Toilet Bowl"** | Magnetometer Interference | Move Mag away from power wires |--- [Return to Course Map](../../../COURSE_MAP.md)

@@ -51,15 +51,18 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
     **Prerequisites:**
     1. [Hardware Foundations](curriculum/Support/Hardware/Hardware_Foundations.md) (Electronics, Soldering, Tools).
     2. [Module 0 Labs](curriculum/Phases/Phase_1_The_Mechanic/Module_00_The_Build/Module_00_Labs.md) (Bench testing, Linux, Wi-Fi mapping).
-    3. [Theory 0.1: The Mathematician](curriculum/Library/00_Foundations/Paper_0.1_The_Mathematician.md).
-    4. [Theory 0.1: Network Survival Guide](curriculum/Library/00_Foundations/Network_0.1_Talking_to_the_Drone.md).
-    5. [Theory 0.1: The Robot Class](curriculum/Library/00_Foundations/Programming_0.1_The_Robot_Class.md).
+    3. [Theory 0: Concepts Handbook](curriculum/Library/00_Foundations/Theory_0_Concepts.md).
+    4. [Theory 0.1: The Mathematician](curriculum/Library/00_Foundations/Paper_0.1_The_Mathematician.md).
+    5. [Theory 0.1: The Real-Time Budget](curriculum/Library/00_Foundations/Theory_0.1_The_Real_Time_Budget.md).
+    6. [Theory 0.1: Network Survival Guide](curriculum/Library/00_Foundations/Network_0.1_Talking_to_the_Drone.md).
+    7. [Theory 0.1: The Robot Class](curriculum/Library/00_Foundations/Programming_0.1_The_Robot_Class.md).
     6. [Theory 0.2: The Physics of Flight](curriculum/Library/00_Foundations/Theory_0.2_The_Physics_of_Flight.md).
     7. [Theory 0.4: System Identification](curriculum/Library/02_Control_Dynamics/Theory_0.4_System_Identification.md).
     8. [Theory 0.5: Dynamics](curriculum/Library/00_Foundations/Theory_0.5_Dynamics_Euler_Lagrange.md).
     9. [Theory 0.7: Full State-Space Model](curriculum/Library/00_Foundations/Theory_0.7_The_Full_State_Space_Model.md).
-    10. [Theory 0.8: High-Speed Aerodynamics](curriculum/Library/00_Foundations/Theory_0.8_High_Speed_Aerodynamics.md).
-    11. [ROS 2 Performance Tuning](curriculum/Support/Setup/Environment_ROS2_DDS_Tuning.md).
+    12. [Theory 0.8: High-Speed Aerodynamics](curriculum/Library/00_Foundations/Theory_0.8_High_Speed_Aerodynamics.md).
+    13. [Theory 0.9: Battery Dynamics](curriculum/Library/00_Foundations/Theory_0.9_Battery_Dynamics.md).
+    14. [ROS 2 Performance Tuning](curriculum/Support/Setup/Environment_ROS2_DDS_Tuning.md).
     12. [Theory 1.5: Numerical Solvers](curriculum/Library/00_Foundations/Theory_1.5_Numerical_Solvers_and_Sparsity.md).
     **Labs:**
     *   [Lab 0.1: Jitter Watchdog](src/Labs/Phase_1_The_Mechanic/Module_00_The_Build/lab_0_1_realtime_jitter.py)
@@ -67,7 +70,9 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
     *   [Lab 0.3: Motor Safety Test](src/Labs/Phase_1_The_Mechanic/Module_00_The_Build/lab_0_3_motor_safety.py)
 
 *   **Module 1: The Bare Metal API**
-    Writing raw Python drivers. **Prerequisite:** [Theory 0.6: Motor Mixer Matrix](curriculum/Library/02_Control_Dynamics/Theory_0.6_The_Motor_Mixer_Matrix.md).
+    Writing raw Python drivers. **Prerequisites:**
+    1. [Theory 0.6: Motor Mixer Matrix](curriculum/Library/02_Control_Dynamics/Theory_0.6_The_Motor_Mixer_Matrix.md).
+    2. [Python Robotics Patterns](curriculum/Library/00_Foundations/Python_Robotics_Patterns.md).
     **Lab:** [Lab 1.1: Motor Mixer Matrix](src/Labs/Phase_1_The_Mechanic/Module_01_Bare_Metal_API/lab_1_1_mixer_matrix.py)
 
 #### Phase II: The Test Pilot (Observability)

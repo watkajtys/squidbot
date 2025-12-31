@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 12: Outdoor Autonomy
 **Module 12: Beyond the Walls**
 

@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 9: Path Planning and Search
 **Module 9: The Intelligent Path**
 

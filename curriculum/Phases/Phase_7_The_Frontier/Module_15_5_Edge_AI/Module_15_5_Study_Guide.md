@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 15.5: Edge AI and Model Optimization
 **Module 15.5: The Frontier (Efficiency Engineering and On-Device AI)**
 

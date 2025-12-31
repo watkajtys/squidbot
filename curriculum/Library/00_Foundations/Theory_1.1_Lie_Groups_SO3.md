@@ -1,4 +1,6 @@
 # Theory Deep Dive 1.1: Lie Groups & Lie Algebra SO(3)
+[Return to Module 4](../../Phases/Phase_3_The_Engineer/Module_04_Signal_Processing/Module_04_Lecture.md) | [Return to Course Map](../../../COURSE_MAP.md)
+
 **"Beyond the Singularity."**
 
 In robotics research, we don't just "rotate" vectors; we operate on a **Manifold**. The set of all valid 3D rotations forms a group called the **Special Orthogonal Group**, or $SO(3)$.

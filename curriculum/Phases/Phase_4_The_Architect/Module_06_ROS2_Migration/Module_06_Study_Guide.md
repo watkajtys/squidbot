@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 6: The ROS 2 Migration
 **Module 6: The Architect (Scale and Safety)**
 

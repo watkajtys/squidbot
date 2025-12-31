@@ -1,4 +1,6 @@
 # Theory Deep Dive 0.6: The Motor Mixer Matrix
+[Return to Module 1](../../Phases/Phase_1_The_Mechanic/Module_01_Bare_Metal_API/Module_01_Lecture.md) | [Return to Course Map](../../../COURSE_MAP.md)
+
 **"The Geometry of Force."**
 
 Your PID controller outputs 4 "Desired Torques":
@@ -28,4 +30,3 @@ What if the PID asks for 110% power on Motor 1?
 *   **The Pro Way:** You must scale **all** motors down proportionally to preserve the "Shape" of the command while staying within the hardware limits.
 
 **Lab Task:** Implement the Mixer in `src/Labs/lab_0_6_mixers.py` and verify it with a "Table Test."
---- [Return to Course Map](../../../COURSE_MAP.md)

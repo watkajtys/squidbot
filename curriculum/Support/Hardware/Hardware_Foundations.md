@@ -73,4 +73,4 @@ Drone batteries (Lithium Polymer) are high-energy density bombs.
 - [ ] Multimeter "Beep" test between 12V and GND shows **NO BEEP**.
 - [ ] BEC output confirmed at 5.0V - 5.2V.
 - [ ] All bare wires covered in heat shrink or electrical tape.
---- [Return to Course Map](../../COURSE_MAP.md)
+--- [Return to Course Map](../../../COURSE_MAP.md)

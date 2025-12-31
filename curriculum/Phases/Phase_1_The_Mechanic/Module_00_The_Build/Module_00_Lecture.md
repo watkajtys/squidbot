@@ -153,6 +153,8 @@ You will break your code. You will delete a file by accident.
 ## **0.4 Legal & Safety Compliance**
 **"Don't go to jail."**
 
+**[READ THE FULL SAFETY MANUAL](../../../Support/Hardware/safety_manual.md) BEFORE PLUGGING IN A BATTERY.**
+
 *   **US (FAA):**
     *   **Registration:** If >250g (Squid is ~180g, so likely exempt, but check battery weight).
     *   **TRUST:** You *must* pass the "The Recreational UAS Safety Test" (Free online).

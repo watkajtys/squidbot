@@ -95,6 +95,15 @@ Measure the glass-to-glass and glass-to-motor latency.
 
 ---
 
+## **3.5 Simulation-in-the-Loop (SITL)**
+**"Crash code, not carbon."**
+
+Before you fly real algorithms, you must fly them in the Simulator. We provide a physics-accurate URDF model of the Squid Drone.
+
+**Action:** Read the **[Simulation Guide](../../../../simulation/README.md)** to set up PyBullet.
+
+---
+
 ## **Check: Instrument Flight**
 **The Ultimate Test of Trust.**
 

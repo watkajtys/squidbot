@@ -1,4 +1,6 @@
 # Theory Deep Dive 4.1: Least Squares System Identification
+[Return to Module 4](../../Phases/Phase_3_The_Engineer/Module_04_Signal_Processing/Module_04_Lecture.md) | [Return to Course Map](../../../COURSE_MAP.md)
+
 **"Curve Fitting the Laws of Physics."**
 
 How do we find the exact mass, motor thrust constant, and drag coefficients of our drone using only flight logs? We use the **Ordinary Least Squares (OLS)** method.

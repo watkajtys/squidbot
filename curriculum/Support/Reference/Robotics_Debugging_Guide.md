@@ -48,4 +48,4 @@ When the drone crashes, don't look at the wreckage. Look at the logs.
     *   If you see a "Gap" of >50ms, the Pi Zero "stuttered" (Garbage Collection or background task). This delay caused the control math to become unstable.
 4.  **The Compass "Toilet Bowl":**
     *   If the drone starts flying in widening circles, plot `GPS_Heading` vs `Compass_Heading`. If they diverge, your compass is being interfered with by the motor magnetic fields.
---- [Return to Course Map](../../COURSE_MAP.md)
+--- [Return to Course Map](../../../COURSE_MAP.md)

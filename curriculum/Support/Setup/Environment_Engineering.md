@@ -31,4 +31,4 @@ Algorithms like KLT (Module 13) and PMW3901 (Optical Flow) work by tracking "Pix
 *   **The Enemy:** Flying too close to the floor (< 10cm). The "Prop Wash" (air pushed down) bounces off the floor and creates a chaotic "cushion" of air.
 *   **The Symptom:** The drone wobbles and feels "slippery" during takeoff.
 *   **The Fix:** Program your takeoff sequence to "Punch" to 0.5m immediately to get out of the "Dirty Air" zone.
---- [Return to Course Map](../../COURSE_MAP.md)
+--- [Return to Course Map](../../../COURSE_MAP.md)

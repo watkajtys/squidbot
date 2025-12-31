@@ -42,4 +42,4 @@ We must tell Betaflight to ignore the Radio Receiver (if any) and listen to the 
 2.  Set **Stage 2 - Settings** to "Drop" or "Land".
 3.  Set **Guard Time** to 5 (0.5 seconds).
 4.  **Result:** If the Pi stops sending MSP packets for 0.5s, Betaflight will kill the motors automatically. **THIS SAVES LIVES.**
---- [Return to Course Map](../../COURSE_MAP.md)
+--- [Return to Course Map](../../../COURSE_MAP.md)

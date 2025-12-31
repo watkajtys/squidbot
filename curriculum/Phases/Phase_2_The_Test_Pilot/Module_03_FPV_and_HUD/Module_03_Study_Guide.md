@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 3: Computer Vision and Geometry
 **Module 3: Sensing the World**
 

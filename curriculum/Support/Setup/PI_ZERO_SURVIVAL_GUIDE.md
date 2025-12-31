@@ -58,4 +58,4 @@ The Pi Zero 2 W draws ~1.5A to 2A at peak load.
 *   **The Fix:**
     *   **Antenna Mod:** (Advanced) Solder a small u.FL connector for an external antenna.
     *   **Power Management:** Run `sudo iw dev wlan0 set power_save off` to prevent the Wi-Fi from "sleeping" mid-flight.
---- [Return to Course Map](../../COURSE_MAP.md)
+--- [Return to Course Map](../../../COURSE_MAP.md)

@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 2: The Telemetry Stack
 **Module 2: Observability and Data Flow**
 

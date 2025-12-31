@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 8: Perception and Mapping
 **Module 8: The Machine's Eye**
 

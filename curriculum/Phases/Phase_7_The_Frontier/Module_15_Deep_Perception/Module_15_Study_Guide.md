@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 15: Deep Perception
 **Module 15: The Frontier (AI and Neural Navigation)**
 

@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 11: Aerial Combat and Guidance
 **Module 11: The Tactical Pilot**
 

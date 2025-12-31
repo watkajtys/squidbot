@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 1: The Bare Metal API
 **Module 1: Low-Level Drivers and Motor Mixing**
 

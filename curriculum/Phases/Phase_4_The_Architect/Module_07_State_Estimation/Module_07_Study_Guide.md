@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 7: State Estimation
 **Module 7: Finding the Truth**
 

@@ -76,4 +76,4 @@ This document supports the Master Curriculum. Refer to this when you encounter n
 2.  **Docker:** For running ROS 2 containers without breaking your laptop's OS.
 3.  **QGroundControl / Betaflight Configurator:** For low-level drone setup.
 4.  **OpenSCAD:** For editing the 3D printed mount.
-5.  **Foxglove Studio:** The industry-standard web-based visualizer. Used for viewing 3D Coordinate Frames (TFs), Point Clouds, and Telemetry in real-time.--- [Return to Course Map](../../COURSE_MAP.md)
+5.  **Foxglove Studio:** The industry-standard web-based visualizer. Used for viewing 3D Coordinate Frames (TFs), Point Clouds, and Telemetry in real-time.--- [Return to Course Map](../../../COURSE_MAP.md)

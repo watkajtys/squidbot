@@ -96,6 +96,11 @@ In previous labs, you followed a red ball. In this lab, the robot will follow "I
 
 ---
 
+
+
+### **Capstone Project**
+This module culminates in **[Project 3: The Ghost in the Machine](../../../../PROJECTS.md#project-3-the-ghost-in-the-machine-tactical-autonomy)**. Complete the lecture and labs before attempting the project.
+
 ## **Check: The Dark Room Scenario**
 **The Thesis Defense.**
 

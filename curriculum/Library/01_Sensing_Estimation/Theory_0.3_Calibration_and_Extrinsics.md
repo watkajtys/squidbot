@@ -1,4 +1,6 @@
 # Theory Deep Dive 0.3: Calibration & Extrinsics
+[Return to Module 4](../../Phases/Phase_3_The_Engineer/Module_04_Signal_Processing/Module_04_Lecture.md) | [Return to Course Map](../../../COURSE_MAP.md)
+
 **"The 1-Centimeter Error."**
 
 In your code, you will calculate the "Drone Position." But your Lidar is not at the center of the drone; it is probably 2cm below it. Your camera is 3cm in front.
@@ -30,4 +32,3 @@ When you have **three drones**, the calibration becomes a nightmare if you don't
 *   The "Base Station" must know the `transform` between `world` and `squid_1`, `world` and `squid_2`, etc.
 
 **Lab Task:** Use a digital caliper to measure your build. Enter those numbers into `src/utils/transforms.py`. **Accuracy here is the difference between a hover and a crash.**
---- [Return to Course Map](../../../COURSE_MAP.md)

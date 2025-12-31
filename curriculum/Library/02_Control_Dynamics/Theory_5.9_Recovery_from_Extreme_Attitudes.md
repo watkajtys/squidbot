@@ -1,4 +1,6 @@
 # Theory Deep Dive 5.9: Extreme Recovery (Toss-and-Fly)
+[Return to Module 5](../../Phases/Phase_3_The_Engineer/Module_05_Control_Theory/Module_05_Lecture.md) | [Return to Course Map](../../../COURSE_MAP.md)
+
 **"Finding Up when you are Down."**
 
 A standard PID controller has a "Singularity" at 180 degrees. If the drone is perfectly upside down, the math explodes. 
@@ -22,4 +24,3 @@ To recover from a throw, we do not use Euler Angles (Roll/Pitch/Yaw). We use the
 
 ## **3. Safety First**
 **NEVER** test this by throwing the real drone until you have won the "Toss-and-Fly" game in simulation 100 times in a row.
---- [Return to Course Map](../../../COURSE_MAP.md)

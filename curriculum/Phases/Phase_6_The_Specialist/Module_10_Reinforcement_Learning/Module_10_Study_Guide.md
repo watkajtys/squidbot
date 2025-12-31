@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 10: Reinforcement Learning
 **Module 10: Learning to Fly**
 

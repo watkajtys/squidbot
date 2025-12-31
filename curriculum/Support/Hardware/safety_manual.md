@@ -42,4 +42,4 @@ This is an autonomous flying robot with spinning blades and high-energy explosiv
     *   Carbon Fiber conducts electricity.
     *   If a bare wire touches the frame, it can short the battery.
     *   **Rule:** Use electrical tape or heat shrink on *everything*.
---- [Return to Course Map](../../COURSE_MAP.md)
+--- [Return to Course Map](../../../COURSE_MAP.md)

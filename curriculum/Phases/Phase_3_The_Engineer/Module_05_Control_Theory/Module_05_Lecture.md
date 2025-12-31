@@ -185,6 +185,8 @@ Model Predictive Control (MPC) is a discrete-time optimization problem solved at
 *   **The Finite Horizon:** We predict the state $\hat{x}_{k+1...k+N}$ over a horizon $N$ (e.g., 20 steps).
 *   **The Constraint:** We can explicitly include physical constraints: $Tilt < 30^{\circ}$ and $Voltage > 10V$. If a trajectory would violate these, the optimizer finds the "closest safe" path.
 
+For a deeper explanation of the optimization horizon, see [Theory 5.8: Model Predictive Control](../../../Library/02_Control_Dynamics/Theory_5.8_Model_Predictive_Control.md).
+
 ### **5.8.1 Just-In-Time Math: The Matrix Trick**
 **"Solving the Future in One Shot"**
 
@@ -202,6 +204,8 @@ In the lab `lab_3_4_mpc_lite.py`, you will see code that stacks matrices. Why?
 Traditional attitude control uses Euler angles, which fail at $90^{\circ}$ pitch.
 *   **The Manifold:** We define error as the distance between the current rotation matrix $R$ and target $R_d$ on the $SO(3)$ manifold.
 *   **The Law:** $e_R = \frac{1}{2}(R_d^T R - R^T R_d)^\vee$. This calculation is global—it works upside down, sideways, or during a flip, allowing for "Aggressive Recovery" maneuvers impossible with PID.
+
+See [Theory 5.9: Recovery from Extreme Attitudes](../../../Library/02_Control_Dynamics/Theory_5.9_Recovery_from_Extreme_Attitudes.md).
 
 **Next Step:** [Phase IV: Module 6 ROS 2 Migration](../../Phase_4_The_Architect/Module_06_ROS2_Migration/Module_06_Lecture.md)
 

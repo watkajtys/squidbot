@@ -1,4 +1,6 @@
 # Theory Deep Dive 5.8: Model Predictive Control (MPC)
+[Return to Module 5](../../Phases/Phase_3_The_Engineer/Module_05_Control_Theory/Module_05_Lecture.md) | [Return to Course Map](../../../COURSE_MAP.md)
+
 **"Thinking 5 Moves Ahead."**
 
 PID and LQR are "Point-and-Shoot" controllers. **Model Predictive Control (MPC)** is a "Chess Grandmaster."
@@ -26,4 +28,3 @@ This is why everyone uses MPC for real robots:
 4.  Observe the new position and **Repeat**.
 
 **The Downside:** Solving a $N$-step optimization problem 50 times a second is CPU-heavy. For the Pi Zero, we use "Linear MPC" to keep it fast.
---- [Return to Course Map](../../../COURSE_MAP.md)

@@ -73,4 +73,4 @@ These sensors share the I2C bus (SDA/SCL). To prevent address conflicts, we use 
     *   **Input:** Soldered to the main battery pads on the Flight Controller.
     *   **Output:** 5V / 3A wired to Pi Pins 2 & 6.
 *   **Warning:** NEVER plug a USB cable into the Pi's power port *while* the drone battery is plugged in. You might back-feed power and damage your laptop or the regulator. **Data USB is safe if the 5V rail is isolated, but be careful.**
---- [Return to Course Map](../../COURSE_MAP.md)
+--- [Return to Course Map](../../../COURSE_MAP.md)

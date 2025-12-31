@@ -109,10 +109,12 @@ In the Filtering Lab, you use an FFT and a Notch Filter.
 
 **AI Prompt:** "Explain how a Biquad Notch Filter works. Give me the Python code to design a 200Hz notch filter for a system running at 1000Hz sampling rate."
 
-## **4.2.4 The "Deep-Dive" Breakout: Least Squares SysID**
+## 4.2.4 The "Deep-Dive" Breakout: Least Squares SysID
 > **Professor's Note:** Don't guess your motor constants. Measure them with math.
 > **Why?** A simulator is only as good as its parameters. If your thrust-to-weight ratio is wrong by 10%, your MPC controller will never be stable.
 > **The Goal:** You will use **Ordinary Least Squares (OLS)** to find the exact $K_t$ and $J$ (Inertia) of your drone using real flight logs. This is the math that bridges the "Reality Gap."
+
+For the derivation of the OLS Normal Equation, see [Theory 4.1: Least Squares SysID](../../../Library/02_Control_Dynamics/Theory_4.1_Least_Squares_SysID.md).
 
 ---
 
@@ -145,7 +147,7 @@ Measure the offset between the Eye (Camera) and the Inner Ear (IMU).
 ### **Theory**
 VIO algorithms solve for the Drone's position. But the Camera is mounted 3cm in front of the center.
 $ T_{body_cam} = [R | t] $
-If this is wrong, the math thinks the drone is "drifting" when it is just rotating.
+If this is wrong, the math thinks the drone is "drifting" when it is just rotating. See [Theory 0.3: Calibration](../../../Library/01_Sensing_Estimation/Theory_0.3_Calibration_and_Extrinsics.md).
 
 ### **Lab Procedure**
 1.  **Translation ($t$):** Use digital calipers. Measure the distance (X, Y, Z) from the center of the Pi Zero (approx IMU location) to the center of the Camera Lens.
@@ -161,6 +163,8 @@ If this is wrong, the math thinks the drone is "drifting" when it is just rotati
 > **Professor's Note:** We are moving beyond simple Roll/Pitch/Yaw. 
 > **Why?** Aerial robotics happens in 360 degrees. Euler angles will fail you during an aggressive recovery or a flip. 
 > **The Goal:** You will implement a rotation update using the **Exponential Map**. You'll learn why we do math in the "Flat" Lie Algebra before projecting it back to the "Curved" Manifold.
+
+For the theory behind the Exponential Map, see [Theory 1.1: Lie Groups & SO(3)](../../../Library/00_Foundations/Theory_1.1_Lie_Groups_SO3.md).
 
 ---
 

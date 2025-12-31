@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 13: Visual Inertial Odometry (VIO)
 **Module 13: The Holy Grail of Navigation**
 

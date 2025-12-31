@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 14: Swarm Theory
 **Module 14: Consensus and Coordination**
 

@@ -75,6 +75,11 @@ Snap the map back together.
 
 ---
 
+
+
+### **Capstone Project**
+This module culminates in **[Project 4: The Digital Twin](../../../../PROJECTS.md#project-4-the-digital-twin-hil-shadowing)**. Complete the lecture and labs before attempting the project.
+
 ## **Check: The Window Challenge**
 **The PhD Graduation.**
 

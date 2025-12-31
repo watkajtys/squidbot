@@ -117,6 +117,11 @@ Standard PID uses Euler Angles (Roll/Pitch/Yaw).
 
 ---
 
+
+
+### **Capstone Project**
+This module culminates in **[Project 1: The Labyrinth Navigator](../../../../PROJECTS.md#project-1-the-labyrinth-navigator)**. Complete the lecture and labs before attempting the project.
+
 ## **Check: The Speed Run**
 **Autonomous Navigation.**
 

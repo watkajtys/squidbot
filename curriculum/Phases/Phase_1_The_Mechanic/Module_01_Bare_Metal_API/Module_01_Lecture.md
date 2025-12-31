@@ -99,6 +99,8 @@ In Lab 1.1, you will encounter the **Motor Mixer Matrix**.
     $$ M_1 = Throttle + Pitch + Roll + Yaw $$
     $$ M_2 = Throttle - Pitch + Roll - Yaw $$
     (And so on...). This linear combination is your first taste of **Control Allocation**.
+    
+    For a deep dive into the math, see [Theory 0.6: The Motor Mixer Matrix](../../../Library/02_Control_Dynamics/Theory_0.6_The_Motor_Mixer_Matrix.md).
 
 **AI Prompt:** "I have a quadrotor in X-configuration. Write the mixing equations to convert [Throttle, Pitch, Roll, Yaw] commands into [FrontLeft, FrontRight, RearLeft, RearRight] motor speeds."
 

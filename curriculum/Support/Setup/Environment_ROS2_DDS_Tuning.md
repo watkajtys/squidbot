@@ -55,4 +55,4 @@ Place this file on your Pi and export it: `export FASTRTPS_DEFAULT_PROFILES_FILE
 *   **Sensors:** Use `Best Effort` (don't retry lost packets).
 *   **Commands:** Use `Reliable` (ensure motor commands arrive).
 *   **Depth:** Keep your queue depth at **1**. We only ever care about the *latest* data.
---- [Return to Course Map](../../COURSE_MAP.md)
+--- [Return to Course Map](../../../COURSE_MAP.md)

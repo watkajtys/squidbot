@@ -1,3 +1,5 @@
+[Return to Course Map](../../../../COURSE_MAP.md)
+
 # Study Guide 4: Signal Processing and Geometry
 **Module 4: Cleaning the Noise**
 

@@ -40,4 +40,4 @@ In robotics, **When** you calculate something is as important as **What** you ca
 *   **Visualization:** [Foxglove Studio](https://foxglove.dev/) (Free/OS)
 *   **Simulation:** [Gazebo](https://gazebosim.org/) or [PyBullet](https://pybullet.org/) (Free/OS)
 *   **Testing:** `pytest` and `hypothesis` (Property-based testing)
---- [Return to Course Map](../../COURSE_MAP.md)
+--- [Return to Course Map](../../../COURSE_MAP.md)
