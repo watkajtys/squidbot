@@ -49,157 +49,112 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
 *   **Module 0: The Build and Legal Compliance**
     Assembly of the custom Pavo20 frame.
     **Prerequisites:**
-    1. [Hardware Foundations](docs/Hardware_Foundations.md) (Electronics, Soldering, Tools).
-    2. [Module 0 Labs](docs/Module_0_Labs.md) (Bench testing, Linux, Wi-Fi mapping).
-    3. [Theory 0.1: The Mathematician](docs/theory/Paper_0.1_The_Mathematician.md) (Complex numbers and frequency).
-    4. [Theory 0.1: Network Survival Guide](docs/theory/Network_0.1_Talking_to_the_Drone.md) (SSH and Latency).
-    5. [Theory 0.1: The Robot Class](docs/theory/Programming_0.1_The_Robot_Class.md) (Python OOP for hardware).
-    6. [Theory 0.2: The Physics of Flight](docs/theory/Theory_0.2_The_Physics_of_Flight.md) (Torque, Throttle, and Yaw).
-    7. [Theory 0.4: System Identification](docs/theory/Theory_0.4_System_Identification.md) (Measuring Mass and Thrust).
-    8. [Theory 0.5: Euler-Lagrange Dynamics](docs/theory/Theory_0.5_Dynamics_Euler_Lagrange.md) (The Formal Math of Motion).
-    9. [Theory 0.7: The Full State-Space Model](docs/theory/Theory_0.7_The_Full_State_Space_Model.md) (The 12-State Physics).
-    10. [Theory 0.8: High-Speed Aerodynamics](docs/theory/Theory_0.8_High_Speed_Aerodynamics.md) (Drag and Blade Flapping).
-    11. [ROS 2 Performance Tuning](docs/Environment_ROS2_DDS_Tuning.md) (The Pi Zero Profile).
-    12. [Theory 1.5: Numerical Solvers and Sparsity](docs/theory/Theory_1.5_Numerical_Solvers_and_Sparsity.md) (Solving Ax=b).
+    1. [Hardware Foundations](curriculum/support_tools/Hardware_Foundations.md) (Electronics, Soldering, Tools).
+    2. [Module 0 Labs](curriculum/phase_1_mechanic/Module_0_Labs.md) (Bench testing, Linux, Wi-Fi mapping).
+    3. [Theory 0.1: The Mathematician](curriculum/theory_deep_dives/Paper_0.1_The_Mathematician.md) (Complex numbers and frequency).
     **Labs:**
-    *   [Lab 0.1: Real-Time Jitter Watchdog](src/labs/lab_0_1_realtime_jitter.py)
-    *   [Lab 1.0: Morse Code Heartbeat](src/labs/lab_1_morse_code.py)
+    *   [Lab 0.1: Jitter Watchdog](src/labs/phase_1/lab_0_1_realtime_jitter.py)
+    *   [Lab 1.0: Morse Code Heartbeat](src/labs/phase_1/lab_1_morse_code.py)
 
 *   **Module 1: The Bare Metal API**
-    Writing raw Python drivers. **Prerequisite:** [Theory 0.6: The Motor Mixer Matrix](docs/theory/Theory_0.6_The_Motor_Mixer_Matrix.md).
-    **Lab:** [Lab 0.6: Motor Mixer Matrix](src/labs/lab_0_6_mixers.py)
+    Writing raw Python drivers. **Prerequisite:** [Theory 0.6: Motor Mixer Matrix](curriculum/theory_deep_dives/Theory_0.6_The_Motor_Mixer_Matrix.md).
+    **Lab:** [Lab 0.6: Motor Mixer Matrix](src/labs/phase_1/lab_0_6_mixers.py)
 
 #### Phase II: The Test Pilot (Observability)
 *   **Module 2: The Telemetry Stack (Data Engineering)**
     Integrating **Foxglove Studio** and **PlotJuggler** for real-time diagnostics.
-    **Lab:** [Lab 0.9: Battery State-of-Charge EKF](src/labs/lab_0_9_battery_ekf.py)
+    **Lab:** [Lab 0.9: Battery SoC EKF](src/labs/phase_2/lab_0_9_battery_ekf.py)
 
 *   **Module 3: FPV and HUD (Augmented Reality)**
-    **Prerequisite:** [Theory 0.3: Calibration and Extrinsics](docs/theory/Theory_0.3_Calibration_and_Extrinsics.md).
-    **Lab:** [Lab 3: Camera Calibration](src/labs/lab_3_calibration.py)
+    **Prerequisite:** [Theory 0.3: Calibration and Extrinsics](curriculum/theory_deep_dives/Theory_0.3_Calibration_and_Extrinsics.md).
+    **Lab:** [Lab 3: Camera Calibration](src/labs/phase_2/lab_3_calibration.py)
 
 #### Phase III: The Engineer (Control and Math)
 *   **Module 3.5: SITL Simulation**
     Building the **Software-in-the-Loop** environment in PyBullet.
-    **Lab:** [Lab 3.5: SITL Driver Bridge](src/labs/lab_3_5_sitl_bridge.py)
+    **Lab:** [Lab 3.5: SITL Driver Bridge](src/labs/phase_2/lab_3_5_sitl_bridge.py)
 
 *   **Module 4: Signal Processing and Geometry**
-    **Prerequisite:** [Theory 1: Coordinate Systems](docs/theory/Theory_1_Coordinate_Systems.md).
-    **Lab:** [Lab 4.5: FFT Vibration Tuning](src/labs/lab_4_5_fft_tuning.py)
+    **Prerequisite:** [Theory 1: Coordinate Systems](curriculum/theory_deep_dives/Theory_1_Coordinate_Systems.md).
+    **Lab:** [Lab 4.5: FFT Vibration Tuning](src/labs/phase_3/lab_4_5_fft_tuning.py)
 
 *   **Module 5: Control Theory**
     Deriving PID. **Prerequisites:** 
-    1. [Theory 4: PID to LQR](docs/theory/Theory_4_PID_to_LQR.md)
-    2. [Theory 5.6: Nonlinear Control and LQR](docs/theory/Theory_5.6_Nonlinear_Control_and_LQR.md)
-    3. [Theory 5.7: Time-Optimal Control](docs/theory/Theory_5.7_Time_Optimal_Control.md)
-    4. [Theory 5.8: MPC](docs/theory/Theory_5.8_Model_Predictive_Control.md) ([Lab 5.8: MPC Lite](src/labs/lab_5_8_mpc_lite.py))
-    5. [Theory 5.9: Extreme Recovery](docs/theory/Theory_5.9_Recovery_from_Extreme_Attitudes.md) ([Lab 5.9: Recovery](src/labs/lab_5_9_recovery.py))
+    1. [Theory 4: PID to LQR](curriculum/theory_deep_dives/Theory_4_PID_to_LQR.md)
+    2. [Theory 5.8: MPC](curriculum/theory_deep_dives/Theory_5_8_Model_Predictive_Control.md)
+    **Labs:**
+    *   [Lab 5: PID](src/labs/phase_3/lab_5_pid.py)
+    *   [Lab 5.8: MPC Lite](src/labs/phase_3/lab_5_8_mpc_lite.py)
 
 #### Phase IV: The Architect (Scale and Safety)
 *   **Module 6: The ROS 2 Migration**
 *   **Module 6.5: Failsafes and Reliability**
-    Implementing watchdogs, battery-critical logic, and sensor-loss fallbacks.
-    **Lab:** [Lab 6: IMU Pre-integration](src/labs/lab_6_preintegration.py)
+    Implementing watchdogs and sensor-loss fallbacks.
+    **Lab:** [Lab 6: IMU Pre-integration](src/labs/phase_4/lab_6_preintegration.py)
 
 *   **Module 7: State Estimation (The Truth)**
     **Prerequisites:** 
-    1. [Theory 2: The EKF](docs/theory/Theory_2_The_EKF.md)
-    2. [Theory 7.1: Deriving Jacobians](docs/theory/Theory_7.1_Deriving_Jacobians.md)
-    3. [Theory 7.2: Consistency Analysis (NIS/NEES)](docs/theory/Theory_7.2_Consistency_Tests.md)
-    4. [Theory 7.5: Allan Variance](docs/theory/Theory_7.5_Allan_Variance.md) ([Lab 7.5: Allan Variance](src/labs/lab_7_5_allan_variance.py))
-    5. [Theory 7.6: IMM Adversarial Tracking](docs/theory/Theory_7.6_IMM_Adversarial_Tracking.md)
-    **Lab:** [Lab 7: Extended Kalman Filter](src/labs/lab_7_ekf.py)
+    1. [Theory 2: The EKF](curriculum/theory_deep_dives/Theory_2_The_EKF.md)
+    2. [Theory 7.1: Jacobians](curriculum/theory_deep_dives/Theory_7.1_Deriving_Jacobians.md)
+    **Lab:** [Lab 7: Extended Kalman Filter](src/labs/phase_4/lab_7_ekf.py)
 
 #### Phase V: The Researcher (Autonomy)
-*Building the brain that understands space.*
-
 *   **Module 8: Perception and Mapping**
     **Prerequisites:** 
-    1. [Theory 5: SLAM and Factor Graphs](docs/theory/Theory_5_SLAM_and_Factor_Graphs.md)
-    2. [Theory 8.5: Modern SLAM](docs/theory/Theory_8.5_Factor_Graphs_and_Modern_SLAM.md)
-    3. [Theory 8.6: Semantic Mapping and Perching](docs/theory/Theory_8.6_Semantic_Mapping_and_Perching.md)
-    **Lab:** [Lab 15.5: Spatio-Temporal Change Detection](src/labs/lab_15_5_change_detection.py)
+    1. [Theory 5: SLAM and Factor Graphs](curriculum/theory_deep_dives/Theory_5_SLAM_and_Factor_Graphs.md)
+    **Lab:** [Lab 15.5: Spatio-Temporal Change Detection](src/labs/phase_5/lab_15_5_change_detection.py)
 
 *   **Module 9: Trajectory Optimization**
     **Prerequisites:** 
-    1. [Theory 3: Splines and Optimization](docs/theory/Theory_3_Splines_and_Optimization.md)
-    2. [Theory 9.5: Path Planning and Search](docs/theory/Theory_9.5_Path_Planning_and_Search.md)
-    **Lab:** [Lab 9: Trajectory Planning](src/labs/lab_9_planning.py)
+    1. [Theory 3: Splines and Optimization](curriculum/theory_deep_dives/Theory_3_Splines_and_Optimization.md)
+    **Lab:** [Lab 9: Trajectory Planning](src/labs/phase_5/lab_9_planning.py)
 
 #### Phase VI: The Specialist (Tactics and AI)
 *   **Module 10: Reinforcement Learning**
     **Prerequisites:** 
-    1. [Theory 10.1: RL Foundations](docs/theory/Theory_10.1_RL_Foundations.md)
-    2. [Theory 10.2: Reward Engineering for Robotics](docs/theory/Theory_10.2_Reward_Engineering_for_Robotics.md)
-    3. [Theory 10.5: MARL and Self-Play](docs/theory/Theory_10.5_MARL_and_Self_Play.md)
-    4. [Theory 10.6: Sim-to-Real Transfer](docs/theory/Theory_10.6_Sim_to_Real_Transfer.md)
-    **Lab:** [Lab 10.7: Liquid Neural Network Gain Adapter](src/labs/lab_10_7_liquid_nets.py)
+    1. [Theory 10.1: RL Foundations](curriculum/theory_deep_dives/Theory_10.1_RL_Foundations.md)
+    2. [Theory 10.6: Sim-to-Real Transfer](curriculum/theory_deep_dives/Theory_10.6_Sim_to_Real_Transfer.md)
+    **Lab:** [Lab 10.7: Liquid Neural Network Gain Adapter](src/labs/phase_6/lab_10_7_liquid_nets.py)
 
 *   **Module 11: Aerial Combat and Guidance**
     **Prerequisites:** 
-    1. [Theory 11.2: Pro-Nav and Closing Geometry](docs/theory/Theory_11.2_ProNav_and_Closing_Geometry.md)
-    2. [Theory 11.3: Energy-Maneuverability Theory](docs/theory/Theory_11.3_Energy_Maneuverability_Theory.md)
-    3. [Theory 11.5: Bayesian Search Theory](docs/theory/Theory_11.5_Bayesian_Search_Theory.md) ([Lab 11.5: Search Heatmap](src/labs/lab_11_5_search_heatmap.py))
-    **Lab:** [Lab 11: Pro-Nav Guidance](src/labs/lab_11_pro_nav.py)
+    1. [Theory 11.2: Pro-Nav](curriculum/theory_deep_dives/Theory_11.2_ProNav_and_Closing_Geometry.md)
+    **Lab:** [Lab 11: Pro-Nav Guidance](src/labs/phase_6/lab_11_pro_nav.py)
 
 *   **Module 12: Outdoor Autonomy**
     Integrating GPS. **Prerequisites:** 
-    1. [Theory 7: Behavior Trees](docs/theory/Theory_7_Behavior_Trees.md)
-    2. [Theory 12.3: Pursuit-Evasion Games](docs/theory/Theory_12.3_Pursuit_Evasion_Games.md) ([Lab 12.3: Reachability](src/labs/lab_12_3_reachability.py))
-    3. [Theory 12.6: Autonomous Docking and Recharging](docs/theory/Theory_12.6_Autonomous_Docking_and_Recharging.md)
+    1. [Theory 12.3: Reachability](curriculum/theory_deep_dives/Theory_12.3_Pursuit_Evasion_Games.md)
+    **Lab:** [Lab 12.3: Reachability](src/labs/phase_6/lab_12_3_reachability.py)
 
 #### Phase VII: The Frontier (Experimental)
-*PhD-level research using foundational knowledge.*
-
-*   **Module 13: Visual Inertial Odometry (VIO)**
-    **Prerequisites:** 
-    1. [Theory 6: VIO and Preintegration](docs/theory/Theory_6_VIO_and_Preintegration.md)
-    2. [Lab: KLT Feature Tracking](src/labs/lab_13_klt_tracker.py)
-
 *   **Module 14: Swarm Theory**
-    Algebraic Graph Theory and Consensus. **Prerequisites:** 
-    1. [Theory 14.3: Safety Barriers](docs/theory/Theory_14.3_Safety_Barriers.md)
-    2. [Theory 14.4: Distributed Task Allocation](docs/theory/Theory_14.4_Distributed_Task_Allocation.md) ([Lab 14.4: Multi-Agent Trap](src/labs/lab_14_4_multi_agent_trap.py))
-    3. [Theory 14.5: Multi-Agent Collision Avoidance (RVO)](docs/theory/Theory_14.5_Multi_Agent_Collision_Avoidance_RVO.md)
-    4. [Theory 14.6: Communication-Aware Swarm Control](docs/theory/Theory_14.6_Communication_Aware_Swarm_Control.md)
-    **Lab:** [Lab 14.5: RVO Collision Avoidance](src/labs/lab_14_5_rvo_collision.py)
+    **Lab:** [Lab 14.5: RVO Collision Avoidance](src/labs/phase_7/lab_14_5_rvo_collision.py)
 
 *   **Module 15: Deep Perception (Advanced)**
-    CNNs and Metric Learning. **Prerequisites:** 
-    1. [Theory 15.5: Spatio-Temporal Change Detection](docs/theory/Theory_15.5_Spatio_Temporal_Change_Detection.md)
-    2. [Theory 15.6: Acoustic Localization](docs/theory/Theory_15.6_Acoustic_Localization.md)
     **Labs:**
-    1. [Lab 15.7: 3DGS Collision Check](src/labs/lab_15_7_3dgs_collision.py)
-    2. [Lab 15.2: Edge AI Quantization](src/labs/lab_15_2_quantization.py)
-    3. [Lab 15.6: Acoustic Localization](src/labs/lab_15_6_acoustic_loc.py)
+    1. [Lab 15.7: 3DGS Collision Check](src/labs/phase_7/lab_15_7_3dgs_collision.py)
+    2. [Lab 15.2: Edge AI Quantization](src/labs/phase_7/lab_15_2_quantization.py)
+    3. [Lab 15.6: Acoustic Localization](src/labs/phase_7/lab_15_6_acoustic_loc.py)
 
 ### **The Synthesis (Capstone Specials)**
-*   **[Synthesis Projects](docs/PROJECTS.md):** (1. Navigator, 2. Guardian, 3. Ghost, 4. Twin).
-*   **[THE FINAL CHALLENGE](docs/FINAL_CHALLENGE.md):** (Path A: Tactical, Path B: Swarm, Path C: AI Researcher).
+*   **[Synthesis Projects](PROJECTS.md):** (1. Navigator, 2. Guardian, 3. Ghost, 4. Twin).
+*   **[THE FINAL CHALLENGE](FINAL_CHALLENGE.md):** (Path A: Tactical, Path B: Swarm, Path C: AI Researcher).
 
 ### **Support Tools**
-*   [The Squid Standard: Units and Conventions](docs/theory/The_Standard_Convention.md)
-*   [The Pi Zero Survival Guide](docs/PI_ZERO_SURVIVAL_GUIDE.md)
-*   [Hardware Component Deep Dive](docs/HARDWARE_DEEP_DIVE.md)
-*   [The Robotics Debugging Guide](docs/Robotics_Debugging_Guide.md)
-*   [The Zero-to-PhD Cheat Sheet](docs/CHEAT_SHEET.md)
-*   [Environment Engineering (The Flight Room)](docs/Environment_Engineering.md)
-*   [Hardware Reference and Pinout](docs/hardware_reference.md)
-*   [Resources and Glossary](docs/RESOURCES_AND_GLOSSARY.md)
-*   [Environment Engineering (The Flight Room)](docs/Environment_Engineering.md)
-*   [Hardware Reference and Pinout](docs/hardware_reference.md)
-*   [Resources and Glossary](docs/RESOURCES_AND_GLOSSARY.md)
+*   [The Squid Standard](curriculum/theory_deep_dives/The_Standard_Convention.md)
+*   [The Pi Zero Survival Guide](curriculum/support_tools/PI_ZERO_SURVIVAL_GUIDE.md)
+*   [Hardware Component Deep Dive](curriculum/support_tools/HARDWARE_DEEP_DIVE.md)
+*   [The Robotics Debugging Guide](curriculum/support_tools/Robotics_Debugging_Guide.md)
+*   [The Zero-to-PhD Cheat Sheet](curriculum/support_tools/CHEAT_SHEET.md)
+*   [Environment Engineering](curriculum/support_tools/Environment_Engineering.md)
+*   [Hardware Reference and Pinout](curriculum/support_tools/hardware_reference.md)
+*   [Resources and Glossary](curriculum/support_tools/RESOURCES_AND_GLOSSARY.md)
 
 ### **Industrial Engineering Rigor**
 *   **Continuous Integration:** Automated regression testing via GitHub Actions and `pytest`.
-*   **SITL Environments:** Testing code in Gazebo before deploying to physical hardware.
+*   **SITL Environments:** Testing code in PyBullet before deploying to physical hardware.
 *   **Black-Box Logging:** Implementation of high-frequency data logging for post-flight analysis.
 *   **Hardware-in-the-Loop (HIL):** (Optional) Running the Pi Zero against a simulated physics engine.
-
-*   [Python Robotics Patterns (The Rosetta Stone)](docs/theory/Python_Robotics_Patterns.md)
-*   [Theory 0.6: The Motor Mixer Matrix](docs/theory/Theory_0.6_The_Motor_Mixer_Matrix.md)
-*   [Theory 1.5: Numerical Solvers and Sparsity](docs/theory/Theory_1.5_Numerical_Solvers_and_Sparsity.md)
-*   **Unit Testing Suite:** Run `pytest tests/` to verify lab logic before flight.
 
 ---
 

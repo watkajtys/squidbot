@@ -11,53 +11,22 @@ Squid fills this gap by providing a graduate-level curriculum on consumer-grade 
 ## The Mission: Systems Architecture
 Most robotics education focuses on tool usage. The Squid Project focuses on tool creation. You will write your own drivers, derive your own control laws, and implement state-of-the-art perception. By the end of this course, you will not just be a developer; you will be a Systems Architect capable of working at the highest levels of aerospace and AI research.
 
-## The Roadmap (Phases I - VII)
-1.  **Phase I: The Mechanic** (Hardware foundations, Linux scheduling, and raw Python drivers)
-2.  **Phase II: The Test Pilot** (Telemetry architecture, MAVLink, and Augmented Reality HUDs)
-3.  **Phase III: The Engineer** (Signal processing, Nyquist-Shannon, and PID Control Theory)
-4.  **Phase IV: The Architect** (ROS 2 Migration, State Estimation, and Extended Kalman Filters)
-5.  **Phase V: The Researcher** (Occupancy Mapping, Trajectory Optimization, and A-Star Search)
-6.  **Phase VI: The Specialist** (Reinforcement Learning, Pro-Nav Guidance, and Tactical Autonomy)
-7.  **Phase VII: The Frontier** (Visual Inertial Odometry, Swarm Consensus, and Deep Perception)
-
 ## Project Structure
-*   **[COURSE_MAP.md](docs/COURSE_MAP.md)**: The high-level visual roadmap of the curriculum.
-*   **[COURSE.md](docs/COURSE.md)**: The integrated step-by-step experiment guide linking theory to labs.
-*   **[The Squid Standard](docs/theory/The_Standard_Convention.md)**: Units, coordinate frames, and coding conventions.
-*   **docs/**: 16 comprehensive modules, academic lectures, and high-density study guides.
-    *   **study_guides/**: The core educational nodes with mental models and "Frontier Facts."
-    *   **theory/**: Mathematical deep-dives into Jacobians, Factor Graphs, and Lie Theory.
-    *   **PI_ZERO_SURVIVAL_GUIDE.md**: Critical thermal and power management for the Pi Zero.
-    *   **HARDWARE_DEEP_DIVE.md**: In-depth physics and math of the sensor array.
-    *   **LECTURES.md**: The theoretical study guide with academic reading lists.
-    *   **COURSE.md**: The integrated step-by-step experiment guide.
-*   **ros2_ws/**: A scaffolded ROS 2 (Humble/Iron) workspace for distributed drone intelligence.
-*   **src/**: Production-ready Python source code for drivers, controllers, and laboratory experiments.
-*   **simulation/**: PyBullet and Gym physics environments for "Sim-to-Real" validation.
-*   **hardware/**: CAD files (.scad) and wiring schematics.
-*   **tools/**: Automation scripts (e.g., setup_pi.sh).
-*   **tests/**: A robust mathematical test suite to verify implementation logic before flight.
+*   **[COURSE_MAP.md](COURSE_MAP.md)**: The high-level visual roadmap of the curriculum.
+*   **[COURSE.md](COURSE.md)**: The integrated step-by-step experiment guide.
+*   **curriculum/**: Centralized educational assets.
+    *   **theory_deep_dives/**: Mathematical deep-dives into Jacobians and Lie Theory.
+    *   **phase_resources/**: Study guides and mental models.
+    *   **phase_1_mechanic/** to **phase_7_frontier/**: Module experiments.
+*   **src/labs/**: 31 scaffolded labs organized by Phase subfolders.
+*   **src/drivers/**: Production Python drivers for MSP, ToF, and Optical Flow.
+*   **simulation/**: PyBullet SITL (Software-in-the-Loop) engine.
+*   **tests/**: Mathematical validation suite.
 
-## Getting Started (Module 0)
-1.  **Prerequisites:** Read [Hardware Foundations](docs/Hardware_Foundations.md) and [The Mathematician](docs/theory/Paper_0.1_The_Mathematician.md).
-2.  **Environment:** Run `sudo ./tools/setup_pi.sh` on your Raspberry Pi Zero 2 W.
-3.  **Labs:** Complete the [Module 0 Bench Labs](docs/Module_0_Labs.md) before assembly.
-4.  **Validation:** Run `python3 src/final_check.py` to verify your installation.
-
-## Hardware Platform
-The Squid is a custom-designed micro-platform optimized for indoor autonomy and research:
-*   **Frame**: BetaFPV Pavo20 (2-inch ducted CineWhoop).
-*   **Compute**: Raspberry Pi Zero 2 W (Quad-core Linux, 512MB RAM).
-*   **Flight Controller**: STM32 F405 (Running Betaflight as an actuator server).
-*   **Sensors**:
-    *   **Mapping**: VL53L5CX (8x8 Zone Time-of-Flight Matrix).
-    *   **Range**: 2x VL53L1X (1D Lidar for Altitude and Ceiling Lock).
-    *   **Vision**: Arducam IMX219 (160-degree Fisheye Lens).
-    *   **Optical Flow**: PMW3901 (Velocity estimation).
-    *   **Position**: M10Q GPS + Compass (Outdoor navigation).
-
-## Safety and Legal
-Robotics involves high-energy systems. Students must strictly adhere to the [Safety Manual](docs/safety_manual.md). Propellers must remain OFF during all bench-testing and driver development. All outdoor flight must comply with local FAA/EASA regulations regarding micro-UAVs (< 250g).
+## Getting Started
+1.  **Prerequisites:** Read the **[SYLLABUS.md](SYLLABUS.md)** and **[Hardware Foundations](curriculum/support_tools/Hardware_Foundations.md)**.
+2.  **Environment:** Follow the **[Pi Zero Survival Guide](curriculum/support_tools/PI_ZERO_SURVIVAL_GUIDE.md)** for initial setup.
+3.  **Labs:** Start with **[Lab 0.1](src/labs/phase_1/lab_0_1_realtime_jitter.py)** to verify your timing budget.
 
 ## The Burnout Shield
 This curriculum is academically dense. To ensure completion:
