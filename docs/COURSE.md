@@ -1,255 +1,84 @@
-# The "Squid" Integrated Curriculum (Verified)
-**Standard:** Matches ETH Zurich / UPenn MEAM 620
-**Flow:** Hardware $\to$ Software $\to$ Control $\to$ Estimation $\to$ Intelligence.
+# The Squid Drone Integrated Course Guide
+**Focus:** Hardware -> Software -> Control -> Estimation -> Intelligence.
+
+This document links the theoretical Lectures to the practical Study Guides and the physical Squid Games challenges. Follow this step-by-step path to master the full robotics stack.
 
 ---
 
-## **PHASE I: THE MECHANIC (Hardware & Instincts)**
-
-
-
-### **Module 0: The Foundation**
-
-*   **0.A:** [Hardware Foundations](Hardware_Foundations.md) - Electronics, Soldering, and Tools.
-
-*   **0.B:** [Theory Handbook](theory/Theory_0_Concepts.md) - Vibration, Camera Models, and Real-Time Physics.
-
-*   **0.C:** [Pre-Flight Labs](Module_0_Labs.md) - Bench testing, Linux, and Wi-Fi mapping.
-
-*   **0.D:** [The Build Guide](Module_0_The_Build.md) - Assembly and Headless Linux Setup.
-
-    *   **Check:** The Smoke Test (Connectivity Verification).
-
-
-
-### **Module 1: The Bare Metal API**
-
-*   **1.0:** [The Heartbeat](Module_1_The_Bare_Metal_API.md#10-lab-the-heartbeat-your-first-success) - Blinking the onboard LED.
-
-*   **1.1:** MSP Protocol: Byte-level motor control.
-
-    *   **Sub-Lab:** **The UART Sanity Check.** ASK the FC for its version before spinning motors.
-
-    *   **Sub-Lab:** **The MSP Hex Dump.** View the raw bytes.
-
-    *   **The Checksum Challenge:** Manually XOR the bytes to verify protocol integrity.
-
-*   **1.2:** I2C Drivers: Raw sensor access.
-
-    *   **Sub-Lab:** **The I2C Scanner.** Prove you can see the wires before writing the driver.
-
-*   **1.3:** The Game Loop: Timing & Jitter.
-
-*   **Check:** The Reflex (Sensor-based throttle).
-
-
-
----
-
-
-
-## **PHASE II: THE TEST PILOT (Observability)**
-
-
-
-### **Module 2: The Telemetry Stack**
-
-*   **2.1:** Networking: UDP Sockets & Latency.
-
-    *   **Sub-Lab:** **The Packet Loss Simulation.** Dropping packets to test robustness.
-
-    *   **Sub-Lab:** **The Jitter Test.** Adding random delay to see the "Stutter" effect.
-
-*   **2.2:** The Dashboard: React/HTML5 Real-time plotting.
-
-*   **2.3:** The Logger: High-frequency CSV logging.
-
-    *   **Sub-Lab:** **CSV to Plot.** Post-flight autopsy of loop stability.
-
-*   **Check:** The Flight Recorder (Data analysis).
-
-
-
-### **Module 3: FPV & HUD**
-
-*   **3.1:** Video Pipeline: Hardware Encoding.
-
-*   **3.2:** Augmented Reality: Overlaying Data.
-
-    *   **Sub-Lab:** **The Virtual Horizon.** Drawing a line that stays level with the earth.
-
-*   **Check:** Instrument Flight.
-
-
-
----
-
-
-
-## **PHASE III: THE ENGINEER (Control & Math)**
-
-
-
-### **Module 4: Signal Processing & Geometry**
-
-*   **4.1:** Coordinate Frames: [Theory 1: Coordinate Systems](theory/Theory_1_Coordinate_Systems.md).
-
-*   **4.2:** Vibration Analysis: FFTs & Notch Filters.
-
-    *   **Sub-Lab:** **Phase Lag Visualization.** Measuring the time-cost of your filters.
-
-*   **4.3:** System ID: [Measuring Thrust & Inertia](../src/labs/lab_4_sysid.py).
-
-*   **Check:** The Flatline (Clean Data).
-
-
-
-### **Module 5: Control Theory**
-
-*   **Prerequisite:** [Theory 4: PID to LQR](theory/Theory_4_PID_to_LQR.md).
-
-*   **5.1:** The Feedback Loop: PID Derivation.
-
-*   **5.2:** Implementation: [The Anti-Windup Guard](Module_5_Control_Theory.md#521-sub-lab-the-anti-windup-guard).
-
-*   **5.3:** Tuning: Empirical Ziegler-Nichols.
-
-    *   **Sub-Lab:** **The Oscillation Hunt.** Scientifically finding the Ultimate Gain ($K_u$).
-
-*   **Check:** The Statue (Precision Hover).
-
-
-
----
-
-
-
-## **PHASE IV: THE ARCHITECT (Scale & Standards)**
-
-
-
-### **Module 6: The ROS 2 Migration**
-
-*   **6.4:** Safety: [Lifecycle Nodes](Module_6_ROS2_Migration.md#64-safety-architecture-lifecycle-nodes).
-
-*   **Check:** The Replica (Port validation).
-
-
-
-### **Module 7: State Estimation (The Truth)**
-
-*   **Prerequisite:** [Theory 2: The EKF](theory/Theory_2_The_EKF.md).
-
-*   **7.3:** Sensor Fusion.
-
-    *   **Sub-Lab:** **The Outlier Rejection Test.** Tricking the robot with a piece of paper to see if the EKF ignores the "Liar."
-
-*   **7.5:** Calibration: [The Compass](Module_7_State_Estimation.md#75-calibration-the-compass).
-
-*   **Check:** The Push Test.
-
-
-
----
-
-
-
-## **PHASE V: THE RESEARCHER (Advanced Autonomy)**
-
-
-
-### **Module 8: Perception & Mapping**
-
-*   **Prerequisite:** [Theory 5: SLAM & Factor Graphs](theory/Theory_5_SLAM_and_Factor_Graphs.md).
-
-*   **8.1:** Point Clouds.
-
-    *   **Sub-Lab:** **The Mirror Mystery.** Seeing the "Ghost Room" in reflections.
-
-*   **Check:** The Ghost Map.
-
-
-
-### **Module 9: Trajectory Optimization**
-
-*   **Prerequisite:** [Theory 3: Splines & Optimization](theory/Theory_3_Splines_and_Optimization.md).
-
-*   **9.4:** Advanced: [Geometric Control on SE(3)](Module_9_Trajectory_Optimization.md#94-advanced-tracking-geometric-control-on-se3).
-
-*   **9.5:** Search: [Implementing A-Star](../src/labs/lab_9_planning.py).
-
-*   **Check:** The Speed Run.
-
-
-
----
-
-
-
-## **PHASE VI: THE SPECIALIST (Tactical Engagement)**
-
-
-
-### **Module 10: Reinforcement Learning**
-
-*   **10.1:** Training.
-
-    *   **Sub-Lab:** **Reward Hacking.** Watching an AI learn to "cheat" a bad reward function.
-
-    *   **Sub-Lab:** **The Digital Twin Audit.** Comparing a flight log to the Sim to measure "Reality Gap."
-
-*   **Check:** The Uncrashable Drone.
-
-
-
-### **Module 11: Aerial Combat**
-
-*   **11.4:** Advanced: [The QR Courier](Module_11_Aerial_Combat_and_Guidance.md#114-sub-lab-the-qr-courier).
-
-*   **Check:** The Dark Room Scenario.
-
-
-
-### **Module 12: Outdoor Autonomy**
-
-*   **Prerequisite:** [Theory 7: Behavior Trees](theory/Theory_7_Behavior_Trees.md).
-
-*   **12.1:** GPS.
-
-    *   **Sub-Lab:** **The GPS Treasure Hunt.** Walking the math to verify NED transforms.
-
-*   **Check:** The Mile Run.
-
-
-
----
-
-
-
-## **PHASE VII: THE FRONTIER (PhD Level)**
-
-
-
-### **Module 13: Visual Inertial Odometry (VIO)**
-
-*   **Prerequisite:** [Theory 6: VIO & Preintegration](theory/Theory_6_VIO_and_Preintegration.md).
-
-*   **Theory Bonus:** [The Initialization Problem](theory/Theory_6_VIO_and_Preintegration.md#5-the-initialization-problem).
-
-*   **Check:** The Loop Closure.
-
-
-
-### **Module 14: Swarm Theory**
-
-*   **14.2:** Lab: [The Consensus Drill](Module_14_Swarm_Theory.md#142-sub-lab-the-consensus-drill).
-
-*   **Check:** The Synchronized Dance.
-
-
-
-### **Module 15: Deep Perception**
-
-*   **15.1:** Lab: [Siamese Networks for Loop Closure].
-
-*   **Check:** The Memory (Global Localization).
+### Phase I: The Mechanic (Hardware Foundations)
+1.  **Module 0: Systems Engineering**
+    *   Learn: [Lecture 0](LECTURES.md#lecture-0-systems-engineering) and [Study Guide 0](study_guides/Module_0_Study_Guide.md).
+    *   Do: [Module 0 Bench Labs](Module_0_Labs.md) (Power audit, Linux shell, Wi-Fi mapping).
+    *   Win: **Morse Heartbeat Challenge** (Verify LED timing jitter).
+2.  **Module 1: The Bare Metal API**
+    *   Learn: [Lecture 1](LECTURES.md#lecture-1-embedded-communication--numerics) and [Study Guide 1](study_guides/Module_1_Study_Guide.md).
+    *   Do: [Lab 1: Mixers](../src/labs/lab_0_6_mixers.py) (Writing the Motor Mixer Matrix).
+    *   Win: **Three-Motor Limp** (Verify fault-tolerant mixing logic).
+
+### Phase II: The Test Pilot (Observability)
+3.  **Module 2: Telemetry Stack**
+    *   Learn: [Lecture 2](LECTURES.md#lecture-2-stochastic-processes) and [Study Guide 2](study_guides/Module_2_Study_Guide.md).
+    *   Do: [Dashboard Setup](Module_2_The_Telemetry_Stack.md) (Real-time plotting and CRC validation).
+    *   Win: **Lag-Free HUD** (Verify sub-50ms data streaming latency).
+4.  **Module 3: Sensing the World**
+    *   Learn: [Lecture 3](LECTURES.md#lecture-3-computer-vision-fundamentals) and [Study Guide 3](study_guides/Module_3_Study_Guide.md).
+    *   Do: [Lab 3: Calibration](../src/labs/lab_3_calibration.py) (Fisheye rectification).
+    *   Win: **Virtual Horizon** (Verify IMU-to-Camera extrinsic alignment).
+
+### Phase III: The Engineer (Dynamics and Control)
+5.  **Module 4: Signal Processing**
+    *   Learn: [Lecture 4](LECTURES.md#lecture-4-rotations--lie-groups-part-i) and [Study Guide 4](study_guides/Module_4_Study_Guide.md).
+    *   Do: [Lab 4: SysID](../src/labs/lab_4_sysid.py) (Identifying Mass and Thrust constants).
+    *   Win: **The Notch Filter** (Verify 15dB motor vibration reduction).
+6.  **Module 5: Control Theory**
+    *   Learn: [Lecture 5](LECTURES.md#lecture-5-control-theory) and [Study Guide 5](study_guides/Module_5_Study_Guide.md).
+    *   Do: [Lab 5: PID](../src/labs/lab_5_pid.py) (Attitude and Altitude control).
+    *   Win: **The Statue Hover Challenge** (Maintain 20cm RMS position error).
+
+### Phase IV: The Architect (Scale and Safety)
+7.  **Module 6: ROS 2 Migration**
+    *   Learn: [Study Guide 6](study_guides/Module_6_Study_Guide.md) and [Migration Guide](Module_6_ROS2_Migration.md).
+    *   Do: Build the scaffolded ROS 2 Workspace (`colcon build`).
+    *   Win: **The Latency Hunt** (Verify <5ms transport delay between nodes).
+8.  **Module 7: State Estimation**
+    *   Learn: [Lecture 7](LECTURES.md#lecture-6--7-state-estimation-the-kalman-filter) and [Study Guide 7](study_guides/Module_7_Study_Guide.md).
+    *   Do: [Lab 7: EKF](../src/labs/lab_7_ekf.py) (Fusing IMU, Lidar, and GPS).
+    *   Win: **The Paper Trick** (Verify altitude outlier rejection).
+
+### Phase V: The Researcher (Autonomy)
+9.  **Module 8: Perception and Mapping**
+    *   Learn: [Lecture 9](LECTURES.md#lecture-9-slam--geometry) and [Study Guide 8](study_guides/Module_8_Study_Guide.md).
+    *   Do: [Lab 8: Mapping](../src/labs/lab_8_6_perch_finder.py) (Building Occupancy Grids).
+    *   Win: **The Mirror Maze Challenge** (Verify reflection noise filtering).
+10. **Module 9: Trajectory Optimization**
+    *   Learn: [Lecture 9.5](LECTURES.md#lecture-95-path-planning--search) and [Study Guide 9](study_guides/Module_9_Study_Guide.md).
+    *   Do: [Lab 9: Planning](../src/labs/lab_9_planning.py) (A* and Minimum Snap).
+    *   Win: **The Maze Runner** (Verify planning optimality and smoothness).
+
+### Phase VI: The Specialist (Tactics and AI)
+11. **Module 10: Reinforcement Learning**
+    *   Learn: [Study Guide 10](study_guides/Module_10_Study_Guide.md).
+    *   Do: [Lab 10: RL](../src/labs/lab_10_6_sim_to_real.py) (Sim-to-Real Domain Randomization).
+    *   Win: **Noise Resilience Challenge** (Verify policy survival at 50ms action latency).
+12. **Module 11: Aerial Combat**
+    *   Learn: [Lecture 12](LECTURES.md#lecture-11-reinforcement-learning) and [Study Guide 11](study_guides/Module_11_Study_Guide.md).
+    *   Do: [Lab 11: Guidance](../src/labs/lab_11_pro_nav.py) (Proportional Navigation).
+    *   Win: **Fox Two Lock-on** (Verify <20cm interception miss distance).
+13. **Module 12: Outdoor Autonomy**
+    *   Learn: [Lecture 12.6](LECTURES.md#lecture-123-pursuit-evasion-games) and [Study Guide 12](study_guides/Module_12_Study_Guide.md).
+    *   Do: [Lab 12: Docking](../src/labs/lab_12_6_docking.py) (Behavior Tree navigation).
+    *   Win: **Precision Dock Challenge** (Verify 5cm final approach accuracy).
+
+### Phase VII: The Frontier (Experimental Research)
+14. **Module 13: Visual Inertial Odometry (VIO)**
+    *   Learn: [Lecture 13](LECTURES.md#lecture-13-visual-inertial-odometry-vio) and [Study Guide 13](study_guides/Module_13_Study_Guide.md).
+    *   Do: [Lab 13: KLT](../src/labs/lab_13_klt_tracker.py) (Tightly-coupled fusion).
+    *   Win: **The Shadow Hunt** (Verify feature tracking in low-light conditions).
+15. **Module 14: Swarm Theory**
+    *   Learn: [Lecture 14](LECTURES.md#lecture-14-swarm-theory) and [Study Guide 14](study_guides/Module_14_Study_Guide.md).
+    *   Do: [Lab 14: Swarms](../src/labs/lab_14_safety_barriers.py) (Consensus and CBFs).
+    *   Win: **Consensus Dance** (Verify three-drone formation stability).
+16. **Module 15: Deep Perception**
+    *   Learn: [Lecture 15](LECTURES.md#lecture-15-deep-perception) and [Study Guide 15](study_guides/Module_15_Study_Guide.md).
+    *   Do: [Lab 15: Siamese](../src/labs/lab_15_siamese_perception.py) (Metric learning).
+    *   Win: **The Hallucination Challenge** (Verify zero false-positive loop closures).

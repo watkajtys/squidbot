@@ -3,7 +3,7 @@
 
 ---
 
-## 📐 1. Rotation & Geometry
+## 1. Rotation & Geometry
 **"Degrees are for humans. Radians are for robots."**
 
 *   **Degrees to Radians:** $rad = deg \times \frac{\pi}{180}$
@@ -32,7 +32,7 @@ $$
 
 ---
 
-## 🏎 2. Physics & Dynamics
+## 2. Physics & Dynamics
 *   **Gravity ($g$):** $9.80665 \, m/s^2$
 *   **Force:** $F = m \cdot a$
 *   **Torque:** $\tau = r \times F$
@@ -41,7 +41,7 @@ $$
 
 ---
 
-## 📡 3. Signal Processing
+## 3. Signal Processing
 *   **Sampling Frequency ($f_s$):** $1 / \Delta t$
 *   **Nyquist Limit:** $f_{max} = f_s / 2$
 *   **Discrete Low-Pass Filter (Alpha):**
@@ -50,7 +50,7 @@ $$
 
 ---
 
-## 🕹 4. Control Theory (PID)
+## 4. Control Theory (PID)
 *   **Standard Form:** $u(t) = K_p e(t) + K_i \int e(t)dt + K_d \frac{de}{dt}$
 *   **Anti-Windup (PhD Tip):** Always clamp your Integral term to prevent "flyaways" after a collision.
     `if I > limit: I = limit`
@@ -58,13 +58,13 @@ $$
 
 ---
 
-## 🧠 5. State Estimation (EKF)
+## 5. State Estimation (EKF)
 *   **The Mahalanobis Distance:** $d^2 = \Delta z^T S^{-1} \Delta z$
     *   *Interpretation:* If $d^2 > 9$, there is a 99% chance the sensor is lying (Outlier).
 
 ---
 
-## 🛠 6. Standard Ports & Pins (Squid Platform)
+## 6. Standard Ports & Pins (Squid Platform)
 *   **I2C Bus:** `/dev/i2c-1`
 *   **UART:** `/dev/ttyAMA0` (Serial0)
 *   **Default ToF Address:** `0x29`
@@ -72,7 +72,7 @@ $$
 
 ---
 
-## 💡 7. Debugging "Vibes"
+## 7. Debugging Symptoms
 | Symptom | Probable Cause | Fix |
 | :--- | :--- | :--- |
 | **Warm Motors** | $D$ gain too high or Noisy Gyro | Lower $D$ or add LPF |
