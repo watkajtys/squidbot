@@ -32,6 +32,11 @@ This document supports the Master Curriculum. Refer to this when you encounter n
 *   **3D Gaussian Splatting:** [Luma AI / 3DGS Paper](https://repo-lpni.github.io/3dgs/). *Differentiable 3D representation.*
 *   **Reachability:** [Berkeley Hybrid Systems Lab](https://hybrid.eecs.berkeley.edu/). *Hamilton-Jacobi Reachability for safety.*
 
+### **6. Local Project Guides**
+*   [The Pi Zero Survival Guide](PI_ZERO_SURVIVAL_GUIDE.md) - Power and thermal management.
+*   [Hardware Component Deep Dive](HARDWARE_DEEP_DIVE.md) - Physics and math of the sensors.
+*   [Hardware Foundations](Hardware_Foundations.md) - Electronics and soldering 101.
+
 ---
 
 ## 📖 Glossary of Terms

@@ -40,22 +40,22 @@ Follow the order below. Do not move to the next Phase until you have completed t
 | Module | Theoretical Lecture | Practical Lab | Study Guide | Challenge |
 | :--- | :--- | :--- | :--- | :--- |
 | **8: Mapping** | [Lecture 9](LECTURES.md#lecture-9-slam--geometry) | [Lab 15.5: Change Det](../src/labs/lab_15_5_change_detection.py) | [Study Guide 8](study_guides/Module_8_Study_Guide.md) | **The Mirror Maze** |
-| **9: Planning** | [Lecture 9.5](LECTURES.md#lecture-95-path-planning--search) | [Lab 9: Planning](../src/labs/lab_9_planning.py) | [Study Guide 9](study_guides/Module_9_Study_Guide.md) | **The Maze Runner** |
+| **9: Planning** | [Lecture 9.5](LECTURES.md#lecture-95-path-planning--search) | [Lab 9: Planning](../src/labs/lab_9_planning.py) | [Study Guide 9](study_guides/Module_9_Study_Guide.md) | **[The Maze Runner](PROJECTS.md#project-1-the-labyrinth-navigator)** |
 
 ### **Phase VI: The Specialist (Tactics & AI)**
 | Module | Theoretical Lecture | Practical Lab | Study Guide | Challenge |
 | :--- | :--- | :--- | :--- | :--- |
 | **10: RL** | [Lecture 10.1](LECTURES.md#lecture-101-reinforcement-learning-foundations) | [Lab 10.7: LNN](../src/labs/lab_10_7_liquid_nets.py) | [Study Guide 10](study_guides/Module_10_Study_Guide.md) | **Noise Resilience** |
-| **11: Tactics** | [Lecture 12.3](LECTURES.md#lecture-123-pursuit-evasion-games) | [Lab 12.3: Reachable](../src/labs/lab_12_3_reachability.py) | [Study Guide 11](study_guides/Module_11_Study_Guide.md) | **Fox Two Lock-on** |
+| **11: Tactics** | [Lecture 12.3](LECTURES.md#lecture-123-pursuit-evasion-games) | [Lab 12.3: Reachable](../src/labs/lab_12_3_reachability.py) | [Study Guide 11](study_guides/Module_11_Study_Guide.md) | **[Fox Two Lock-on](PROJECTS.md#project-3-the-ghost-in-the-machine-tactical-autonomy)** |
 | **12: Outdoor** | [Lecture 12.5](LECTURES.md#lecture-125-bayesian-search-theory) | [Lab 11.5: Search](../src/labs/lab_11_5_search_heatmap.py) | [Study Guide 12](study_guides/Module_12_Study_Guide.md) | **Precision Dock** |
 | *Note:* | *Introduce CI/CD (GitHub Actions) for automated testing of advanced AI models.* | | | |
 
 ### **Phase VII: The Frontier (Experimental)**
 | Module | Theoretical Lecture | Practical Lab | Study Guide | Challenge |
 | :--- | :--- | :--- | :--- | :--- |
-| **13: VIO** | [Lecture 13](LECTURES.md#lecture-13-visual-inertial-odometry-vio) | [Lab 13: KLT](../src/labs/lab_13_klt_tracker.py) | [Study Guide 13](study_guides/Module_13_Study_Guide.md) | **The Shadow Hunt** |
+| **13: VIO** | [Lecture 13](LECTURES.md#lecture-13-visual-inertial-odometry-vio) | [Lab 13: KLT](../src/labs/lab_13_klt_tracker.py) | [Study Guide 13](study_guides/Module_13_Study_Guide.md) | **[The Shadow Hunt](PROJECTS.md#project-4-the-digital-twin-hil-shadowing)** |
 | **14: RVO** | [Lecture 14.3](LECTURES.md#1431-decentralized-collision-avoidance) | [Lab 14.5: RVO](../src/labs/lab_14_5_rvo_collision.py) | | |
-| **15: Deep AI** | [Lecture 15](LECTURES.md#lecture-15-deep-perception) | [Lab 15.7: 3DGS](../src/labs/lab_15_7_3dgs_collision.py) | [Study Guide 15](study_guides/Module_15_Study_Guide.md) | **The AI Speed-Run** |
+| **15: Deep AI** | [Lecture 15](LECTURES.md#lecture-15-deep-perception) | [Lab 15.7: 3DGS](../src/labs/lab_15_7_3dgs_collision.py) | [Study Guide 15](study_guides/Module_15_Study_Guide.md) | **[The AI Speed-Run](PROJECTS.md#project-2-the-silent-guardian-stealth--stability)** |
 | **15.6: Audio**| [Theory 15.6](theory/Theory_15.6_Acoustic_Localization.md) | [Lab 15.6: Audio](../src/labs/lab_15_6_acoustic_loc.py) | | |
 
 ---

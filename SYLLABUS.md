@@ -179,8 +179,13 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
 
 ### **Support Tools**
 *   [The Squid Standard: Units and Conventions](docs/theory/The_Standard_Convention.md)
+*   [The Pi Zero Survival Guide](docs/PI_ZERO_SURVIVAL_GUIDE.md)
+*   [Hardware Component Deep Dive](docs/HARDWARE_DEEP_DIVE.md)
 *   [The Robotics Debugging Guide](docs/Robotics_Debugging_Guide.md)
 *   [The Zero-to-PhD Cheat Sheet](docs/CHEAT_SHEET.md)
+*   [Environment Engineering (The Flight Room)](docs/Environment_Engineering.md)
+*   [Hardware Reference and Pinout](docs/hardware_reference.md)
+*   [Resources and Glossary](docs/RESOURCES_AND_GLOSSARY.md)
 *   [Environment Engineering (The Flight Room)](docs/Environment_Engineering.md)
 *   [Hardware Reference and Pinout](docs/hardware_reference.md)
 *   [Resources and Glossary](docs/RESOURCES_AND_GLOSSARY.md)
