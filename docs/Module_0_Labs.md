@@ -66,7 +66,12 @@ Before you assemble the drone, you must master your tools. These labs are design
 
 ---
 
-## **Module 0 Lab Checklist**
+## **Lab 0.6: The Power Curve**
+### **Goal:** Understand how your battery affects your thrust.
+1.  **Theory:** A drone motor's RPM is determined by $V \times KV$. If your battery voltage drops from 12.6V (Full) to 11.1V (Low), your max thrust drops by ~20%.
+2.  **Exercise:** Use a multimeter to monitor your battery voltage while you spin up the motors (Props OFF) to 100% in Betaflight.
+    *   **Observe:** Does the voltage "sag" when the motors are at 100%?
+    *   **The Math:** Calculate the percentage loss in potential RPM between Full and Low battery. This is why our controllers will need "Voltage Scaling" in Phase III.
 - [ ] BEC output is 5V.
 - [ ] Can SSH and run a Python script.
 - [ ] 3D Model in Betaflight matches my hand movements.

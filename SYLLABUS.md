@@ -29,9 +29,12 @@ We do not just learn the newest tools; we master the progression of technology. 
 ### Core Competencies
 By the end of this course, you will possess a "Full Stack" robotics skillset:
 *   **Embedded Systems Engineering:** Understanding Real-time Linux constraints, writing I2C/UART drivers, and managing hardware interrupts.
+*   **Data Engineering & Observability:** Analyzing telemetry with industrial tools like Foxglove and PlotJuggler; implementing NIS/NEES consistency tests for state estimation.
+*   **Sim-to-Real Transfer:** Building Software-in-the-Loop (SITL) simulations; mastering domain randomization to bridge the reality gap.
 *   **Control Theory:** Evolution from PID to Model Predictive Control (MPC) and Hamilton-Jacobi Reachability for formal safety.
 *   **Signal Processing:** Nyquist-Shannon sampling, digital filtering (Low-pass, Notch), and vibration analysis via FFTs.
 *   **State Estimation:** Optimal estimation via Extended Kalman Filters (EKF), sensor fusion, and covariance analysis.
+*   **Reliability Engineering:** Implementing failsafes, battery-aware flight logic, and graceful degradation under sensor loss.
 *   **Robotic Architecture:** Scalable, distributed systems using ROS 2 (Robot Operating System) and Data Distribution Services (DDS).
 *   **Artificial Intelligence:** Deep Reinforcement Learning (PPO), Curriculum Learning, and Adaptive Liquid Neural Networks (LNNs).
 *   **Spatial Awareness:** Mapping via Occupancy Grids and 3D Gaussian Splatting (3DGS).
@@ -63,11 +66,14 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
     Writing raw Python drivers. **Prerequisite:** [Theory 0.6: The Motor Mixer Matrix](docs/theory/Theory_0.6_The_Motor_Mixer_Matrix.md).
 
 #### Phase II: The Test Pilot (Observability)
-*   **Module 2: The Telemetry Stack**
+*   **Module 2: The Telemetry Stack (Data Engineering)**
+    Integrating **Foxglove Studio** and **PlotJuggler** for real-time diagnostics.
 *   **Module 3: FPV and HUD (Augmented Reality)**
     **Prerequisite:** [Theory 0.3: Calibration and Extrinsics](docs/theory/Theory_0.3_Calibration_and_Extrinsics.md).
 
 #### Phase III: The Engineer (Control and Math)
+*   **Module 3.5: SITL Simulation**
+    Building the **Software-in-the-Loop** environment in Gazebo/PyBullet.
 *   **Module 4: Signal Processing and Geometry**
     **Prerequisite:** [Theory 1: Coordinate Systems](docs/theory/Theory_1_Coordinate_Systems.md).
 *   **Module 5: Control Theory**
@@ -80,12 +86,15 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
 
 #### Phase IV: The Architect (Scale and Safety)
 *   **Module 6: The ROS 2 Migration**
+*   **Module 6.5: Failsafes and Reliability**
+    Implementing watchdogs, battery-critical logic, and sensor-loss fallbacks.
 *   **Module 7: State Estimation (The Truth)**
     **Prerequisites:** 
     1. [Theory 2: The EKF](docs/theory/Theory_2_The_EKF.md)
     2. [Theory 7.1: Deriving Jacobians](docs/theory/Theory_7.1_Deriving_Jacobians.md)
-    3. [Theory 7.5: Allan Variance](docs/theory/Theory_7.5_Allan_Variance.md) ([Lab 7.5: Allan Variance](src/labs/lab_7_5_allan_variance.py))
-    4. [Theory 7.6: IMM Adversarial Tracking](docs/theory/Theory_7.6_IMM_Adversarial_Tracking.md)
+    3. [Theory 7.2: Consistency Analysis (NIS/NEES)](docs/theory/Theory_7.2_Consistency_Tests.md)
+    4. [Theory 7.5: Allan Variance](docs/theory/Theory_7.5_Allan_Variance.md) ([Lab 7.5: Allan Variance](src/labs/lab_7_5_allan_variance.py))
+    5. [Theory 7.6: IMM Adversarial Tracking](docs/theory/Theory_7.6_IMM_Adversarial_Tracking.md)
 
 #### Phase V: The Researcher (Autonomy)
 *Building the brain that understands space.*
@@ -136,8 +145,6 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
     1. [Theory 15.5: Spatio-Temporal Change Detection](docs/theory/Theory_15.5_Spatio_Temporal_Change_Detection.md)
     2. [Theory 15.6: Acoustic Localization](docs/theory/Theory_15.6_Acoustic_Localization.md)
 
----
-
 ### **Support Tools**
 *   [The Squid Standard: Units and Conventions](docs/theory/The_Standard_Convention.md)
 *   [The Robotics Debugging Guide](docs/Robotics_Debugging_Guide.md)
@@ -146,7 +153,12 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
 *   [Hardware Reference and Pinout](docs/hardware_reference.md)
 *   [Resources and Glossary](docs/RESOURCES_AND_GLOSSARY.md)
 
-### **Numerical and Software Engineering**
+### **Industrial Engineering Rigor**
+*   **Continuous Integration:** Automated regression testing via GitHub Actions and `pytest`.
+*   **SITL Environments:** Testing code in Gazebo before deploying to physical hardware.
+*   **Black-Box Logging:** Implementation of high-frequency data logging for post-flight analysis.
+*   **Hardware-in-the-Loop (HIL):** (Optional) Running the Pi Zero against a simulated physics engine.
+
 *   [Python Robotics Patterns (The Rosetta Stone)](docs/theory/Python_Robotics_Patterns.md)
 *   [Theory 0.6: The Motor Mixer Matrix](docs/theory/Theory_0.6_The_Motor_Mixer_Matrix.md)
 *   [Theory 1.5: Numerical Solvers and Sparsity](docs/theory/Theory_1.5_Numerical_Solvers_and_Sparsity.md)

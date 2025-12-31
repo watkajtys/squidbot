@@ -399,3 +399,33 @@ This document serves as both a syllabus and a detailed study guide. It maps the 
 *   **15.2 Metric Learning:**
     *   **Siamese Networks:** Learning to match image patches for loop closure detection.
     *   **Triplet Loss:** Minimizing intra-class distance while maximizing inter-class distance.
+
+---
+
+## PHASE VIII: THE MORAL PILOT (Ethics & Responsibility)
+
+### Lecture 16: The Ethics of Autonomous Flight
+**"With great compute comes great responsibility."**
+
+As a Systems Architect, you aren't just writing code; you are building an entity that makes decisions in the physical world. This lecture covers the legal, ethical, and societal implications of your work.
+
+#### Core Readings
+*   **Safety:** "The Ethical Robot" by Borenstein and Arkin.
+*   **Privacy:** "Drones and Privacy" (Brookings Institution Report).
+
+#### Key Concepts
+*   **16.1 The "Human-in-the-Loop" (HITL) Requirement:**
+    *   Why fully autonomous "lethal" or "high-risk" decisions must always have a human veto.
+    *   **The Responsibility Gap:** Who is liable if a self-learning RL agent makes a mistake? The coder? The trainer? The operator?
+*   **16.2 Privacy by Design:**
+    *   **Data Minimization:** If your drone only needs to see "walls," why are you recording and storing faces?
+    *   **On-Device Processing:** Keeping data on the drone (Edge AI) rather than the cloud as a privacy feature.
+*   **16.3 Dual-Use Dilemmas:**
+    *   The realization that the same "Search and Rescue" code can be used for "Search and Target."
+    *   **The Engineer's Oath:** Establishing your personal ethical boundaries in aerospace and defense.
+*   **16.4 Safety-First Programming:**
+    *   The "Precautionary Principle": If an action has a suspected risk of causing harm, the burden of proof that it is *not* harmful falls on those taking the action.
+
+#### Mental Models: The Moral Pilot
+*   **The Mirror Test:** If your drone crashed into a stranger's house, could you look them in the eye and explain the logic that led to that decision?
+*   **The "Unintended Consequence" Map:** Before deploying a new "Autonomous Swarm," spend 1 hour brainstorming the 10 worst things that could happen, and write a failsafe for each one.
