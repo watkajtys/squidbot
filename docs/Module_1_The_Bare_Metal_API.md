@@ -49,7 +49,7 @@ Software is a liar. It says it sent a pulse. Did the wire actually go high?
 ## **1.2 I2C Drivers & The Address Conflict**
 
 ### **Objective**
-We have two VL53L1X Time-of-Flight sensors (Down + Front).
+We have two VL53L1X Time-of-Flight sensors (Down + Up).
 **The Problem:** They both ship with the *same* default I2C address (0x29). If you plug them both in, the bus crashes.
 
 ### **The Solution: XSHUT Pins**
@@ -57,7 +57,7 @@ The VL53L1X has an `XSHUT` (Shutdown) pin. We can turn one off, change the addre
 
 ### **Lab Procedure**
 1.  **Wiring:** Connect the XSHUT pins to the Pi as per [hardware_reference.md](hardware_reference.md).
-    *   Front Lidar XSHUT $\to$ **GPIO 17**.
+    *   Up Lidar XSHUT $\to$ **GPIO 17**.
     *   Down Lidar XSHUT $\to$ **GPIO 27**.
 2.  **The Sequence:**
     *   Pull both XSHUT low (Turn both OFF).

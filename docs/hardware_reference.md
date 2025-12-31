@@ -12,15 +12,15 @@ We use the standard 40-pin header.
 | :--- | :--- | :--- | :--- |
 | **01** | 3.3V | Power | (Unused) |
 | **02** | **5V** | **Power Input** | **BEC 5V Output** (Critical) |
-| **03** | **SDA** | I2C Data | VL53L1X Lidar (Front & Down) |
+| **03** | **SDA** | I2C Data | VL53L1X Lidar (Up & Down) |
 | **04** | 5V | Power Input | (Alternative Power) |
-| **05** | **SCL** | I2C Clock | VL53L1X Lidar (Front & Down) |
+| **05** | **SCL** | I2C Clock | VL53L1X Lidar (Up & Down) |
 | **06** | **GND** | **Ground** | **BEC GND / FC GND** (Common Ground) |
 | **...**| ... | ... | ... |
 | **14** | **TX** | UART Transmit | Flight Controller **RX** Pad |
 | **15** | **RX** | UART Receive | Flight Controller **TX** Pad |
 | **...**| ... | ... | ... |
-| **17** | **GPIO 17** | Digital Out | **Front Lidar XSHUT** |
+| **17** | **GPIO 17** | Digital Out | **Up Lidar XSHUT** |
 | **27** | **GPIO 27** | Digital Out | **Down Lidar XSHUT** |
 
 ---
@@ -43,7 +43,7 @@ We use the standard 40-pin header.
 ### **VL53L1X Lidars (x2)**
 These sensors share the I2C bus (SDA/SCL). To prevent address conflicts, we use the XSHUT pins.
 
-*   **Front Lidar:**
+*   **Up Lidar:**
     *   VCC -> 3.3V (Pi Pin 1)
     *   GND -> GND
     *   SDA -> SDA (Pi Pin 3)

@@ -109,7 +109,7 @@ The "Squid" is a custom-designed micro-drone optimized for indoor autonomy and e
 *   **Flight Controller:** Betaflight F405 (STM32 microcontroller)
 *   **Sensors:**
     *   **Mapping:** VL53L5CX (8x8 Zone Time-of-Flight Matrix)
-    *   **Altitude:** VL53L1X (Long-range 1D Lidar)
+    *   **Range:** 2x VL53L1X (1D Lidar for Altitude & Ceiling Lock)
     *   **Vision:** Arducam IMX219 (160-degree Fisheye Lens)
     *   **Optical Flow:** PMW3901 (Velocity estimation)
     *   **Position:** M10Q GPS + Compass (Outdoor navigation)
