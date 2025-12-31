@@ -41,7 +41,7 @@ $$ u(t) = K_p e(t) + K_i \int e(t) dt + K_d \frac{de(t)}{dt} $$
 
 ---
 
-## **5.2 Implementation Details (Real World)**
+### **5.2 Implementation Details (Real World)**
 
 ### **Objective**
 Fix the bugs that math books ignore.
@@ -56,12 +56,39 @@ Fix the bugs that math books ignore.
 1.  **Modify `pid.py`:** Add `max_i` parameter to clamp the Integral.
 2.  **Modify `pid.py`:** Change the D-term logic to use `-(input - prev_input) / dt`.
 
+### **5.2.1 Sub-Lab: The Anti-Windup Guard**
+**"Taming the Infinite."**
+
+If your drone's motors are blocked (e.g., by a blade of grass), your PID "I" term will keep growing until it hits the ceiling. This is **Integral Windup**.
+
+1.  **Test (Props OFF):** Hold the drone tilted at 20 degrees. Your code will try to level it.
+2.  **Observe:** Watch the `I_term` value in your telemetry. It will climb higher and higher.
+3.  **The Fix:** Implement **Clamping** in your `pid.py`:
+    ```python
+    self.i_term += error * dt
+    # The PhD Guard
+    if self.i_term > MAX_I: self.i_term = MAX_I
+    if self.i_term < -MAX_I: self.i_term = -MAX_I
+    ```
+4.  **Verification:** Repeat the test. The `I_term` should now hit a "ceiling" and stop, making the drone safe to release.
+
 ---
 
-## **5.3 Tuning: The Ziegler-Nichols Method**
+### **5.3 Tuning: The Ziegler-Nichols Method**
 
 ### **Objective**
 Find the magic numbers ($K_p, K_i, K_d$).
+
+### **5.3.1 Sub-Lab: The Oscillation Hunt**
+**"Finding the Edge of Stability."**
+
+1.  **Safety:** Tether the drone. Set $I=0$ and $D=0$.
+2.  **Procedure:**
+    *   Start with $P=1.0$. Give a small "tap" to the drone.
+    *   Increase $P$ in steps of 0.5.
+    *   **The Goal:** Find the value of $P$ where the drone stops returning to center and instead starts **oscillating continuously** (but not exploding). This value is $K_u$ (Ultimate Gain).
+3.  **Measurement:** Use your Dashboard from Module 2 to measure the time between two peaks of the oscillation. This is $T_u$ (Ultimate Period).
+4.  **Math:** Plug these into the Z-N table provided in the theory.
 
 ### **Procedure (The Safety Rig)**
 1.  **Setup:** Tie the drone down so it can only lift 5cm (use heavy fishing line).

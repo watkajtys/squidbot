@@ -1,0 +1,159 @@
+<?xml version="1.0" ?>
+<robot name="squid_drone">
+
+  <!-- 
+    SQUID DRONE URDF 
+    
+    INSTRUCTIONS FOR MODULE 5:
+    You must update the <inertial> blocks below with your experimental values.
+    1. Mass: Weigh your drone (in kg).
+    2. Inertia (ixx, iyy, izz): Use the values calculated from the Bifilar Pendulum experiment.
+  -->
+
+  <!-- PROPERTIES -->
+  <!-- Update these based on your specific measurements -->
+  <property name="arm_length" value="0.088"/> <!-- Distance from center to motor (m) -->
+  <property name="rotor_radius" value="0.04"/> <!-- Propeller radius (m) -->
+  <property name="motor_mass" value="0.005"/> <!-- kg -->
+  <property name="body_mass" value="0.130"/> <!-- kg (Battery + Frame + FC + Pi) -->
+
+  <!-- BASE LINK (The Body) -->
+  <link name="base_link">
+    <inertial>
+      <mass value="0.130"/> <!-- TODO: Update with total mass minus motors -->
+      <!-- TODO: Update ixx, iyy, izz with Bifilar Pendulum results -->
+      <inertia ixx="0.00015" ixy="0.0" ixz="0.0" iyy="0.00015" iyz="0.0" izz="0.00025"/>
+    </inertial>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.12 0.12 0.03"/> <!-- Simplified Pavo20 Body -->
+      </geometry>
+      <material name="grey">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.12 0.12 0.03"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- MOTOR 1 (Front Right - CCW) -->
+  <link name="prop_fr_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.005" radius="0.04"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.005" radius="0.04"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="prop_fr_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="prop_fr_link"/>
+    <!-- Position: X=Forward, Y=Left. Front Right is +X, -Y -->
+    <origin rpy="0 0 0" xyz="0.062 -0.062 0.02"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- MOTOR 2 (Rear Right - CW) -->
+  <link name="prop_rr_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.005" radius="0.04"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.005" radius="0.04"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="prop_rr_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="prop_rr_link"/>
+    <origin rpy="0 0 0" xyz="-0.062 -0.062 0.02"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- MOTOR 3 (Rear Left - CCW) -->
+  <link name="prop_rl_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.005" radius="0.04"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.005" radius="0.04"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="prop_rl_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="prop_rl_link"/>
+    <origin rpy="0 0 0" xyz="-0.062 0.062 0.02"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- MOTOR 4 (Front Left - CW) -->
+  <link name="prop_fl_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.005" radius="0.04"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.005" radius="0.04"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="prop_fl_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="prop_fl_link"/>
+    <origin rpy="0 0 0" xyz="0.062 0.062 0.02"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+</robot>

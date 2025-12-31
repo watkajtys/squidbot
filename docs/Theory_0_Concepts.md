@@ -115,10 +115,27 @@ Before we fly, we must list how we die.
 
 ---
 
+## **5. From Theory to Practice: The MSP Protocol**
+
+### **The Bridge**
+You have learned about sampling, latency, and noise. Now, how do we actually spin the motors?
+
+We cannot connect the motors directly to the Raspberry Pi.
+*   **Reason:** Linux is not "Real-Time." If Linux decides to run a system update, your motor signal will pause for 100ms, and the drone will flip.
+
+### **The Solution: The Flight Controller (STM32)**
+We delegate the fast, dangerous work to the Flight Controller (FC).
+1.  **Pi Zero (The Brain):** Decides "Go Up" (High Level).
+2.  **MSP Protocol:** The language the Pi uses to tell the FC "Go Up".
+3.  **Flight Controller (The Spinal Cord):** Converts "Go Up" into precise microsecond pulses (DSHOT) for the ESCs.
+
+In **Module 1**, you will write the Python driver to speak this language.
+
+---
+
 ## **Module 0 Checklist**
 Before moving to Module 1, you must:
 - [ ] Understand why we need a BEC (Power stability).
 - [ ] Be able to explain why we use UDP instead of TCP.
 - [ ] Have Python, VS Code, and Docker installed on your Laptop.
-
-```
+- [ ] Have successfully SSH'd into your Raspberry Pi.

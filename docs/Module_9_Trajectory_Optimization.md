@@ -65,6 +65,30 @@ MPC solves an optimization problem *every 20ms*:
 
 ---
 
+## **9.4 Advanced Tracking: Geometric Control on SE(3)**
+
+### **Objective**
+Fly upside down (or at least >45 degrees).
+
+### **Theory**
+Standard PID uses Euler Angles (Roll/Pitch/Yaw).
+**The Problem:** At 90 degrees pitch, Euler angles hit a singularity ("Gimbal Lock"). The math breaks.
+**The Solution:** Geometric Control (Lee, Leok, McClamroch). We calculate error directly on the Manifold of Rotation Matrices ($SO(3)$).
+
+### **Lab Procedure**
+1.  **Attitude Error:** Instead of `target_roll - current_roll`, we compute:
+    $$ e_R = \frac{1}{2} (R_d^T R - R^T R_d)^\vee $$
+    (Where $^\vee$ maps a skew-symmetric matrix to a vector).
+2.  **The Controller:** Implement the full nonlinear tracking law in your simulation.
+3.  **Simulation:** Command a "Loop-the-Loop" trajectory.
+    *   **PID:** Will likely flip out and crash at the top of the loop.
+    *   **Geometric:** Will track smoothly through the inversion.
+
+### **Deliverable**
+*   A simulation video comparing PID vs Geometric Control during an aggressive maneuver.
+
+---
+
 ## **Check: The Speed Run**
 **Autonomous Navigation.**
 

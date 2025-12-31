@@ -52,6 +52,18 @@ Fuse Optical Flow (Velocity) with Lidar (Altitude).
 
 ### **Deliverable**
 *   A plot showing **Raw Lidar** (Noisy) vs **EKF Estimate** (Smooth).
+*   Your `ekf.yaml` configuration file.
+
+### **7.3.1 Sub-Lab: The Outlier Rejection Test**
+**"Don't believe everything you hear."**
+
+In Theory Deep Dive 2, we discussed Mahalanobis Distance. Now, we test it.
+
+1.  **Setup:** Establish a stable hover at 1.0m.
+2.  **The Attack:** Quickly slide a piece of paper 10cm under the Downward Lidar for 1 second, then remove it.
+3.  **Observation:**
+    *   **Fail:** The drone "jumps" up or down because it trusted the paper.
+    *   **Success:** The drone remains steady. The EKF log should show that the Lidar measurement was "Rejected" as an outlier because it violated the laws of physics (you can't teleport 90cm in 0.01 seconds).
 
 ---
 
@@ -67,6 +79,30 @@ Voltage sags under load ($V_{measured} = V_{battery} - I \cdot R_{internal}$). A
 1.  **Model:** Implement a basic Kalman Filter or Complimentary Filter for State-of-Charge (SoC).
 2.  **Inputs:** Voltage (V), Current (A) (if available) or Throttle command (as proxy for Current).
 3.  **Logic:** `Estimated_V = V_measured + (Throttle * K_sag)`. Use this "Resting Voltage Estimate" to decide when to land.
+
+---
+
+### **7.5 Calibration: The Compass**
+
+### **Objective**
+Stop the "Toilet Bowl Effect."
+
+### **Theory**
+A raw magnetometer does not point North. It points at the magnets in your motors and the iron screws in your frame.
+*   **Hard Iron Distortion:** A constant magnetic offset (add/subtract vector). Shifts the sphere center away from (0,0,0).
+*   **Soft Iron Distortion:** The frame stretches the magnetic field. Turns the sphere into an ellipsoid.
+
+### **Lab Procedure**
+1.  **Data Collection:** Write `src/drivers/mag_cal.py` to record `mx, my, mz` while you rotate the drone in all axes (the "Mag Dance").
+2.  **Fitting:** Use an Ellipsoid Fitting algorithm (available in `scipy`) to find the Offset (Hard Iron) and Transformation Matrix (Soft Iron).
+3.  **Apply:** $Mag_{calibrated} = (Mag_{raw} - Offset) \cdot Matrix$.
+4.  **Visualize:** Plot Raw (Ellipsoid) vs Calibrated (Sphere) points.
+
+#### **PhD Note: Tilt-Compensation**
+A common mistake is calculating `yaw = atan2(my, mx)`. This only works if the drone is perfectly flat.
+*   **The Problem:** When the drone pitches forward to move, the Magnetometer tilts into the Earth's vertical magnetic field. Your "North" will suddenly jump 30 degrees.
+*   **The Fix:** You must use your **Accelerometer** data to "de-tilt" the magnetic vector back to the horizontal plane before calculating the heading. 
+*   **In ROS 2:** The `imu_filter_madgwick` or `ekf_filter_node` handles this for you, but you must ensure your `gravity_vector` is clean.
 
 ---
 

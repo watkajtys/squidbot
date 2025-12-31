@@ -65,15 +65,34 @@ Replace our CSV logger (Module 2) with the professional standard.
 
 ---
 
-## **6.4 Safety Architecture: The Watchdog**
+## **6.4 Safety Architecture: Lifecycle Nodes**
 
 ### **Objective**
-Prevent flyaways when code crashes.
+Professional Safety Management.
+
+### **Theory**
+A simple node starts publishing as soon as you run it. This is dangerous. What if the sensors aren't ready? What if the calibration is wrong?
+**ROS 2 Lifecycle Nodes (Managed Nodes)** implement a state machine:
+1.  **Unconfigured:** Node is created but empty.
+2.  **Inactive:** Drivers are loaded, but Motors are DISABLED.
+3.  **Active:** Main loop running, Motors ENABLED.
+4.  **Finalized:** Cleanup and Shutdown.
 
 ### **Lab Procedure**
-1.  **The Heartbeat:** Create a `watchdog_node` that listens for a 10Hz heartbeat from the `controller_node`.
-2.  **The Kill Switch:** If the heartbeat stops for >0.5s (5 missing pulses), the Watchdog publishes `cmd_motor = 0` (or `land_mode`) directly to the microcontroller gatekeeper.
-3.  **Test:** Intentionally `kill -9` your controller node mid-flight (simulated first!).
+1.  **The Class:** Change your Controller to inherit from `rclpy.lifecycle.LifecycleNode`.
+2.  **State Transitions:**
+    *   `on_configure()`: Connect to Flight Controller (UART). Check battery. (Motors still OFF).
+    *   `on_activate()`: Enable the PWM/DSHOT output. Start the Control Loop timer.
+    *   `on_deactivate()`: **Safety Critical.** Immediately set all motors to 0. Stop the timer.
+    *   `on_shutdown()`: Close UART connection.
+3.  **The Test:**
+    *   Run the node. It should be silent.
+    *   Terminal: `ros2 lifecycle set /squid_controller configure` -> "Configured".
+    *   Terminal: `ros2 lifecycle set /squid_controller activate` -> **Props Spin**.
+    *   Terminal: `ros2 lifecycle set /squid_controller deactivate` -> **Props Stop**.
+
+### **Deliverable**
+*   A screen recording of you using the CLI to transition the node states and controlling the motor status.
 
 ---
 

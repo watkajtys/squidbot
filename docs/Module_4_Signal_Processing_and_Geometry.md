@@ -58,6 +58,17 @@ Kill the noise found in Theory Lab 0.1.
 3.  **The Mistake:** Downsample the data to 50Hz (Standard Loop Rate) *without* an anti-aliasing filter.
 4.  **The Result:** The 200Hz signal disappears. A new, fake 50Hz "wobble" appears. The drone thinks it is rocking, but it is just buzzing. This is why we need hardware filters (LPF).
 
+### **4.2.2 Sub-Lab: Phase Lag Visualization**
+**"The Cost of Cleanliness."**
+
+Filters clean the noise, but they steal your time.
+
+1.  **Plot:** Use `tools/plot_log.py` to plot `Raw_Gyro_X` and `Filtered_Gyro_X` on the same axis.
+2.  **Zoom:** Zoom into a single oscillation.
+3.  **Measure:** Look at the "Peak" of the raw wave vs the "Peak" of the filtered wave.
+4.  **The Discovery:** The filtered peak happens later (e.g., 8ms later). 
+5.  **The PhD Lesson:** If your total delay (Filter + Wi-Fi + ESC) exceeds the drone's physical response time, you will never achieve a stable hover. This is why we use "Low-Latency" filters like the **Biquad Notch**.
+
 ### **Deliverable**
 *   "Before" and "After" plots of your Gyroscope noise. The "After" line should be smooth.
 

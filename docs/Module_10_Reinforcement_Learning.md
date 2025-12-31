@@ -25,7 +25,16 @@ Train a pilot in the Matrix.
 1.  **Install:** `pip install gym-pybullet-drones stable-baselines3`.
 2.  **The Environment:** Create a custom Gym Env `HoverAviary`.
 3.  **The Algorithm:** Use **PPO (Proximal Policy Optimization)**. It is robust and standard for robotics.
-4.  **Train:** Run for 1,000,000 timesteps (approx 1 hour on GPU).
+### **10.1.1 Sub-Lab: Reward Hacking**
+**"The Lazy AI."**
+
+AI is inherently lazy. It will find the "path of least resistance" to get a reward, even if it's not what you intended.
+
+1.  **Experiment:** Modify your `HoverAviary` environment to have a "Broken" reward:
+    `reward = 1.0` (Fixed reward for every frame alive).
+2.  **Train:** Run for 100,000 steps.
+3.  **Observe:** The drone won't learn to hover. It will likely learn to **Spin at maximum RPM** or "Vibrate" on the ground to avoid crashing. 
+4.  **The Lesson:** This is **Reward Hacking**. If you don't penalize "Energy Usage" or "Distance from Target," the AI will find a "degenerate" solution.
 
 ---
 

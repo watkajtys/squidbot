@@ -36,67 +36,60 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
 *Building the machine and understanding its nervous system.*
 
 *   **Module 0: The Build & Legal Compliance**
-    Assembly of the custom Pavo20 frame, integrating a Raspberry Pi Zero 2 W with a Flight Controller. Comprehensive overview of FAA/EASA regulations, Remote ID, and safety protocols.
+    Assembly of the custom Pavo20 frame. 
+    **Prerequisites:** 
+    1. [Hardware Foundations](docs/Hardware_Foundations.md) (Electronics, Soldering, Tools).
+    2. [Module 0 Labs](docs/Module_0_Labs.md) (Bench testing, Linux, Wi-Fi mapping).
+    3. [Deep Dive 0.1: The Mathematician](docs/deep_dives/Paper_0.1_The_Mathematician.md) (Understanding complex numbers and frequency).
 
 *   **Module 1: The Bare Metal API**
-    Writing raw Python drivers to communicate with hardware. We use Logic Analyzers to verify DSHOT motor protocols at the microsecond level and implement direct register access for sensor management.
+    Writing raw Python drivers.
 
 #### Phase II: The Test Pilot (Observability)
-*Creating the tools required to visualize invisible data.*
-
 *   **Module 2: The Telemetry Stack**
-    Building a high-frequency, low-latency logging system using UDP sockets. Development of a React-based real-time dashboard to visualize flight data.
-
 *   **Module 3: FPV & Augmented Reality**
-    Constructing a low-latency video pipeline. We measure "Glass-to-Motor" latency using high-speed photography and overlay Lidar telemetry onto the video feed to create a pilot's Heads-Up Display (HUD).
 
 #### Phase III: The Engineer (Control & Math)
-*Taming the physics of flight through mathematics.*
-
 *   **Module 4: Signal Processing & Geometry**
-    A deep dive into sensor noise. We use Fast Fourier Transforms (FFT) to identify vibration frequencies and design Notch Filters to remove them. We also cover 3D coordinate transformations and Quaternions.
+    **Prerequisite:** [Theory 1: Coordinate Systems](docs/Theory_1_Coordinate_Systems.md).
 
 *   **Module 5: Control Theory**
-    The heart of the autopilot. We derive the PID control law from calculus. We perform physical System Identification experiments, such as the Bifilar Pendulum test, to measure the drone's moment of inertia and tune the controller scientifically.
+    Deriving PID. **Prerequisite:** [Theory 4: PID to LQR](docs/deep_dives/Theory_4_PID_to_LQR.md).
 
 #### Phase IV: The Architect (Scale & Safety)
-*Transitioning from scripts to a professional software architecture.*
-
 *   **Module 6: The ROS 2 Migration**
-    Porting our codebase to the industry-standard Robot Operating System (ROS 2). Implementation of "Watchdog" nodes and Fail-Safe State Machines to prevent flyaways during software crashes.
-
 *   **Module 7: State Estimation (The Truth)**
-    Implementing the Extended Kalman Filter (EKF). We derive the Jacobians necessary to fuse high-frequency IMU data with low-frequency Lidar and Optical Flow data, allowing the drone to know its position with millimeter precision.
+    **Prerequisite:** [Theory 2: The EKF](docs/deep_dives/Theory_2_The_EKF.md).
 
 #### Phase V: The Researcher (Autonomy)
-*Teaching the drone to perceive and navigate the world.*
+*Building the brain that understands space.*
 
 *   **Module 8: Perception & Mapping**
-    Turning 1D sensor readings into 3D Volumetric Maps (Octomaps). We explore the physics of Lidar multipath interference (mirror reflections) and build point clouds in real-time.
+    **Prerequisite:** [Theory 5: SLAM & Factor Graphs](docs/deep_dives/Theory_5_SLAM_and_Factor_Graphs.md).
 
 *   **Module 9: Trajectory Optimization**
-    Moving beyond simple point-to-point flight. We implement A* Pathfinding and smooth the results using Minimum Snap Splines. We also introduce Model Predictive Control (MPC) for handling complex dynamic constraints.
+    **Prerequisite:** [Theory 3: Splines & Optimization](docs/deep_dives/Theory_3_Splines_and_Optimization.md).
 
 #### Phase VI: The Specialist (Tactics & AI)
-*Deploying advanced intelligence and tactical behaviors.*
-
 *   **Module 10: Reinforcement Learning**
-    Training a Neural Network pilot in a physics simulation (Gym/PyBullet). We focus on Domain Randomization techniques to ensure the AI can fly the real drone despite physical discrepancies.
-
 *   **Module 11: Aerial Combat & Guidance**
-    Implementation of Proportional Navigation (Pro-Nav) guidance laws for intercepting moving targets. We build Visual Servoing systems to track and follow objects using computer vision.
-
 *   **Module 12: Outdoor Autonomy**
-    Integrating GPS for long-range navigation. We handle Coordinate Frame transformations (LLA to NED) and implement Behavior Trees to manage complex mission logic beyond simple state machines.
+    Integrating GPS. **Prerequisite:** [Theory 7: Behavior Trees](docs/deep_dives/Theory_7_Behavior_Trees.md).
 
 #### Phase VII: The Frontier (Experimental)
-*PhD-level topics pushing the boundaries of micro-robotics.*
+*PhD-level research using the foundational knowledge.*
 
 *   **Module 13: Visual Inertial Odometry (VIO)**
-    Flying without GPS or Lidar. We explore the implementation of Factor Graphs and feature tracking to estimate position using only a monocular camera and an accelerometer.
+    **Prerequisite:** [Theory 6: VIO & Preintegration](docs/deep_dives/Theory_6_VIO_and_Preintegration.md).
+
+---
+
+### **Support Tools**
+*   [The Robotics Debugging Guide](docs/Robotics_Debugging_Guide.md)
+*   [The Zero-to-PhD Cheat Sheet](docs/CHEAT_SHEET.md)
 
 *   **Module 14: Swarm Theory**
-    Coordinating multiple drones. We configure ROS 2 for multi-agent communication and implement distributed consensus algorithms for formation flying.
+
 
 ---
 

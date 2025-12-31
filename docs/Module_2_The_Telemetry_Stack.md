@@ -26,6 +26,21 @@ We use UDP. If a packet drops, we don't care. The next one is coming in 20ms.
 ### **Deliverable**
 *   A script that streams the Lidar distance from Module 1 to your laptop terminal at 50Hz.
 
+### **2.1.1 Sub-Lab: The Packet Loss Simulation**
+**"When Wi-Fi goes bad."**
+
+In the lab, Wi-Fi is perfect. In the field, it is not. You must know how your drone handles "Gaps" and "Jumps" in data.
+
+1.  **Drop Test:** Modify your `transmitter.py` to intentionally "drop" 10% of packets.
+2.  **Jitter Test:** Add a random delay to your loop:
+```python
+import time, random
+time.sleep(random.uniform(0, 0.05)) # Delay up to 50ms
+```
+3.  **Observe:** Look at your dashboard. 
+    *   **The Problem:** The data looks "jerky." If this was a control signal, the drone would "twitch" because it's reacting to stale information.
+    *   **The PhD Lesson:** We use **Circular Buffers** and **Time-Alignment** (Interpolation) to smooth out this jitter before the math sees it.
+
 ---
 
 ## **2.2 The Dashboard**
@@ -72,6 +87,17 @@ Store 1000 lines in RAM, then dump to disk in one chunk (or use a separate threa
 
 ### **Deliverable**
 *   A `.csv` file generated after a run. Open it in Excel/Pandas and plot the data.
+
+### **2.3.1 Sub-Lab: CSV to Plot**
+**"The Autopsy."**
+
+When the drone crashes, the log is the only witness.
+
+1.  **Code:** Create `tools/plot_log.py`.
+2.  **Logic:**
+    *   Use `pandas` to read your `flight_log.csv`.
+    *   Use `matplotlib` to plot `Altitude` vs `Time`.
+3.  **Analysis:** Look for "Spikes" in the loop time. If your loop time jumps from 20ms to 100ms, your code is "blocking" (probably waiting for a slow sensor).
 
 ---
 

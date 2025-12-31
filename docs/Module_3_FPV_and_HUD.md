@@ -50,6 +50,20 @@ We do not want to draw on the video *on the drone* (burns CPU). We send the vide
 ### **Deliverable**
 *   A working web page where you see the camera view, and when you move your hand over the Lidar, the number on the screen updates in sync with the video.
 
+### **3.2.1 Sub-Lab: The Virtual Horizon**
+**"Seeing the Unseen Physics."**
+
+A commercial pilot has a "Virtual Horizon" (PFD) that stays level with the earth even if the plane is upside down. You will build one.
+
+1.  **Theory:** To draw a level line on a tilting video feed, you must rotate the line by the **Negative Roll** of the drone and shift it by the **Pitch**.
+2.  **Lab Procedure:**
+    *   In your HTML5 Canvas code, take the `roll` value (in radians) from the Telemetry stream.
+    *   Use `ctx.rotate(-roll)` to counter-rotate the canvas.
+    *   Draw a 200px horizontal line.
+3.  **The Test:** Pick up the drone and tilt it left/right.
+    *   **Success:** The line on your screen stays perfectly level with your desk/horizon, regardless of how you hold the drone.
+4.  **Knowledge Step-up:** This is your first **Coordinate Transform**. You are transforming a line from "Inertial Space" (Earth) to "Image Space" (Camera).
+
 ---
 
 ## **3.3 System Identification: Latency**

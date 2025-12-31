@@ -25,7 +25,10 @@ def main():
     
     # 1. Check Libraries
     print("Checking Dependencies...")
-    libs = ['numpy', 'cv2', 'RPi.GPIO', 'smbus2', 'flask']
+    libs = [
+        'numpy', 'cv2', 'RPi.GPIO', 'smbus2', 'flask',  # Core
+        'gym_pybullet_drones', 'stable_baselines3', 'onnxruntime'  # AI & Sim
+    ]
     results = [check_library(l) for l in libs]
     
     if all(results):
@@ -35,7 +38,13 @@ def main():
 
     # 2. Check Directories
     print("\nChecking Project Structure...")
-    paths = ['src/drivers', 'src/utils', 'docs/hardware_reference.md']
+    paths = [
+        'src/drivers', 
+        'src/utils', 
+        'docs/hardware_reference.md',
+        'simulation/quadrotor.urdf',
+        'tools/setup_pi.sh'
+    ]
     results_path = [check_file(p) for p in paths]
 
     print("\n--- END CHECK ---")

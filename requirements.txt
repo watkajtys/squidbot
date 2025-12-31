@@ -20,3 +20,9 @@ eventlet
 # Utilities
 pyserial
 rich  # For pretty terminal output
+
+# Machine Learning & Simulation
+gym-pybullet-drones
+stable-baselines3
+onnxruntime
+shimmy>=0.2.1

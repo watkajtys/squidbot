@@ -62,6 +62,26 @@ Don't get hit.
 
 ---
 
+---
+
+## **11.4 Sub-Lab: The QR Courier**
+**"Vision-Based Mission Logic."**
+
+In previous labs, you followed a red ball. In this lab, the robot will follow "Instructions."
+
+1.  **Setup:** Print three QR codes.
+    *   QR 1: Contains text `CMD:ORBIT_LEFT`
+    *   QR 2: Contains text `CMD:ORBIT_RIGHT`
+    *   QR 3: Contains text `CMD:LAND`
+2.  **Vision:** Use `opencv` and `pyzbar` to detect and decode the QR code in the camera feed.
+3.  **Behavior:**
+    *   Calculate the distance to the QR code based on its pixel size.
+    *   If the code says `ORBIT`, the drone must maintain a 1m distance and circle the code.
+    *   If it says `LAND`, it must approach to 20cm and kill the motors.
+4.  **The Knowledge Step-up:** This combines **Perception** (decoding the signal) with **State Logic** (the Behavior Tree choosing a new branch based on the signal).
+
+---
+
 ## **Check: The Dark Room Scenario**
 **The Thesis Defense.**
 

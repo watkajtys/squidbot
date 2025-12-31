@@ -1,40 +1,17 @@
-# Module 8: Perception & Mapping
-**"To fly blind is to fly scared."**
+# Module 8: Perception and Mapping
+**"Seeing the world in 3D."**
 
-The drone knows *where* it is (Module 7). Now it needs to know *what* is around it. We will turn the 8x8 ToF Distance Matrix into a 3D map of the world.
+## **8.1 The Point Cloud**
 
----
+### **8.1.1 Sub-Lab: The Mirror Mystery**
+**"Physics is a prankster."**
 
-## **8.1 Point Clouds & Voxels**
+Lidars use light. Mirrors reflect light.
 
-### **Objective**
-Turn numbers into geometry.
-
-### **Theory**
-*   **Point Cloud:** A list of (X, Y, Z) dots.
-*   **Voxel Grid:** A 3D Minecraft world. We divide the room into 10cm cubes.
-    *   **Free:** Empty space.
-    *   **Occupied:** Wall/Obstacle.
-    *   **Unknown:** Areas we haven't seen.
-
-### **Lab Procedure**
-1.  **The Sensor:** The VL53L5CX gives an 8x8 grid of distances.
-2.  **The Transform:** For each of the 64 points:
-    *   Calculate local (x,y,z) based on the sensor's Field of View (45 deg).
-    *   Rotate it by the Drone's Orientation (Quaternion from Mod 7).
-    *   Add the Drone's Position.
-3.  **Visualization:** Publish `sensor_msgs/PointCloud2` to RViz.
-
-### **8.1.1 Sub-Lab: The Mirror World**
-**"Lidar is not magic."**
-
-1.  **Setup:** Place a large mirror in front of the drone.
-2.  **Scan:** Point the Lidar at it.
-3.  **Observe:** The Lidar beam bounces off the mirror and hits the wall behind you.
-4.  **Result:** The map shows a "Ghost Room" extending *through* the mirror. This teaches you about "Multi-path Interference" and why we need ultrasonic or camera fusion to detect glass/mirrors.
-
-### **Deliverable**
-*   A screenshot of RViz showing a "Ghost Wall" appearing as you face the drone toward a real wall.
+1.  **Test:** Point your drone's mapping sensor at a large mirror or a clean glass window.
+2.  **Observe:** Look at your Foxglove/RVIZ visualization.
+3.  **The Discovery:** You will see a "Ghost Room" extending *behind* the mirror. The Lidar doesn't know it hit a reflection; it thinks the light traveled twice as far into a new room.
+4.  **The PhD Lesson:** This is called **Multipath Interference**. If your drone tries to fly into that "Ghost Room," it will hit the mirror. Professional SLAM systems use "Intensity" values to detect reflections.
 
 ---
 

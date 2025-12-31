@@ -127,6 +127,16 @@ sudo raspi-config
 
 ---
 
+## **0.5 Hands-On: Bench Testing**
+
+Before you zip-tie the Pi to the frame and tuck away the wires, you must perform your "Bench Drills." It is 10x easier to fix a soldering error or a network issue while the components are spread out on your desk than when they are trapped inside the drone.
+
+**Action:** Complete all exercises in **[Module 0 Labs](Module_0_Labs.md)**.
+
+Do not proceed to Module 1 until your "Smoke Test" and "Ping Test" are both passing.
+
+---
+
 ## **Deliverable**
 *   A photo of your wiring (specifically the UART and BEC connections).
 *   A screenshot of your terminal showing `pi@squid-drone:~ $` prompt.
