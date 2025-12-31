@@ -5,6 +5,24 @@ The Raspberry Pi Zero 2 W is a miracle of engineering, but it is not a server. F
 
 ---
 
+## 0. Turbo Mode (Safe Optimization)
+Before you write a single line of code, let's unlock the free performance hidden in the silicon.
+1.  **Edit Config:** `sudo nano /boot/config.txt`
+2.  **Add/Change Lines:**
+    ```ini
+    # Safe Overclock (Most Zero 2 Ws can handle this)
+    arm_freq=1200
+    over_voltage=2
+    
+    # Free up RAM (We run Headless, so we don't need 64MB for GPU)
+    gpu_mem=16
+    ```
+3.  **Reboot:** `sudo reboot`
+4.  **Verify:** Run `vcgencmd measure_clock arm`. You should see `1200000000`.
+    *   *Note: If it crashes, lower freq to 1100.*
+
+---
+
 ## 1. Thermal Management (The Heat Problem)
 Running an EKF, a Vision node, and an LNN at the same time generates significant heat.
 *   **Throttling:** When the CPU hits 80°C, it will automatically drop its speed from 1GHz to 600MHz. Your PID loop will lag, and the drone will crash.
@@ -13,12 +31,13 @@ Running an EKF, a Vision node, and an LNN at the same time generates significant
     *   **Airflow:** The Pavo20 ducts provide some airflow, but the Pi is often shielded. Ensure your mount doesn't "blanket" the CPU.
     *   **Monitoring:** Run `vcgencmd measure_temp` regularly during bench tests.
 
-## 2. SD Card Corruption
+## 2. SD Card Corruption & Speed
 Linux writes a lot of logs. Sudden power loss (crashes/battery unplug) can corrupt the SD card.
-*   **The Symptoms:** The Pi won't boot, or weird "File not found" errors appear.
+*   **The Speed Trap:** A slow SD card causes the entire OS to "freeze" while writing a log file. This adds 100ms of latency to your control loop.
 *   **The Fix:**
-    *   **Overlay File System:** Once your code is stable, enable the "Read-Only" overlay in `raspi-config`. This prevents writes to the SD card.
-    *   **High Endurance Cards:** Use "Industrial" or "Endurance" rated cards (e.g., SanDisk High Endurance).
+    *   **Buy the Right Card:** Look for the **"A2"** symbol (Application Performance Class 2) or **"U3"**. Do not use generic Class 10 cards.
+    *   **Overlay File System:** Once your code is stable, enable the "Read-Only" overlay in `raspi-config`.
+    *   **High Endurance:** Use "Industrial" cards (e.g., SanDisk High Endurance) to survive thousands of log writes.
     *   **Power Off Safely:** Always run `sudo shutdown -h now` when on the bench.
 
 ## 3. Memory Optimization (The 512MB Wall)

@@ -43,6 +43,16 @@ In a research setting, we analyze the **Open-Loop Gain**.
 *   **Phase Margin:** The "Delay Budget." If your Wi-Fi/Processing adds too much delay, the phase of your correction shifts $180^{\circ}$, turning your "Negative Feedback" into "Positive Feedback." Instead of fixing the error, the drone will accelerate *into* the crash.
 *   **Gain Margin:** How much you can "crank up" the $P$ term before the system becomes unstable.
 
+### **5.2.3 Just-In-Time Math: The Delay Budget (Phase Margin)**
+**"Don't wait until it's too late."**
+
+*   **The Concept:** Imagine steering a boat. You turn the wheel, but the boat turns 2 seconds later. If you keep turning the wheel back and forth quickly, the boat will eventually start turning *left* when you are steering *right*. This is **Instability**.
+*   **Phase Margin:** This is your "Safety Buffer." It measures how much *extra* delay your system can handle before it goes crazy.
+    *   **Rule of Thumb:** You want $> 45^{\circ}$ of margin.
+    *   **The Fix:** If your margin is low, you must **slow down** your controller (reduce Gains) or **speed up** your sensor (increase Hertz).
+
+**AI Prompt:** "Explain Bode Plots and Phase Margin in control theory. Why does a phase lag of 180 degrees turn negative feedback into positive feedback?"
+
 ---
 
 ## **5.3 Tuning: The Ziegler-Nichols Method**
@@ -134,9 +144,15 @@ From Amps to Newtons.
 4.  **Fit:** $Thrust = k_t \cdot \omega^2$.
 5.  **Efficiency:** Calculate $g/W$ (Grams per Watt). This predicts your flight time.
 
+## **0.5.4 The "Deep-Dive" Breakout: Scratch PID**
+> **Professor's Note:** While libraries exist to handle PID, for this course, we are going "from scratch."
+> **Why?** You need to see exactly how a floating-point error accumulates in the Integral term. You need to feel the "Derivative Kick" when a sensor spikes.
+> **The Goal:** You will write the `update(error, dt)` function yourself. No black boxes. This is where you learn the "Discrete Calculus" that runs the world.
+
 ---
 
-## **Check: The Statue**
+## **The "Statue" Test**
+
 **The Hover Test.**
 
 1.  **Command:** Set Target Altitude = 0.5m.
@@ -168,6 +184,19 @@ LQR provides the "best possible" gains by minimizing a quadratic cost function $
 Model Predictive Control (MPC) is a discrete-time optimization problem solved at every tick.
 *   **The Finite Horizon:** We predict the state $\hat{x}_{k+1...k+N}$ over a horizon $N$ (e.g., 20 steps).
 *   **The Constraint:** We can explicitly include physical constraints: $Tilt < 30^{\circ}$ and $Voltage > 10V$. If a trajectory would violate these, the optimizer finds the "closest safe" path.
+
+### **5.8.1 Just-In-Time Math: The Matrix Trick**
+**"Solving the Future in One Shot"**
+
+In the lab `lab_3_4_mpc_lite.py`, you will see code that stacks matrices. Why?
+*   **The Hard Way (Recursion):** 
+    Step 1: $x_1 = A x_0 + B u_0$
+    Step 2: $x_2 = A x_1 + B u_1 = A(A x_0 + B u_0) + B u_1 = A^2 x_0 + AB u_0 + B u_1$
+    Step 10: $x_{10} = A^{10} x_0 + \dots$ (This is slow and messy).
+*   **The "Batch" Trick:** We stack the equations into one giant matrix operation: $\mathbf{X}_{future} = \mathbf{T} x_0 + \mathbf{S} \mathbf{U}_{future}$.
+*   **The Result:** We can solve for the *entire* future path of motor commands ($\mathbf{U}_{future}$) using a standard Least Squares solver (`np.linalg.solve`). This is the "Chess Player" thinking 10 moves ahead instantly.
+
+**AI Prompt:** "Explain how the 'Batch Matrices' (S_bar and T_bar) allow us to solve for all future motor commands in a single step using Least Squares."
 
 ### Lecture 5.9: Geometric Control on $SO(3)$
 Traditional attitude control uses Euler angles, which fail at $90^{\circ}$ pitch.

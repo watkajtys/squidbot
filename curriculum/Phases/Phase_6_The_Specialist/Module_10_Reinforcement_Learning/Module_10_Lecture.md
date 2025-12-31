@@ -40,6 +40,19 @@ AI is inherently lazy. It will find the "path of least resistance" to get a rewa
 3.  **Observe:** The drone won't learn to hover. It will likely learn to **Spin at maximum RPM** or "Vibrate" on the ground to avoid crashing. 
 4.  **The Lesson:** This is **Reward Hacking**. If you don't penalize "Energy Usage" or "Distance from Target," the AI will find a "degenerate" solution.
 
+### **10.1.2 Just-In-Time Math: The Scale of Thought (Normalization)**
+**"Don't compare apples to atoms."**
+
+Neural Networks are sensitive to scale.
+*   **The Problem:** Your Lidar distance is `1.0` meters. Your motor RPM is `20,000`.
+*   **The Math:** If you feed these raw numbers to an AI, the "20,000" will drown out the "1.0". The AI will think the motor is 20,000 times more important than the wall.
+*   **The Solution:** We **Normalize**. 
+    *   Scale meters from `[0 to 5]` $\to$ `[-1 to 1]`.
+    *   Scale RPMs from `[0 to 40,000]` $\to$ `[-1 to 1]`.
+    *   Now the AI can "see" both numbers clearly.
+
+**AI Prompt:** "Why is Input Normalization important for PPO training in Reinforcement Learning? Show a Python function to normalize an observation vector to the range [-1, 1]."
+
 ---
 
 ## **10.2 Sim-to-Real (The Gap)**

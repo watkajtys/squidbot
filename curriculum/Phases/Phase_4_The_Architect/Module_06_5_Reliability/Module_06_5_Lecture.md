@@ -76,6 +76,16 @@ What if the Lidar (Altitude) fails mid-flight?
 2.  **The Watchdog:** Implement a check in your state estimator.
 3.  **The Response:** The drone should enter `STATE_EMERGENCY_LANDING`, ignore the target altitude, and slowly ramp down `motor_mixer(thrust_ramp_down, 0, 0, 0)`.
 
+### **6.5.4 Just-In-Time Math: The Sum of the Parts (Pre-integration)**
+**"Compressing Time"**
+
+Your IMU runs at 1000Hz. Your Graph Optimizer (Module 7) runs at 10Hz.
+*   **The Problem:** You have 100 IMU measurements for every 1 Optimization step. Adding 100 nodes to the graph is too slow.
+*   **The Solution:** We "Pre-integrate" them. We sum up the 100 small moves into one "Big Move" (Delta Position, Delta Velocity, Delta Rotation).
+*   **The Benefit:** The Optimizer treats the 100 steps as a single constraint ("The drone moved 5cm North with 99% confidence"). This makes the math 100x faster.
+
+**AI Prompt:** "Explain the concept of IMU Pre-integration Factors in GTSAM. How do we condense multiple accelerometer readings into a single relative pose change?"
+
 ---
 
 ## **The "Panic" Test**

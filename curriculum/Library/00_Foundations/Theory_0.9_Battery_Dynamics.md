@@ -48,4 +48,23 @@ This ensures that the drone "feels" the same at 100% battery as it does at 10%.
 *   **Storage:** Never store LiPos fully charged. They should be kept at **3.85V per cell**. Storing them at 4.2V causes "Puffing" (gas buildup), which increases internal resistance and ruins the battery.
 
 **Mental Model:** Treat your battery like a fuel tank that gets smaller and leakier every time you use it. Respect the chemicals, or they will disrespect your drone.
---- [Return to Course Map](../../../COURSE_MAP.md)
+## **6. Power Budgeting for the Raspberry Pi**
+The Pi Zero 2 W is your "Big Brain," and it is power-hungry when thinking about AI.
+
+### **The Current Draw:**
+*   **Idle:** ~100mA
+*   **Full CPU (4 Cores):** ~500mA
+*   **Full CPU + Camera + AI (TFLite):** ~800mA - 1.2A
+
+### **The "Brownout" Calculation:**
+If your BEC (Module 0) is rated for 2.0A, but your motors create a 2.0V voltage sag on the 3S rail, the BEC's efficiency drops.
+*   **The Safety Margin:** You should never exceed 80% of your BEC's rated current. 
+*   **The Audit:** If the Pi, Camera, and ToF sensors combined draw 1.5A, and your BEC is a 2.0A model, you are in the "Danger Zone" during aggressive maneuvers.
+
+**Pre-Flight Checklist:**
+- [ ] Measure total current draw at full AI load.
+- [ ] Verify BEC remains < 50°C during bench testing.
+
+---
+
+## **Mastery Check**

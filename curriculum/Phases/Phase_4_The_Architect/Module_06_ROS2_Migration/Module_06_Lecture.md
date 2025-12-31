@@ -31,25 +31,66 @@ Stop writing monolithic `while True` loops. Start writing "Nodes."
 
 ---
 
-## **6.2 The Port**
+## **6.2 The Port: Your First Node**
 
 ### **Objective**
 Refactor Module 1 & 5 code into ROS 2 Classes.
+
+### **6.2.1 Just-In-Time Architecture: The Package Boilerplate**
+**"Don't let the build system break you."**
+
+In professional robotics, we don't just run `.py` files. We build **Packages**. ROS 2 uses `colcon` to manage these. 
+
+1.  **The Source Trap:** Every time you open a new terminal, run `source install/setup.bash`. If the computer says "Command not found," it's because you didn't source your workspace.
+2.  **The setup.py Entry Point:** Unlike a normal script, ROS 2 needs to know exactly which *function* to run. In your `setup.py`, you must define an `entry_point`:
+    ```python
+    entry_points={
+        'console_scripts': [
+            'fly = squid_control.mixer_node:main', # [cmd] = [package].[file]:[function]
+        ],
+    },
+    ```
+3.  **The Pro Move:** Build with `colcon build --symlink-install`. This creates a "shortcut" to your Python files. You can edit your code and run it again without rebuilding.
+
+### **6.2.2 A Minimal Node Template**
+Replace your `while True` loop with a **Timer**. This is more stable and allows other nodes to breathe.
+
+```python
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Range
+
+class TofNode(Node):
+    def __init__(self):
+        super().__init__('tof_driver')
+        self.publisher_ = self.create_publisher(Range, '/sensors/range', 10)
+        # We replace the while loop with a 50Hz Timer
+        self.timer = self.create_timer(0.02, self.timer_callback)
+
+    def timer_callback(self):
+        # Your Module 1 Driver Code goes here
+        dist = read_tof_sensor() 
+        msg = Range()
+        msg.range = dist
+        self.publisher_.publish(msg)
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = TofNode()
+    rclpy.spin(node) # This keeps the node alive
+    rclpy.shutdown()
+```
 
 ### **Lab Procedure**
 1.  **Create Package:** `ros2 pkg create --build-type ament_python squid_control`
 2.  **Port the Driver:**
     *   Take your `ToFArray` class from Module 1.
-    *   Wrap it in a `rclpy.Node`.
-    *   Create a Timer (50Hz) to call `read_distances()` and publish a `sensor_msgs/Range` message.
+    *   Wrap it in a `rclpy.Node` using the template above.
+    *   Update your `setup.py` and `package.xml` (See the `ros2_ws/src` folder for reference).
 3.  **Port the Controller:**
     *   Take your `PID` class from Module 5.
     *   Create a Subscriber for `/sensors/range`.
     *   In the callback, run the PID update and publish to `/cmd_motor`.
-
-### **Deliverable**
-*   A working ROS 2 launch file that starts the driver and controller.
-*   `ros2 topic echo /cmd_motor` showing live data.
 
 ---
 

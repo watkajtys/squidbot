@@ -44,6 +44,30 @@ Because drone physics ($f(x)$) involves sines and cosines, we cannot use a stand
 2.  **UKF (Unscented):** No Jacobians required. It uses "Sigma Points" to sample the distribution. More accurate for highly non-linear maneuvers but uses 3x more CPU.
 3.  **PF (Particle Filter):** The "Gold Standard" for mapping. Uses 1000s of "Ghost Drones" to represent the probability. Only used in Module 15 for Global Recognition.
 
+### **7.2.2 Just-In-Time Math: The Drunk and The Sniper**
+**"Understanding the Kalman Gain ($K$)"**
+
+In `lab_4_2_ekf.py`, the math can look intimidating. Use this mental model:
+*   **The Drunk (Physics/IMU):** "I think I took 5 steps." (High Drift, Fast).
+*   **The Sniper (Lidar/GPS):** "You are at position X." (Low Drift, Slow).
+*   **$P$ (Covariance):** The "Trust Slider." If $P$ is large, we trust the Sensor. If $P$ is small, we trust the Physics.
+
+**The "Joseph Form" (The PhD Guard):**
+You will see a line: `P = (I-KH)P(I-KH)' + KRK'`.
+*   **Why?** In standard math, $10.0 - 9.999 = 0.001$. In computers, it might be $-0.00001$.
+*   **The Crash:** Negative uncertainty is impossible. It causes the drone to divide by zero. The Joseph Form squares the matrices, ensuring the result is always positive.
+
+**AI Prompt:** "My EKF covariance matrix P became non-positive definite. Check my 'Joseph Form' implementation in the update step."
+
+### **7.2.3 Just-In-Time Math: The Invisible Drone (Observability)**
+**"You can't see what doesn't move."**
+
+*   **The Problem:** Some things are "Unobservable." 
+*   **The Analogy:** Imagine you are in a pitch-black room with a 1D Lidar pointing Down. You know your Height (Z). But if you slide 1 meter North (X), the Lidar reading doesn't change. You are "Invisible" in the X-direction.
+*   **The Lesson:** To find your X and Y, you **must** have a camera or a GPS. If you don't, the EKF covariance matrix $P$ will grow to infinity, even if you are hovering perfectly.
+
+**AI Prompt:** "What is 'Observability' in a Kalman Filter? Give an example of a drone state that becomes unobservable if the GPS is lost."
+
 ---
 
 ## **7.3 Sensor Fusion Architecture**
@@ -151,7 +175,28 @@ A common mistake is calculating `yaw = atan2(my, mx)`. This only works if the dr
 
 **Submission:** A video of the "Hand Block" test where the drone does *not* freak out.
 
+## **0.7.4 The "Deep-Dive" Breakout: Scratch EKF**
+
+> **Professor's Note:** The Kalman Filter is often treated as "Voodoo." We are breaking that tradition.
+
+> **Why?** If you use a library, you won't understand how the **Covariance Matrix ($P$)** actually represents the drone's "confidence."
+
+> **The Goal:** You will implement the Predict and Update steps using pure Matrix Multiplication (`numpy.matmul`). You will derive the **Jacobians** for a 6-DOF system on paper before writing a single line of code.
+
+
+
 ---
+
+
+
+## **The "Paper" Test**
+
+
+
+---
+
+
+
 ## **Theoretical Foundations**
 
 ### Lecture 6 & 7: State Estimation (The Kalman Filter)

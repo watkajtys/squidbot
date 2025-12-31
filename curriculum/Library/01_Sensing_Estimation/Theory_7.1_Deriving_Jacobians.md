@@ -37,5 +37,33 @@ In a big lab, we don't always do this by hand anymore.
     F = R.jacobian([phi, theta, psi])
     ```
 
-**Student Task:** Use the `sympy_jacobian_gen.py` script (to be written in Module 7) to generate your $12 \times 12$ matrix. Do not try to hard-code 144 entries by hand.
+## **3. Observability: Can we see the Truth?**
+
+
+
+Calculating the Jacobian is only half the battle. You must also prove that your sensors provide enough information to estimate your state. This is **Observability Analysis**.
+
+
+
+### **The Observability Matrix ($O$)**
+
+For a system with state transition $F$ and measurement Jacobian $H$, the observability matrix is:
+
+$ O = \begin{bmatrix} H \\ HF \\ HF^2 \\ \vdots \\ HF^{n-1} \end{bmatrix} $
+
+
+
+### **The Rank Test**
+
+*   **Full Rank:** If the rank of $O$ equals the number of states, the system is **Observable**. You can find your position.
+
+*   **Rank Deficient:** If the rank is lower, you have "Hidden States."
+
+    *   *Example:* If you have an IMU but no GPS or Lidar, your absolute position ($X, Y, Z$) is **Unobservable**. You will drift forever because the sensors only measure "changes," not "absolute truth."
+
+
+
+**Student Task:**
+
+ Use the `sympy_jacobian_gen.py` script (to be written in Module 7) to generate your $12 \times 12$ matrix. Do not try to hard-code 144 entries by hand.
 --- [Return to Course Map](../../../COURSE_MAP.md)

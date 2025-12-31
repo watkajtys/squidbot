@@ -72,6 +72,17 @@ Finite State Machines (FSMs) get messy ("Spaghetti State").
             *   Action: Patrol
         *   Action: RTH
 
+### **12.3.1 Just-In-Time Math: The Zombie Game (Reachability)**
+**"Winning the Game of Tag"**
+
+In the "Safety" module, we talk about **Hamilton-Jacobi-Isaacs (HJI)**. It sounds scary. It's just a game.
+*   **The Players:** You (The Drone) vs. The Environment (The Wind/Zombie).
+*   **The Goal:** You want to reach the target. The Zombie wants to push you into a wall.
+*   **The Calculation:** We calculate the "Backward Reachable Set." This is the set of ALL starting positions where, no matter how hard you try, the Zombie (Wind) can *force* you to crash.
+*   **The Rule:** Stay out of that set.
+
+**AI Prompt:** "Explain the HJI Reachability game. If my drone has max thrust T and the wind has max force W, what is the 'Safe Set' boundary where I can guaranteed avoid a wall?"
+
 ---
 
 ## **Check: The Mile Run**

@@ -26,6 +26,16 @@ Intercept a moving target.
 2.  **The Error:** Calculate the pixel offset ($x, y$) of the ball from the center.
 3.  **The Controller:** Input this pixel error into the Pro-Nav equation to generate Yaw/Pitch commands.
 
+### **11.1.1 Just-In-Time Math: The Quarterback**
+**"Don't chase the player. Chase the ball."**
+
+*   **Pure Pursuit:** A dog chasing a rabbit. The dog runs *at* the rabbit. As the rabbit turns, the dog runs in a curve. This is slow and exhausting.
+*   **Pro-Nav:** A Quarterback throwing a pass. He throws to an empty spot of grass where the receiver *will be*.
+*   **The Geometry:** If the "Line of Sight" angle is not changing, you are on a collision course.
+    *   **Rule:** Keep the target at the same spot on your canopy windshield. If it stays there and gets bigger, you will hit it.
+
+**AI Prompt:** "Explain the 'Constant Bearing, Decreasing Range' rule in Proportional Navigation. Why does keeping the Line-of-Sight rate at zero guarantee an intercept?"
+
 ---
 
 ## **11.2 Visual Servoing: The Red Balloon**

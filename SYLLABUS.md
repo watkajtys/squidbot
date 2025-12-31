@@ -84,7 +84,9 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
     Building the **Software-in-the-Loop** environment in PyBullet.
 
 *   **Module 4: Signal Processing and Geometry**
-    **Prerequisite:** [Theory 1: Coordinate Systems](curriculum/Library/00_Foundations/Theory_1_Coordinate_Systems.md).
+    **Prerequisites:** 
+    1. [Theory 1: Coordinate Systems & Lie Groups SO(3)](curriculum/Library/00_Foundations/Theory_1_Coordinate_Systems.md).
+    2. [Theory 4.1: Least Squares System Identification](curriculum/Library/02_Control_Dynamics/Theory_0.4_System_Identification.md).
     **Labs:** [Lab 4.1: SysID](src/Labs/Phase_3_The_Engineer/Module_04_Signal_Processing/lab_3_1_sysid.py), [Lab 4.2: FFT Tuning](src/Labs/Phase_3_The_Engineer/Module_04_Signal_Processing/lab_3_2_fft_tuning.py)
 
 *   **Module 5: Control Theory**
@@ -92,7 +94,7 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
     1. [Theory 4: PID to LQR](curriculum/Library/02_Control_Dynamics/Theory_4_PID_to_LQR.md)
     2. [Theory 5.6: Nonlinear Control and LQR](curriculum/Library/02_Control_Dynamics/Theory_5.6_Nonlinear_Control_and_LQR.md)
     3. [Theory 5.7: Time-Optimal Control](curriculum/Library/02_Control_Dynamics/Theory_5.7_Time_Optimal_Control.md)
-    4. [Theory 5.8: MPC](curriculum/Library/02_Control_Dynamics/Theory_5.8_Model_Predictive_Control.md)
+    4. [Theory 5.8: MPC & iLQR Optimization](curriculum/Library/02_Control_Dynamics/Theory_5.8_Model_Predictive_Control.md)
     5. [Theory 5.9: Extreme Recovery](curriculum/Library/02_Control_Dynamics/Theory_5.9_Recovery_from_Extreme_Attitudes.md)
     **Labs:**
     *   [Lab 5.1: PID](src/Labs/Phase_3_The_Engineer/Module_05_Control_Theory/lab_3_3_pid.py)
@@ -102,16 +104,22 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
 #### Phase IV: The Architect (Scale and Safety)
 *   **Module 6: The ROS 2 Migration**
 *   **Module 6.5: Failsafes and Reliability**
+    **Study Guide:** [Guide 6.5](curriculum/Phases/Phase_4_The_Architect/Module_06_5_Reliability/Module_06_5_Study_Guide.md)
     **Lab:** [Lab 6.1: IMU Pre-integration](src/Labs/Phase_4_The_Architect/Module_06_5_Reliability/lab_4_3_preintegration.py)
 
 *   **Module 7: State Estimation (The Truth)**
     **Prerequisites:** 
     1. [Theory 2: The EKF](curriculum/Library/01_Sensing_Estimation/Theory_2_The_EKF.md)
-    2. [Theory 7.1: Jacobians](curriculum/Library/01_Sensing_Estimation/Theory_7.1_Deriving_Jacobians.md)
+    2. [Theory 7.1: Jacobians & Observability Analysis](curriculum/Library/01_Sensing_Estimation/Theory_7.1_Deriving_Jacobians.md)
     3. [Theory 7.2: Consistency Analysis](curriculum/Support/Reference/Real_World_Engineering.md)
     4. [Theory 7.5: Allan Variance](curriculum/Library/01_Sensing_Estimation/Theory_7.5_Allan_Variance.md)
     5. [Theory 7.6: IMM Tracking](curriculum/Library/01_Sensing_Estimation/Theory_7.6_IMM_Adversarial_Tracking.md)
     **Labs:** [Lab 7.1: Allan Variance](src/Labs/Phase_4_The_Architect/Module_07_State_Estimation/lab_4_1_allan_variance.py), [Lab 7.2: EKF](src/Labs/Phase_4_The_Architect/Module_07_State_Estimation/lab_4_2_ekf.py)
+
+*   **Module 07.5: The Forensic Regression Suite**
+    **Lecture:** [Module 07.5 Lecture](curriculum/Phases/Phase_4_The_Architect/Module_07_5_Forensics/Module_07_5_Lecture.md)
+    **Study Guide:** [Guide 7.5](curriculum/Phases/Phase_4_The_Architect/Module_07_5_Forensics/Module_07_5_Study_Guide.md)
+    **Lab:** [Regression Test Tool](tools/regression_test.py)
 
 #### Phase V: The Researcher (Autonomy)
 *Building the brain that understands space.*
@@ -155,8 +163,8 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
 #### Phase VII: The Frontier (Experimental)
 *   **Module 13: Visual Inertial Odometry (VIO)**
     **Prerequisites:** 
-    1. [Theory 6: VIO and Preintegration](curriculum/Library/01_Sensing_Estimation/Theory_6_VIO_and_Preintegration.md)
-    **Lab:** [Lab 13.1: KLT Tracker](src/Labs/Phase_7_The_Frontier/Module_13_VIO/lab_7_1_klt_tracker.py)
+    1. [Theory 6: VIO & Factor Graph Optimization (GTSAM)](curriculum/Library/01_Sensing_Estimation/Theory_6_VIO_and_Preintegration.md)
+    **Lab:** [Lab 13.1: KLT Tracker (Scratch)](src/Labs/Phase_7_The_Frontier/Module_13_VIO/lab_7_1_klt_tracker.py)
 
 *   **Module 14: Swarm Theory**
     Algebraic Graph Theory and Consensus. **Prerequisites:** 
@@ -170,12 +178,16 @@ By the end of this course, you will possess a "Full Stack" robotics skillset:
     CNNs and Metric Learning. **Prerequisites:** 
     1. [Theory 15.5: Change Detection](curriculum/Library/03_Mapping_Planning/Theory_15.5_Spatio_Temporal_Change_Detection.md)
     2. [Theory 15.6: Acoustic Localization](curriculum/Library/01_Sensing_Estimation/Theory_15.6_Acoustic_Localization.md)
+    **Lab:** [Lab 15.1: Siamese Perception](src/Labs/Phase_7_The_Frontier/Module_15_Deep_Perception/lab_7_5_siamese_perception.py)
+
+*   **Module 15.5: Edge AI and Model Optimization**
+    **Lecture:** [Module 15.5 Lecture](curriculum/Phases/Phase_7_The_Frontier/Module_15_5_Edge_AI/Module_15_5_Lecture.md)
+    **Study Guide:** [Guide 15.5](curriculum/Phases/Phase_7_The_Frontier/Module_15_5_Edge_AI/Module_15_5_Study_Guide.md)
     **Labs:**
-    1. [Lab 15.1: Siamese Perception](src/Labs/Phase_7_The_Frontier/Module_15_Deep_Perception/lab_7_5_siamese_perception.py)
-    2. [Lab 15.2: Quantization](src/Labs/Phase_7_The_Frontier/Module_15_5_Edge_AI/lab_7_6_quantization.py)
-    3. [Lab 15.3: Change Detection](src/Labs/Phase_7_The_Frontier/Module_15_5_Edge_AI/lab_7_7_change_detection.py)
-    4. [Lab 15.4: 3DGS Collision](src/Labs/Phase_7_The_Frontier/Module_15_5_Edge_AI/lab_7_8_3dgs_collision.py)
-    5. [Lab 15.5: Acoustic Localization](src/Labs/Phase_7_The_Frontier/Module_15_5_Edge_AI/lab_7_9_acoustic_loc.py)
+    1. [Lab 15.2: Quantization](src/Labs/Phase_7_The_Frontier/Module_15_5_Edge_AI/lab_7_6_quantization.py)
+    2. [Lab 15.3: Change Detection](src/Labs/Phase_7_The_Frontier/Module_15_5_Edge_AI/lab_7_7_change_detection.py)
+    3. [Lab 15.4: 3DGS Collision](src/Labs/Phase_7_The_Frontier/Module_15_5_Edge_AI/lab_7_8_3dgs_collision.py)
+    4. [Lab 15.5: Acoustic Localization](src/Labs/Phase_7_The_Frontier/Module_15_5_Edge_AI/lab_7_9_acoustic_loc.py)
 
 ---
 

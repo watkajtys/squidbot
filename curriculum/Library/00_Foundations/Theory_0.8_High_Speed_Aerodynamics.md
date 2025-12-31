@@ -24,4 +24,12 @@ As the drone moves forward, the "Advancing" propeller blade (moving with the win
 When an interceptor tries to slow down too fast by dropping straight down, it falls into its own "dirty air" (wash).
 *   **The Physics:** The air recirculates through the props, lift vanishes, and the drone tumbles.
 *   **Interceptor Strategy:** Never descend vertically. Always "slide" into a descent to keep the props in "clean" air.
---- [Return to Course Map](../../../COURSE_MAP.md)
+## **4. Ground Effect (The "Cushion")**
+When the drone is within one rotor-diameter of the floor (approx. <10cm for the Squid), it experiences **Ground Effect**.
+*   **The Physics:** The air pushed down by the props cannot escape easily. It creates a "high-pressure cushion" between the drone and the floor.
+*   **The Result:** The drone becomes **more efficient** (requires less power to hover) but also **less stable** (it "skates" on the air cushion).
+*   **The Landing Challenge:** In Module 12 (Docking), you must compensate for this. As the drone approaches the pad, it will suddenly want to "float." You must reduce throttle faster than expected to overcome the cushion and touch down.
+
+---
+
+## **Mastery Check**

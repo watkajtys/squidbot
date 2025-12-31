@@ -1,11 +1,13 @@
-# Hardware Foundations: Electronics & Soldering
-**"The physical world is just a circuit with consequences."**
+# Hardware Foundations: The Workbench
+**"Respect the electron."**
 
-If this is your first robot, this guide is your starting point. Before you touch a soldering iron or plug in a battery, you must understand the rules of electricity.
+## **0. Safety Gear (Mandatory)**
+Before you pick up a tool:
+1.  **Safety Glasses:** When you clip a wire, the copper flies at 100mph. When a prop shatters, plastic flies faster. **Wear them.**
+2.  **Ventilation:** Solder fumes are lead and rosin. Open a window or use a fan.
+3.  **Fire Safety:** LiPo batteries burn hot. Charge them in a LiPo bag. Have a fire extinguisher nearby.
 
----
-
-## **1. Electronics 101: The Water Analogy**
+## **1. Soldering 101**
 Think of electricity like water flowing through pipes.
 
 *   **Voltage ($V$ - Volts):** Pressure. The force pushing the water. (Your battery is 11.1V).

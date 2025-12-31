@@ -40,6 +40,16 @@ Wi-Fi is a shared resource. If 10 drones talk at $100\text{Hz}$, the network cra
 *   **The Error Threshold ($\epsilon$):** A drone only shouts its "Real" position if it deviates from its own Shadow prediction by more than $10\text{cm}$.
 *   **The Result:** During steady flight, the Wi-Fi stays silent. During a collision-avoidance maneuver, the Wi-Fi "bursts" with high-frequency data.
 
+### **14.2.2 Just-In-Time Math: The Sidewalk Dance (RVO)**
+**"Don't Stop, Just Slide"**
+
+In `lab_7_3_rvo_collision.py`, we implement a "Nudge" logic.
+*   **The Problem:** If two drones head-on, both might stop (Deadlock).
+*   **The Solution (RVO):** "I assume you will move 50% Right. I will move 50% Right."
+*   **The Math:** We calculate the **Tangent Vector** (perpendicular to the collision). We project our velocity onto this tangent to "slide" past the obstacle without losing momentum.
+
+**AI Prompt:** "I have two 2D points and velocities. Calculate the 'Time to Closest Approach' (tau). If tau is positive and small, calculate a velocity correction vector to avoid collision."
+
 ---
 
 ## **14.3 Socratic Discussion: The Collective Mind**

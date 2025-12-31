@@ -8,6 +8,11 @@ This document is the Single Source of Truth for wiring your Squid Drone. Use thi
 ## **1. Raspberry Pi Zero 2 W GPIO Header**
 We use the standard 40-pin header.
 
+**WARNING: 3.3V LOGIC ONLY.**
+The Raspberry Pi GPIO pins are **3.3V tolerant**.
+*   **Do NOT** connect 5V logic signals (like from an Arduino Uno) directly to the Pi. You will fry the CPU.
+*   **The Good News:** Modern Flight Controllers (STM32 F405) also use 3.3V logic, so direct wire connection is safe.
+
 | Pin # | Function | Description | Connected To |
 | :--- | :--- | :--- | :--- |
 | **01** | 3.3V | Power | (Unused) |

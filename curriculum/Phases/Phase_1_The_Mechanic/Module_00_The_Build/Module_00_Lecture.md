@@ -26,6 +26,21 @@ We are grafting a "Big Brain" (Raspberry Pi Zero 2 W) onto a "Fast Spinal Cord" 
 3.  **Data:** FC UART RX $\to$ Pi UART TX (GPIO 14).
 4.  **Ground:** **CRITICAL.** You MUST connect a common Ground (GND) wire between the FC and the Pi.
 
+## **0.1.1 The "Deep-Dive" Breakout: Power Budgeting**
+> **Professor's Note:** The Pi Zero 2 W is a "Brownout" waiting to happen.
+> **Why?** When you run AI and 4 motors at full speed, the voltage sags. If your BEC isn't rock-solid, the Pi will reboot mid-air.
+> **The Goal:** You will calculate the **Total Current Draw** for every component. You will ensure your power rail has at least a 20% safety margin before your first takeoff.
+
+### **0.1.2 Just-In-Time Logic: The Wiring Language**
+**"How chips talk."**
+
+*   **UART (Universal Asynchronous Receiver-Transmitter):**
+    *   **The Analogy:** A phone call. You speak (TX), I listen (RX).
+    *   **The Rule:** TX must go to RX. (If you wire TX-to-TX, two chips shout at each other and nobody listens).
+*   **I2C (Inter-Integrated Circuit):**
+    *   **The Analogy:** A classroom. The Teacher (Master) points at Student #29 (Slave Address) and asks for an answer.
+    *   **The Rule:** All students share the same wire (SDA/SCL). Each must have a unique Name Tag (Address).
+
 ---
 
 ## **0.2 Assembly**
@@ -94,6 +109,44 @@ sudo raspi-config
 # -> Interface Options -> I2C -> Enable
 # -> Interface Options -> Serial Port -> Login Shell: NO, Hardware Enabled: YES
 ```
+
+### **0.3.1 Just-In-Time Workflow: Remote SSH**
+**"Stop using Nano."**
+
+Editing code inside a terminal is painful.
+1.  **The Pro Tool:** Install **VS Code** on your laptop.
+2.  **The Extension:** Install the "Remote - SSH" extension by Microsoft.
+3.  **The Connection:**
+    *   Click the green button (bottom left) -> "Connect to Host".
+    *   Enter `pi@squid-drone.local`.
+    *   Enter your password.
+4.  **The Result:** You can now edit files on the drone as if they were on your laptop. You get IntelliSense, Autocomplete, and a built-in terminal.
+
+**AI Prompt:** "How do I set up SSH Key-Based Authentication so I don't have to type my password every time I connect to my Raspberry Pi?"
+
+### **0.3.2 Just-In-Time Hardware: Know Your Compute**
+**"It's not a toy. It's a satellite."**
+
+The Raspberry Pi Zero 2 W is technically a **System-on-Chip (SiP)**.
+*   **The Brain (CPU):** Quad-core Cortex-A53 @ 1GHz. This is the same architecture used in the original Raspberry Pi 3, but squeezed into a tiny package. It has 4 cores, meaning it can do 4 things at once (Vision, Control, Comm, OS).
+*   **The Muscle (GPU):** VideoCore IV. We don't use this for gaming. We use it for **H.264 Encoding**. It can compress camera video in real-time without touching the CPU.
+*   **The Bottleneck (RAM):** 512MB LPDDR2. This is your constraint. If you load a massive AI model, the Pi will "swap" to the SD card and freeze. We must write efficient code.
+
+**AI Prompt:** "What is the difference between the 'User Space' and 'Kernel Space' in Linux, and why does accessing GPIO pins via Python (User Space) introduce latency?"
+
+### **0.3.3 Just-In-Time Workflow: The Time Machine (Git)**
+**"Save your game."**
+
+You will break your code. You will delete a file by accident.
+1.  **Init:** Run `git init` in your `squid_drone` folder.
+2.  **Commit:** Every time you finish a lab and it works, run:
+    ```bash
+    git add .
+    git commit -m "Lab 1.1 Complete: Motors spin!"
+    ```
+3.  **The Safety Net:** If you break everything tomorrow, you can revert to today's commit. It is the "Undo" button for your entire project.
+
+**AI Prompt:** "Explain the difference between 'git add', 'git commit', and 'git push'. How do I revert my last commit if I made a mistake?"
 
 ---
 

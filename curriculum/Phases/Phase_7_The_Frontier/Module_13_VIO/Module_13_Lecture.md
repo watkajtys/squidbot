@@ -31,15 +31,27 @@ $$ \min_{x} \sum ||z_{imu} - f(x)||_Q + \sum ||z_{vision} - h(x)||_R $$
 *   **The Solver:** We use **GTSAM**. It converts this math into a graph where nodes are "jiggled" until the error is minimized.
 
 ### **13.2.1 Marginalization: The Schur Complement**
-As the drone flies, the graph grows. To keep it from crashing the Pi Zero, we must "Compress" old information.
-*   **The PhD Secret:** You cannot just delete old nodes. You must use the **Schur Complement** to transfer the "Probability" of the old nodes onto the new ones. This creates a "Memory" of where the drone has been without the RAM cost of the raw data.
+**"The Filing Cabinet"**
+
+As the drone flies, the "Factor Graph" (Module 7) grows. If you fly for 10 minutes, the graph will have 600,000 nodes, and your Pi Zero will explode. 
+*   **The Problem:** You can't just delete old nodes; that loses the "history" of your position.
+*   **The Solution (Marginalization):** Think of an old filing cabinet. You don't have room for every single receipt. Instead, you write a **Summary** ("Total spent in January: $500") and throw the raw receipts away.
+*   **The Math:** We use the **Schur Complement** to turn the old nodes into a single "Summary Factor." This keeps the math fast but preserves the memory.
+
+**AI Prompt:** "Explain the Schur Complement in the context of sliding window VIO marginalization. How does it preserve the information of the nodes we remove from the optimization?"
 
 ---
 
 ## **13.3 Monocular Scale & Gravity**
-A single camera cannot know if it is seeing a tiny room or a giant hangar.
-*   **Observability of Scale:** Scale is only observable if the drone is **Accelerating**.
-*   **Gravity Alignment:** The system uses the 1st second of flight to identify the "Gravity Vector" $[0, 0, -9.8]$. This vector becomes the absolute reference for "Up" and "Down" throughout the mission.
+**"The Toy Room Mystery"**
+
+A single camera has a major problem: it doesn't know how big the world is.
+*   **The Analogy:** If you show a camera a photo of a coffee cup, is it a 10cm real cup, or a 10m giant sculpture? The pixels look the same.
+*   **The Fix (Gravity):** We use the IMU. We know that gravity is *exactly* $9.8\text{ m/s}^2$. 
+*   **The Logic:** If the camera sees the cup "fall" 100 pixels in 0.1 seconds, and the IMU says it felt a $1\text{G}$ drop, we can calculate exactly how many centimeters those 100 pixels represent.
+*   **The Catch:** This only works if you **move** the drone. If you just hover, the system stays "Scale Blind."
+
+**AI Prompt:** "Why is monocular VIO scale unobservable without acceleration? Explain the relationship between IMU gravity sensing and visual depth estimation."
 
 ---
 

@@ -45,31 +45,39 @@ time.sleep(random.uniform(0, 0.05)) # Delay up to 50ms
     *   **The Problem:** The data looks "jerky." If this was a control signal, the drone would "twitch" because it's reacting to stale information.
     *   **The PhD Lesson:** We use **Circular Buffers** and **Time-Alignment** (Interpolation) to smooth out this jitter before the math sees it.
 
+### **2.1.2 Just-In-Time Logic: The Translator (Serialization)**
+**"Talking Fast vs. Talking Clear"**
+
+In the lab, we send data as text: `"lidar:1.23"`.
+*   **The Good:** You can read it with your eyes.
+*   **The Bad:** The computer has to turn the number `1.23` into the characters `'1'`, `'.'`, `'2'`, `'3'`. This costs CPU.
+*   **The Pro Way (Binary):** Later in ROS 2, we will send the raw 32-bit float (4 bytes). It looks like garbage to humans (`@^#&`) but it is instant for computers.
+*   **The Analogy:** Text is like reading a speech. Binary is like telepathy.
+
+**AI Prompt:** "Explain the difference between ASCII serialization (JSON) and Binary serialization (Struct/Protobuf). Write a Python snippet to pack two floats into a binary byte array."
+
 ---
 
-## **2.2 The Dashboard**
+## **2.2 Just-In-Time Tooling: PlotJuggler**
 
 ### **Objective**
-Text is hard to read at 50Hz. We need graphs.
+Don't build a dashboard. Build a stream.
 
-### **Theory**
-We need a way to visualize data.
-*   **Simple:** Python `http.server` hosting a single `index.html` file with JavaScript.
-*   **Advanced:** React.js + FastAPI (For when you want a professional Ground Control Station).
-
-We will start with the **Simple** approach.
+### **The Solution**
+**PlotJuggler** is the "Gold Standard" for open-source time-series analysis. It is powerful, lightweight, and requires **zero** frontend code.
 
 ### **Lab Procedure**
-1.  **The Relay:** Write `ground_station/relay.py`.
-    *   Listen for UDP packets from the drone.
-    *   Forward them to the browser using `python-socketio` or a simple WebSocket library.
-2.  **The UI (`index.html`):**
-    *   Include **Chart.js** via CDN.
-    *   Connect to your Python Relay via WebSocket.
-    *   **The Graph:** Use a rolling buffer (array of length 100) to plot the last 2 seconds of Lidar data.
+1.  **The Stream:** Modify `src/comms/transmitter.py`.
+    *   Instead of complex JSON, we will send a simple "Key/Value" UDP packet.
+    *   Example: `timestamp:1234,lidar:0.5,accel_z:9.81`
+2.  **The UI:**
+    *   Install **PlotJuggler** (Windows/Mac/Linux).
+    *   Open the "UDP Server" plugin (Port 9870).
+    *   **The Win:** Click "Start." Drag `lidar` into the center area.
+    *   **The "Aha!" Moment:** Right-click the graph -> "Apply Function" -> "Derivative." You are now seeing the drone's **Velocity** calculated in real-time from the Lidar distance.
 
 ### **Deliverable**
-*   A live line chart on your laptop screen showing the distance as you move your hand over the drone.
+*   A screenshot of PlotJuggler showing both your raw Lidar data and its calculated Derivative (Velocity) on the same graph.
 
 ---
 

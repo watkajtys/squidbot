@@ -30,6 +30,29 @@ Understand where "Down" is.
 ### **Deliverable**
 *   A script that prints the "World Z Acceleration". It should stay near 9.8m/s² even as you tumble the drone in your hands.
 
+### **4.1.1 Just-In-Time Math: The 4D Sphere (Quaternions)**
+**"Avoiding the Gimbal Lock"**
+
+In the lecture, we mentioned "Gimbal Lock." This happens when you use Euler Angles (Roll, Pitch, Yaw). If you pitch up 90 degrees, your "Roll" and "Yaw" axes become the same axis. You lose a dimension of control.
+*   **The Fix:** Quaternions ($w, x, y, z$).
+*   **The Analogy:** Imagine a sphere. To rotate, you pick a point on the surface of a 4D sphere.
+    *   It never "Locks" because a sphere has no corners.
+    *   **The Math:** To rotate vector $v$ by quaternion $q$: $v_{new} = q \cdot v \cdot q^{-1}$.
+    *   **The Trap:** You must always keep the quaternion "normalized" (length = 1). If it shrinks ($0.99$), the drone physics will warp.
+
+**AI Prompt:** "I have a quaternion [w, x, y, z]. How do I convert this to a Rotation Matrix in Python using scipy.spatial.transform?"
+
+### **4.1.2 Just-In-Time Logic: The Reference Frame Trap**
+**"Forward is not always Forward."**
+
+When you tell a drone to move "Forward," what do you mean?
+*   **Local (Body) Frame:** Move in the direction the camera is currently pointing. If the drone is tilted, "Forward" might be "Down."
+*   **Global (World) Frame:** Move "North" relative to where you started.
+*   **The Trap:** If you apply a Body-Frame command to a World-Frame goal, the drone will spiral into the ground.
+*   **The Solution:** You must rotate your command vector using the **Rotation Matrix** from Module 4.1.
+
+**AI Prompt:** "I have a velocity command [1.0, 0.0, 0.0] in the Body Frame. How do I use a Rotation Matrix R to convert this to the World Frame velocity?"
+
 ---
 
 ## **4.2 Vibration Analysis & Filtering**
@@ -76,6 +99,21 @@ Filters clean the noise, but they steal your time.
 ### **Deliverable**
 *   "Before" and "After" plots of your Gyroscope noise. The "After" line should be smooth.
 
+### **4.2.3 Just-In-Time Math: The Noise Canceling Headphone**
+**"Killing the Whine"**
+
+In the Filtering Lab, you use an FFT and a Notch Filter.
+*   **The FFT (Fast Fourier Transform):** Imagine un-baking a cake. The FFT takes the "Cake" (Raw Vibration Log) and tells you the ingredients: "This vibration is 10% Wind, 80% Motor Whine (200Hz), and 10% Propeller Balance."
+*   **The Notch Filter:** This is a "Targeted Assassin." It doesn't just turn down the volume (Low Pass); that would make the drone sluggish. Instead, it surgically removes *only* the 200Hz frequency.
+*   **The Analogy:** It's like Noise Canceling Headphones that silence the jet engine drone but let you hear the pilot speaking.
+
+**AI Prompt:** "Explain how a Biquad Notch Filter works. Give me the Python code to design a 200Hz notch filter for a system running at 1000Hz sampling rate."
+
+## **4.2.4 The "Deep-Dive" Breakout: Least Squares SysID**
+> **Professor's Note:** Don't guess your motor constants. Measure them with math.
+> **Why?** A simulator is only as good as its parameters. If your thrust-to-weight ratio is wrong by 10%, your MPC controller will never be stable.
+> **The Goal:** You will use **Ordinary Least Squares (OLS)** to find the exact $K_t$ and $J$ (Inertia) of your drone using real flight logs. This is the math that bridges the "Reality Gap."
+
 ---
 
 ## **4.3 Camera Calibration**
@@ -118,6 +156,11 @@ If this is wrong, the math thinks the drone is "drifting" when it is just rotati
 
 ### **Deliverable**
 *   Add these values to your `config/robot_params.yaml`.
+
+## **4.4.1 The "Deep-Dive" Breakout: SO(3) & Lie Groups**
+> **Professor's Note:** We are moving beyond simple Roll/Pitch/Yaw. 
+> **Why?** Aerial robotics happens in 360 degrees. Euler angles will fail you during an aggressive recovery or a flip. 
+> **The Goal:** You will implement a rotation update using the **Exponential Map**. You'll learn why we do math in the "Flat" Lie Algebra before projecting it back to the "Curved" Manifold.
 
 ---
 

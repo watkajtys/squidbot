@@ -41,6 +41,20 @@ Neural Networks are heavy. The Raspberry Pi Zero 2 W is small.
 *   **Quantization:** Converting 32-bit weights to 8-bit to save RAM and CPU.
 *   **TFLite:** Using the TensorFlow Lite runtime for efficient execution.
 
+### **15.3.1 Just-In-Time Math: The Minecraft Texture (Quantization)**
+**"High Res to Pixel Art"**
+
+Your Neural Network is a 4K Photo. It uses 32-bit decimals ($0.123456...$).
+Your Pi Zero is a GameBoy. It cannot handle 4K.
+*   **Quantization:** We "squash" the 4K photo into an 8-bit Minecraft texture.
+*   **The Trick:** We find the Min and Max values of the weights.
+    *   $Min (-3.0) \to 0$
+    *   $Max (+3.0) \to 255$
+*   **The Cost:** You lose a tiny bit of precision ("The texture looks blocky").
+*   **The Gain:** It runs 4x faster and uses 4x less RAM.
+
+**AI Prompt:** "Explain 'Post-Training Static Quantization' in PyTorch. How do we map float32 weights to int8 without retraining the model?"
+
 ---
 
 ## **Check: The Memory**

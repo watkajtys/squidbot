@@ -86,7 +86,23 @@ def calculate_checksum(data):
 *   A script `spin_test.py` that spins Motor 1 at 5% throttle for 2 seconds.
 *   **Safety:** PROPS OFF.
 
-### **1.1.1 Sub-Lab: The UART Sanity Check**
+### **1.1.1 Just-In-Time Math: The DJ Mixer**
+**"How to mix 4 motors with 1 command."**
+
+In Lab 1.1, you will encounter the **Motor Mixer Matrix**.
+*   **The Problem:** You have 4 inputs (Throttle, Pitch, Roll, Yaw) but 4 outputs (Motor 1, 2, 3, 4). How do you map them?
+*   **The Analogy:** Think of a DJ mixing board.
+    *   **Throttle:** The "Master Volume" slider. It pushes ALL motors up.
+    *   **Pitch:** A "Crossfader." It pushes Front Motors UP and Rear Motors DOWN.
+    *   **Yaw:** It pushes Clockwise Motors UP and Counter-Clockwise Motors DOWN.
+*   **The Math:**
+    $$ M_1 = Throttle + Pitch + Roll + Yaw $$
+    $$ M_2 = Throttle - Pitch + Roll - Yaw $$
+    (And so on...). This linear combination is your first taste of **Control Allocation**.
+
+**AI Prompt:** "I have a quadrotor in X-configuration. Write the mixing equations to convert [Throttle, Pitch, Roll, Yaw] commands into [FrontLeft, FrontRight, RearLeft, RearRight] motor speeds."
+
+### **1.1.2 Sub-Lab: The UART Sanity Check**
 **"Is anybody out there?"**
 
 Before we try to spin motors, let's see if the Flight Controller can hear us. We will send a request for the **MSP API Version** (Command Type 1).
@@ -99,7 +115,7 @@ Before we try to spin motors, let's see if the Flight Controller can hear us. We
     *   Run `python3 check_fc.py`.
     *   **Success:** You see `MSP API Version: 1.XX`. This proves your TX, RX, and Ground wires are soldered correctly.
 
-### **1.1.2 Sub-Lab: The MSP Hex Dump**
+### **1.1.3 Sub-Lab: The MSP Hex Dump**
 **"Decoding the Matrix."**
 
 Computers don't send "numbers"; they send voltage pulses that we interpret as bytes. If your driver isn't working, you need to see the raw data.
@@ -172,19 +188,35 @@ Robots don't wait. They loop. We need a main loop that runs at a consistent freq
 5.  Sleep for `TARGET_DT - (now - start)`.
 6.  **Log Jitter:** Print how much the actual dt deviates from the target.
 
+### **1.3.1 Just-In-Time Math: The Metronome**
+**"Don't Sleep, Wait."**
+
+*   **The Rookie Mistake:** `time.sleep(0.02)`.
+    *   This sleeps for 20ms *plus* the time it took to run your code. Your loop will run at 48Hz, then 45Hz, then 49Hz. This is "Drift."
+*   **The Pro Way:**
+    *   `next_wake_time = current_time + 0.02`
+    *   `time.sleep(next_wake_time - time.time())`
+*   **The Analogy:** A musician doesn't rest for 1 second *after* playing a note. They play on the beat, regardless of how long the note was.
+
+**AI Prompt:** "Write a Python class 'Rate' that enforces a fixed loop frequency using `time.perf_counter()` to minimize jitter."
+
 ---
 
-## **Check: The Reflex**
-**The "Hello World" of Robotics.**
+## **Check: The Tethered Levitation**
+**"The First Breath."**
 
-Combine 1.1, 1.2, and 1.3.
-1.  Read the Downward Lidar distance.
-2.  **Logic:**
-    *   If `distance < 0.2m`: Motors OFF.
-    *   If `distance > 0.2m` and `distance < 0.5m`: Motors IDLE (spin slow).
-    *   If `distance > 0.5m`: Motors PULSE (visual feedback).
+We aren't waiting for Module 5 to feel the power. 
 
-**Goal:** Move your hand in front of the sensor. The motors should react instantly.
+1.  **Safety:** Tie the drone to a heavy object (or the floor) using 10cm of string.
+2.  **Props ON:** This is the only time in Phase I you will attach props.
+3.  **The Code:** Write a script `levitate.py`.
+    *   Gradually ramp motors from 0% to 20% to 40% over 5 seconds.
+    *   Hold for 2 seconds.
+    *   Cut to 0%.
+4.  **The Feeling:** Run the script. You should see the drone "pop" up and tug against the string. The air should move. It should sound like a swarm of angry bees.
+5.  **Success:** If it lifts evenly, your Motor Map is correct. If it flips instantly, your motors are in the wrong order (Check Lab 1.1).
+
+**Submission:** A video of your drone tugging on its leash.
 
 ---
 ## **Theoretical Foundations**

@@ -33,6 +33,20 @@ A Point Cloud is instantaneous. If you turn away, the points disappear. An **Occ
 3.  **Scan:** Spin the drone 360 degrees in the center of the room.
 4.  **Save:** `ros2 run octomap_server octomap_saver -f room_scan.bt`.
 
+### **8.2.1 Just-In-Time Math: The Betting Man (Log Odds)**
+**"Adding instead of Multiplying"**
+
+Robots deal with probabilities ($p=0.5$).
+*   **The Problem:** If you multiply probabilities ($0.5 \times 0.5 \times 0.5 \dots$), the number becomes tiny ($0.0000001$) and the computer crashes (Underflow).
+*   **The Fix:** We use **Log Odds**.
+    *   $L = \log(\frac{p}{1-p})$
+    *   $p=0.5 \implies L=0$ (Unsure).
+    *   $p=0.99 \implies L=2$ (Occupied).
+    *   $p=0.01 \implies L=-2$ (Free).
+*   **The Magic:** To update the map, we just **ADD** the numbers. $L_{new} = L_{old} + L_{sensor}$. It's fast, and it never crashes.
+
+**AI Prompt:** "Write a Python function to update a 2D numpy occupancy grid using Log Odds. Convert probability (0.7) to log-odds, add it to the grid, and convert back to probability."
+
 ---
 
 ## **8.3 The Digital Twin Pipeline**
@@ -76,12 +90,30 @@ In modern robotics, we don't just "filter" the current position. We solve a mass
 *   **OctoMaps (Voxel Grids):** Uses a recursive tree structure to store occupancy. It is efficient for checking collision ($O(log N)$), but it is "Discrete" and "Blocky."
 *   **3D Gaussian Splatting (3DGS):** The 2024 state-of-the-art. Instead of cubes, we use "Gaussians" (fuzzy blobs). Because Gaussians are differentiable, we can use **Gradient Descent** to find the "emptiest" path through a room—a feat impossible with standard point clouds.
 
-### Lecture 8.6: Semantic Mapping & Surface Normals
-Robots shouldn't just see "Shapes"; they should see "Semantics."
-*   **Instance Segmentation:** We use a lightweight CNN (Module 15) to label voxels (e.g., "Shelf", "Floor").
-*   **The Perch:** Once we identify a "Shelf," we calculate the **Surface Normal** $\hat{n}$ by finding the Eigenvectors of the local point cloud. The drone then computes a trajectory to align its landing gear with $\hat{n}$ for a soft landing.
+### Lecture 8.6: Geometric Primitives & RANSAC
+Before we can label a "Shelf," we must find the "Plane."
+*   **The Problem:** Lidar data is messy. A flat wall looks like a jagged cloud of points due to sensor noise.
+*   **Random Sample Consensus (RANSAC):** This is the standard algorithm for fitting models to noisy data.
+    1.  **Hypothesize:** Pick the minimum number of points required to define a model (3 points for a plane).
+    2.  **Verify:** Count how many other points in the cloud are within a threshold distance of this model (Inliers).
+    3.  **Repeat:** Do this $N$ times. The model with the highest number of inliers is the winner.
+*   **Semantic Labeling:** Once we have a clean geometric plane, we use its properties (Height, Normal Vector, Size) to classify it as "Floor," "Wall," or "Perch."
 
 **Next Step:** [Module 9: Trajectory Optimization](../Module_09_Trajectory_Optimization/Module_09_Lecture.md)
+
+### **8.6.1 Just-In-Time Math: The Coin Flip (RANSAC)**
+**"Finding the Signal in the Noise"**
+
+In the "Perch Finder" lab, you use RANSAC.
+*   **The Problem:** You have 1000 lidar points. 900 are the shelf (Inliers). 100 are dust/noise (Outliers). Least Squares will try to fit *everything* and give you a crooked line.
+*   **The Solution (RANSAC):**
+    *   Pick 3 random points. Draw a plane.
+    *   Count how many other points agree with it.
+    *   Do this 100 times.
+    *   The "Real" shelf is the one with the most votes.
+*   **The Analogy:** It's like finding a biased coin. If you flip it 100 times and it comes up Heads 99 times, you know it's weighted, even if one flip was Tails.
+
+**AI Prompt:** "Explain the RANSAC algorithm step-by-step. Why is it robust to outliers compared to standard Linear Regression?"
 
 ---
 

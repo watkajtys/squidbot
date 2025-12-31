@@ -68,6 +68,20 @@ A commercial pilot has a "Virtual Horizon" (PFD) that stays level with the earth
     *   **Success:** The line on your screen stays perfectly level with your desk/horizon, regardless of how you hold the drone.
 4.  **Knowledge Step-up:** This is your first **Coordinate Transform**. You are transforming a line from "Inertial Space" (Earth) to "Image Space" (Camera).
 
+### **3.2.2 Just-In-Time Math: The Pinhole Camera**
+**"Why does the HUD float?"**
+
+In the "Virtual Horizon" lab, you are mapping 3D space to a 2D screen.
+*   **The Analogy:** Imagine looking through a window (the screen) with one eye closed (the camera).
+    *   If you move your head back (change Focal Length), the tree outside looks smaller.
+    *   If you tilt your head (Rotation), the horizon tilts.
+*   **The Matrix ($K$):** The "Intrinsic Matrix" is just a mathematical description of where your eye is relative to the window.
+    *   $f_x, f_y$: How close your eye is to the glass (Zoom).
+    *   $c_x, c_y$: The center point of the glass.
+*   **The Equation:** `Pixel_u = (f_x * X / Z) + c_x`. It's just similar triangles!
+
+**AI Prompt:** "I have a 3D point [X, Y, Z] and a camera intrinsic matrix K. Explain how to project this point onto the 2D image plane [u, v] using homogeneous coordinates."
+
 ---
 
 ## **3.3 System Identification: Latency**

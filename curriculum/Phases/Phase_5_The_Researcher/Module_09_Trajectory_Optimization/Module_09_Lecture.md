@@ -27,6 +27,17 @@ Find a collision-free tube.
 2.  **Output:** A list of waypoints: `[(0,0,0), (0,1,0), (1,1,1)...]`.
 3.  **Problem:** This path is "Zig-Zag". Drones cannot turn 90 degrees instantly.
 
+### **9.1.1 Just-In-Time Math: The Optimist (A* Heuristic)**
+**"Always underestimate the cost."**
+
+A* pathfinding works by guessing how far the goal is.
+*   **The Heuristic ($h$):** The guess. "I think the goal is 10m away."
+*   **The Rule (Admissibility):** Your guess must be **Optimistic**. You must never *overestimate* the distance.
+    *   **Why?** If you think the path is longer than it really is, you might stop searching a good path because you falsely believe it's too expensive.
+    *   **The Safe Bet:** Euclidean Distance (Straight Line). It is physically impossible to fly faster than a straight line, so this guess is always "Admissible."
+
+**AI Prompt:** "Explain A* Search and Admissible Heuristics. Why does using Euclidean Distance guarantee the shortest path in a grid?"
+
 ---
 
 ## **9.2 Smoothing: Minimum Snap Splines**
@@ -50,6 +61,19 @@ We want to minimize **Snap** (4th derivative). This ensures the motors change sp
     *   End Velocity = 0.
     *   Pass through all waypoints.
 3.  **Solver:** Use `scipy.optimize` or a quadratic programming solver (`OSQP`).
+
+### **9.2.1 Just-In-Time Math: The Cup of Coffee Test**
+**"Why do we minimize Snap?"**
+
+Imagine driving a car with a full cup of coffee on the dashboard.
+*   **Position ($x$):** You are at the start line.
+*   **Velocity ($v$):** You drive at 60mph. Coffee is fine.
+*   **Acceleration ($a$):** You floor the gas. Coffee tilts back.
+*   **Jerk ($j$):** You slam the gas, then slam the brake. Coffee splashes out.
+*   **Snap ($s$):** The engine mount breaks and the car vibrates violently. Coffee cup shatters.
+*   **The Lesson:** A drone's motors can handle acceleration. They cannot handle vibration (Snap). Minimizing Snap ensures the motors hum instead of scream.
+
+**AI Prompt:** "I have a set of waypoints. Explain how 'Minimum Snap Trajectory Generation' uses a 7th-order polynomial to ensure the 4th derivative is minimized."
 
 ---
 
