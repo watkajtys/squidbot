@@ -1,3 +1,7 @@
+[Return to Course Map](../../../../COURSE_MAP.md) | [Phase I Index](../../Phases/Phase_1_The_Mechanic/Module_00_The_Build/Module_00_Lecture.md)
+
+---
+
 # The Hacker's Guide to Wiring
 **"Soldering is just hot glue for metal."**
 

@@ -86,10 +86,6 @@ echo "performance" | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
 # ISOLATE CPU CORE 3
 # We want Core 3 DEDICATED to the flight loop. No OS tasks allowed.
-
-
-# ISOLATE CPU CORE 3
-# We want Core 3 DEDICATED to the flight loop. No OS tasks allowed.
 CMDLINE_FILE="/boot/cmdline.txt"
 if [ -f "/boot/firmware/cmdline.txt" ]; then
     CMDLINE_FILE="/boot/firmware/cmdline.txt"

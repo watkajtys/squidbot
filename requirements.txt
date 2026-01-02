@@ -20,6 +20,8 @@ eventlet
 # Utilities
 pyserial
 rich  # For pretty terminal output
+pytest # For Unit Testing (Lab 1.1)
+readchar # For Keyboard Input (Lab 1.5)
 
 # Machine Learning & Simulation
 gym-pybullet-drones

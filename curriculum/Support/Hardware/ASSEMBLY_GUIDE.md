@@ -1,3 +1,7 @@
+[Return to Course Map](../../../../COURSE_MAP.md) | [Phase I Index](../../Phases/Phase_1_The_Mechanic/Module_00_The_Build/Module_00_Lecture.md)
+
+---
+
 # The Mechanic's Handbook: Assembly & Mechanics
 **"If it vibrates, it will loosen. If it spins, it will cut."**
 

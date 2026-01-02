@@ -18,6 +18,7 @@ Most robotics education focuses on tool usage. The Squid Project focuses on tool
     *   **Library/**: Mathematical deep-dives (EKF, MPC, Swarm Theory).
     *   **Phases/**: Module lectures and study guides organized by Phase 1-7.
     *   **Support/**: Hardware guides, setup tools, and debugging references.
+        *   *[Emergency Quick Ref](curriculum/Support/Reference/QUICK_REF.md)*
 *   **src/Labs/**: 31 scaffolded labs organized by Phase subfolders.
 *   **src/drivers/**: Production Python drivers for MSP, ToF, and Optical Flow.
 *   **simulation/**: PyBullet SITL (Software-in-the-Loop) engine.

@@ -1,3 +1,7 @@
+[Return to Course Map](../../../../COURSE_MAP.md) | [Module 0 Lecture](Module_00_Lecture.md)
+
+---
+
 # Module 0: Foundational Engineering for Autonomous Aerial Robotics
 
 ## 1. Introduction: The Full-Stack Challenge of Autonomous Flight
