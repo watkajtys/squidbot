@@ -27,6 +27,9 @@ We are grafting a "Big Brain" (Raspberry Pi Zero 2 W) onto a "Fast Spinal Cord" 
 4.  **Ground:** **CRITICAL.** You MUST connect a common Ground (GND) wire between the FC and the Pi.
 
 ## **0.1.1 The "Deep-Dive" Breakout: Power Budgeting**
+> **Mandatory Reading:** [Module 0 Deep Dive: Foundational Engineering](Module_00_Deep_Dive_Foundations.md).
+> This document covers the physics of LiPo batteries, the Cortex-A53 interrupt latency, and the math of Quaternions in detail.
+
 > **Professor's Note:** The Pi Zero 2 W is a "Brownout" waiting to happen.
 > **Why?** When you run AI and 4 motors at full speed, the voltage sags. If your BEC isn't rock-solid, the Pi will reboot mid-air.
 > **The Goal:** You will calculate the **Total Current Draw** for every component. You will ensure your power rail has at least a 20% safety margin before your first takeoff.
