@@ -5,10 +5,15 @@ To prevent "Theory Burnout," use these challenges as your milestones. Don't move
 
 ---
 
-## Phase I: The "Heartbeat" Game
-*   **The Challenge:** "The Morse Code." 
+## Phase I: The "Nervous System" Games
+**Module 0 Challenge: "The Heartbeat"**
 *   **Goal:** Write a script that takes a string (e.g., "SQUID") and blinks the onboard LED in perfect Morse Code. 
 *   **The Win:** Seeing the hardware respond to your logic for the first time.
+
+**Module 1 Challenge: "The Limp" (System Failure)**
+*   **Goal:** Simulate a motor failure in your `lab_1_1_mixer_matrix.py` logic. Write a "Limp Mode" mixer that maintains a level hover (Roll/Pitch = 0) using only 3 motors.
+*   **The Math:** You must redistribute the torque load. If Motor 1 dies, Motor 3 (its diagonal) must reduce power to balance Yaw, while Motors 2 & 4 increase power to balance Thrust.
+*   **The Win:** Running the Virtual Dyno (`lab_1_5`) and seeing the bars re-balance automatically when you trigger the failure flag.
 
 ## Phase II: The "Horizon" Game
 *   **The Challenge:** "The Virtual Level."
