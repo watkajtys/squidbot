@@ -204,6 +204,48 @@ Robots don't wait. They loop. We need a main loop that runs at a consistent freq
 
 ---
 
+## **1.4 Lab: The Silent Observer (Async Logging)**
+
+### **Objective**
+Record data to the SD card without crashing the drone.
+
+### **Theory**
+Writing to an SD card is "Expensive." A simple `print()` or `file.write()` can take anywhere from 1ms to 50ms depending on the Linux kernel's disk buffer. If your 50Hz flight loop (20ms) waits 50ms for a write, the drone acts blindly for two full cycles.
+
+### **Lab Procedure**
+1.  **The Concept:** Create a separate thread for logging.
+2.  **The Code:** 
+    *   Use a `queue.Queue` to share data between the **Flight Loop** and the **Logger Thread**.
+    *   The Flight Loop "puts" data into the queue (fast, RAM-to-RAM).
+    *   The Logger Thread "gets" data and writes it to disk (slow, Disk I/O).
+3.  **Stress Test:** Run your loop at 100Hz while writing a large file. Measure your loop jitter.
+
+### **Deliverable**
+*   `src/utils/logger.py` containing a `ThreadedLogger` class.
+
+---
+
+## **1.5 Lab: The Virtual Dyno**
+
+### **Objective**
+Visualize your math before you trust it with your fingers.
+
+### **Theory**
+A mixing error is usually catastrophic. If you swap Roll and Pitch, the drone will instantly flip into the ground (or you).
+We use a **Software-in-the-Loop (SITL)** approach. We feed "Virtual Stick Inputs" into your mixer function and render the motor outputs as bars in the terminal.
+
+### **Lab Procedure**
+1.  **Install Rich:** `pip install rich`.
+2.  **Run the Dyno:** `python3 src/Labs/Phase_1_The_Mechanic/Module_01_Bare_Metal_API/lab_1_5_virtual_dyno.py`.
+3.  **The Test:**
+    *   **Pitch Forward:** Rear bars should grow. Front bars should shrink.
+    *   **Roll Left:** Right bars should grow. Left bars should shrink.
+    *   **Full Throttle:** All bars should hit 100%.
+
+**Deliverable:** A screenshot of your terminal showing a valid Pitch maneuver.
+
+---
+
 ## **Check: The Tethered Levitation**
 **"The First Breath."**
 
@@ -232,13 +274,21 @@ We utilize the **MultiWii Serial Protocol (MSP)** for communication between the 
     *   *Mathematical Proof:* $Checksum = Size \oplus Type \oplus Payload_1 \oplus ... \oplus Payload_n$. 
     *   XOR is used because it is self-inverse ($A \oplus B \oplus B = A$), allowing the receiver to detect single-bit flips with zero branching logic in the CPU, which preserves timing determinism.
 
-#### **2. I2C Bus Arbitration & Signal Integrity**
+#### **2. CPU Isolation (isolcpus)**
+The Raspberry Pi Zero 2 W has 4 Cores.
+*   **Core 0-2:** We leave these for the OS (WiFi, SSH, Logging, Systemd).
+*   **Core 3:** We "Isolate" this core using the kernel parameter `isolcpus=3`.
+    *   This tells the Linux Scheduler: "Never put a task here unless I explicitly force you to."
+    *   We then launch our flight loop with `taskset -c 3 python3 main.py`.
+    *   **Result:** Our flight loop runs uninterrupted. No context switches. No background noise. This reduces jitter from ~5ms to <50µs.
+
+#### **3. I2C Bus Arbitration & Signal Integrity**
 The **Inter-Integrated Circuit (I2C)** protocol uses a Multi-Master/Multi-Slave bus.
 *   **Open-Drain Configuration:** The SDA (Data) and SCL (Clock) lines are pulled "High" by resistors. Devices only pull the line "Low." 
 *   **The Contention Problem:** If two VL53L5CX sensors share the same hardcoded address (`0x29`), they will attempt to pull the data line low simultaneously, causing a short-duration voltage drop that the CPU interprets as "Garbage."
 *   **Dynamic Re-addressing:** We utilize the **XSHUT** (Shutdown) hardware pins. By pulling all sensors to GND (OFF), then waking them sequentially, we can write to the `I2C_SLAVE_DEVICE_ADDRESS` register to re-map the bus in software before the main flight loop begins.
 
-#### **3. Numerical Discrete-Time Integration**
+#### **4. Numerical Discrete-Time Integration**
 To calculate the drone's position from its velocity, we must perform integration in software.
 *   **Forward Euler:** $x_{k+1} = x_k + v_k \cdot \Delta t$. This is simple but prone to error accumulation (Drift).
 *   **The Jitter Penalty:** If $\Delta t$ fluctuates by even $1\text{ms}$ due to Linux background tasks, the integration error becomes non-linear. We use `time.perf_counter_ns()` to capture nanosecond-level timestamps, ensuring our $\Delta t$ used in the math matches the physical reality of the hardware.

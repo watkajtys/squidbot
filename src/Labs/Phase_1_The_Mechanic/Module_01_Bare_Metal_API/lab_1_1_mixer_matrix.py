@@ -8,7 +8,7 @@ Win Condition: Phase I: Three-Motor Limp (SQUID_GAMES.md)
 This lab is part of the 'Soldering Iron to Swarm' masterclass.
 
 """
-Lab 0.6: The Motor Mixer
+Lab 1.1: The Motor Mixer
 Goal: Convert Thrust/Roll/Pitch/Yaw into 4 Motor Speeds.
 Refer to docs/theory/Theory_0.6_The_Motor_Mixer_Matrix.md
 """

@@ -30,6 +30,35 @@ Before you assemble the drone, you must master your tools. These labs are design
     *   Save (Ctrl+O, Enter) and Exit (Ctrl+X).
     *   Run it: `python3 hello_squid.py`.
 
+### **Lab 0.2.1: The VIP Room (CPU Isolation)**
+**"The Chef Analogy."**
+Imagine a Chef (CPU Core) chopping onions (Flight Loop). If the phone rings (WiFi Interrupt), the Chef stops chopping to answer. In a kitchen, dinner is late. In a drone, the motors stop updating for 20ms, and you flip over.
+
+**The Goal:** We will fire the "Scheduler" from **Core 3** and dedicate that core exclusively to our flight code.
+
+1.  **The Baseline:**
+    *   Run `htop`. You see 4 bars (0, 1, 2, 3) dancing with random tasks.
+2.  **The Kernel Isolation (isolcpus):**
+    *   `isolcpus=3` tells the OS: "Do not schedule user programs (like SSH or Python) on Core 3 unless forced."
+    *   **Action:** Add `isolcpus=3` to `/boot/cmdline.txt`.
+3.  **The Interrupt Routing (SMP Affinity):**
+    *   Even with `isolcpus`, the hardware wires (IRQs) for WiFi/USB can still fire on Core 3. We must "mask" them.
+    *   **The Bitmask:** We have 4 cores. We represent them as binary bits: `3 2 1 0`.
+    *   We want Cores 0, 1, 2 to handle interrupts. That is Binary `0111`.
+    *   Binary `0111` = Hex `7`.
+    *   **Action (Temporary):** `echo 7 | sudo tee /proc/irq/default_smp_affinity`.
+    *   **Action (Permanent):** To make this survive a reboot, you must add `echo 7 > /proc/irq/default_smp_affinity` to your `/etc/rc.local` file (before the `exit 0` line).
+    *   *Note:* The `setup_pi.sh` script does this for you automatically.
+4.  **The Enemy (irqbalance):**
+    *   Linux has a daemon called `irqbalance` that tries to undo our work to "maximize throughput."
+    *   **Action:** `sudo systemctl stop irqbalance`.
+5.  **The Verification:**
+    *   Reboot. Run `htop`. Core 3 should be dead silent (0.0%).
+6.  **The VIP Pass (`taskset`):**
+    *   To run code in the VIP room, you need a pass.
+    *   Run: `taskset -c 3 python3 hello_squid.py`.
+    *   This forces your script to run ONLY on Core 3.
+
 ---
 
 ## **Lab 0.3: Betaflight Sensors (The "Ear" Test)**
