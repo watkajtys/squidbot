@@ -397,3 +397,18 @@ Understanding these constraints allows us to design a system that flies with the
 64. BVLOS & VLOS: A Comprehensive Guide for Drone Pilots, accessed January 1, 2026, https://www.dronepilotgroundschool.com/bvlos-vlos/
 65. New Drone Laws in the USA [Updated in 2025], accessed January 1, 2026, https://www.thedroneu.com/blog/usa-drone-laws-regulations-by-state/
 6. Remote Identification of Drones | Federal Aviation Administration, accessed January 1, 2026, https://www.faa.gov/uas/getting_started/remote_id
+
+---
+
+## Appendix A: The Rosetta Stone (Engineering vs. The Field)
+
+This appendix provides a "translation matrix" to link graduate-level aerospace concepts with the common terminology used by FPV pilots and hobbyists.
+
+| **Engineering Concept** | **Hobbyist / Pilot Slang** | **The Reality Connection** |
+| :--- | :--- | :--- |
+| **Internal Resistance ($R_{ir}$) & SEI Layer** | **"Voltage Sag"** or **"Puffing"** | When a pilot says, *"My battery sagged to 3.2V on a punch-out,"* they are empirically observing Ohm's Law: $V_{drop} = I \times R_{ir}$. A "puffed" LiPo is the SEI layer decomposing into gas due to thermal stress. |
+| **Nyquist Aliasing ($f_{alias}$)** | **"Hot Motors"** or **"D-Term Heat"** | If motors come down hot, a pilot says, *"My D-Gains are too high."* In reality, high-frequency frame vibration is **aliasing** past the filter, appearing as low-frequency motion. The D-term fights this "ghost" motion, turning electricity into heat. |
+| **Stochastic Jitter / Latency** | **"Desync"** or **"Looptime"** | Pilots obsess over "8k Looptime." If the drone randomly falls out of the sky during a flip, they call it a **"Desync."** In reality, the scheduler jitter likely exceeded the control period or the ESC lost synchronization. |
+| **Quaternions vs. Euler Angles** | **"Gimbal Lock"** vs. **"Horizon Mode"** | A pilot flying in **"Angle Mode"** (Euler) cannot flip upside down without the controller fighting them. A pilot in **"Acro Mode"** (Quaternions/Rates) can spin indefinitely because they are controlling the derivative vector ($\dot{q}$). |
+| **Bode Plot / Bandwidth** | **"Prop Wash"** | When a drone wobbles descending into its own air, pilots call it **"Prop Wash Oscillation."** An engineer sees a loss of **Control Authority** because turbulent air reduces the prop's aerodynamic gain ($K_{thrust}$). |
+| **I-Term Windup** | **"Integrator Accumulation"** | Pilots know if they crash and leave the throttle up, the drone will try to spin to the moon. This is the **Integrator** accumulating error ($ \int e(t) dt $) because the drone is physically obstructed. |
