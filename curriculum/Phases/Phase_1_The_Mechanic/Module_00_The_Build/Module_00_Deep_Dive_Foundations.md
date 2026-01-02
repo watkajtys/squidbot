@@ -402,13 +402,16 @@ Understanding these constraints allows us to design a system that flies with the
 
 ## Appendix A: The Rosetta Stone (Engineering vs. The Field)
 
-This appendix provides a "translation matrix" to link graduate-level aerospace concepts with the common terminology used by FPV pilots and hobbyists.
+This appendix provides a "translation matrix" to link graduate-level aerospace concepts with the common terminology used by FPV pilots and hobbyists, including how to physically test for these phenomena.
 
-| **Engineering Concept** | **Hobbyist / Pilot Slang** | **The Reality Connection** |
-| :--- | :--- | :--- |
-| **Internal Resistance ($R_{ir}$) & SEI Layer** | **"Voltage Sag"** or **"Puffing"** | When a pilot says, *"My battery sagged to 3.2V on a punch-out,"* they are empirically observing Ohm's Law: $V_{drop} = I \times R_{ir}$. A "puffed" LiPo is the SEI layer decomposing into gas due to thermal stress. |
-| **Nyquist Aliasing ($f_{alias}$)** | **"Hot Motors"** or **"D-Term Heat"** | If motors come down hot, a pilot says, *"My D-Gains are too high."* In reality, high-frequency frame vibration is **aliasing** past the filter, appearing as low-frequency motion. The D-term fights this "ghost" motion, turning electricity into heat. |
-| **Stochastic Jitter / Latency** | **"Desync"** or **"Looptime"** | Pilots obsess over "8k Looptime." If the drone randomly falls out of the sky during a flip, they call it a **"Desync."** In reality, the scheduler jitter likely exceeded the control period or the ESC lost synchronization. |
-| **Quaternions vs. Euler Angles** | **"Gimbal Lock"** vs. **"Horizon Mode"** | A pilot flying in **"Angle Mode"** (Euler) cannot flip upside down without the controller fighting them. A pilot in **"Acro Mode"** (Quaternions/Rates) can spin indefinitely because they are controlling the derivative vector ($\dot{q}$). |
-| **Bode Plot / Bandwidth** | **"Prop Wash"** | When a drone wobbles descending into its own air, pilots call it **"Prop Wash Oscillation."** An engineer sees a loss of **Control Authority** because turbulent air reduces the prop's aerodynamic gain ($K_{thrust}$). |
-| **I-Term Windup** | **"Integrator Accumulation"** | Pilots know if they crash and leave the throttle up, the drone will try to spin to the moon. This is the **Integrator** accumulating error ($ \int e(t) dt $) because the drone is physically obstructed. |
+| **Engineering Concept** | **Hobbyist / Pilot Slang** | **The Reality Connection** | **The Field Test** |
+| :--- | :--- | :--- | :--- |
+| **Internal Resistance ($R_{ir}$)** | **"Voltage Sag"** | Ohm's Law ($V=IR$) limits power delivery. Old batteries grow "SEI Layers" that act like resistors. | **The Punch-Out:** Full throttle for 2s. If OSD voltage drops >2V, battery is "high IR". |
+| **Nyquist Aliasing** | **"Hot Motors"** | High-freq vibrations "fold" into low-freq signals. The PID loop fights ghosts, turning electricity into heat. | **The Touch Test:** Land after 30s hover. If motors burn your finger, your filters are set too high (or low). |
+| **Phase Margin / Latency** | **"Washout" / "Drifty"** | Excessive filtering creates delay. The drone reacts to where it *was* 20ms ago, not where it *is*. | **The Snap Turn:** Yank the stick and let go. If it "wobbles" or drifts before stopping, you have phase lag. |
+| **ESC Commutation Failure** | **"Desync"** | The ESC lost track of the motor's magnetic poles. Usually caused by electrical noise or excessive $dI/dt$. | **The Death Roll:** Rapid back-and-forth rolls. If a motor stops or "screeches" mid-air, it's a desync. |
+| **Stochastic Jitter** | **"Stutter" / "Lag"** | The OS Kernel interrupted the flight loop to handle background tasks, causing a missed control deadline. | **The Jitter Lab:** Run `lab_0_1`. If max jitter > 5ms while Pi is under load, you'll feel "steps" in the air. |
+| **Prop Wash Oscillation** | **"Dirty Air"** | Turbulence from your own props reduces Aerodynamic Gain ($K_t$), making the PID loop hunt for stability. | **The 180 Turn:** Turn 180° into your own wake. If the drone wobbles but recovers, it's Prop Wash. |
+| **Vortex Ring State (VRS)** | **"The Drop"** | Falling into your own downwash creates a toroidal flow that kills all lift. Mathematical stall ($\partial C_L / \partial \alpha \to 0$). | **The Vertical Drop:** Drop straight down. If throttle does nothing and the drone tumbles, it is VRS. |
+| **Integrator Saturation** | **"I-Term Windup"** | The 'I-Term' sums error over time ($\int e dt$). If the drone is stuck on ground, this sum hits infinity. | **The Ground Grind:** Arm on ground with throttle zero. If props slowly speed up to 100%, it's windup. |
+| **Feed-Forward ($u_{ff}$)** | **"Stick Response"** | Predicting the necessary force ($F=ma$) based on stick speed, rather than waiting for an error to correct. | **The Crisp Stop:** Stop a flip instantly. If it overshoots, FF is too low. If it bounces back, P is too high. |
