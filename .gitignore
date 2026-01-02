@@ -14,6 +14,8 @@ dist/
 # Data
 data/*.mcap
 data/*.bag
+flight_log_*.csv
+log/
 
 # OS
 .DS_Store

@@ -30,6 +30,13 @@ Before you assemble the drone, you must master your tools. These labs are design
     *   Save (Ctrl+O, Enter) and Exit (Ctrl+X).
     *   Run it: `python3 hello_squid.py`.
 
+> **Pro Tip: The Modern Workflow (VS Code Remote)**
+> Editing code with `nano` is painful.
+> 1.  Install **VS Code** on your laptop.
+> 2.  Install the **Remote - SSH** extension.
+> 3.  Connect to `pi@squid-drone.local`.
+> Now you can edit files on the Pi using a full IDE, drag-and-drop files, and run the integrated terminal. This is how professionals work.
+
 ### **Lab 0.2.1: The VIP Room (CPU Isolation)**
 **"The Chef Analogy."**
 Imagine a Chef (CPU Core) chopping onions (Flight Loop). If the phone rings (WiFi Interrupt), the Chef stops chopping to answer. In a kitchen, dinner is late. In a drone, the motors stop updating for 20ms, and you flip over.
