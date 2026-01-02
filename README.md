@@ -24,6 +24,22 @@ Most robotics education focuses on tool usage. The Squid Project focuses on tool
 *   **simulation/**: PyBullet SITL (Software-in-the-Loop) engine.
 *   **tests/**: Mathematical validation suite.
 
+## How to Use This Course
+This repo is both your **Textbook** and your **Lab Notebook**. 
+
+### 1. The Study Loop
+For every Module, follow this linear progression:
+*   **READ:** Start with the **Lecture** and any referenced **Theory** papers.
+*   **CODE:** Complete the corresponding **Lab** in `src/Labs/`. Fill in the `TODO` sections.
+*   **VERIFY:** Run the **Unit Tests** (e.g., `pytest tests/test_mixer.py`) to prove your math is correct.
+*   **WIN:** Complete the **[Squid Game](SQUID_GAMES.md)** for that Phase and record a video of the hardware in action.
+
+### 2. The Git Protocol (Don't Mess Up Your Textbook)
+To keep the course references clean while you work, do not code on the `main` branch.
+1.  Create a personal working branch: `git checkout -b flight-dev`
+2.  Commit your lab work there. 
+3.  If you ever need to restore a "clean" version of a lab file: `git checkout main -- path/to/file.py`
+
 ## Getting Started
 1.  **Zero Hour:** Read **[PREFLIGHT.md](PREFLIGHT.md)** immediately to understand the scope.
 2.  **Tool Up:** Review the **[Squid Tool Kit](curriculum/Support/Hardware/TOOL_KIT.md)**. You cannot build this without a soldering iron and a multimeter.
