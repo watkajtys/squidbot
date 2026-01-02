@@ -25,10 +25,11 @@ Most robotics education focuses on tool usage. The Squid Project focuses on tool
 *   **tests/**: Mathematical validation suite.
 
 ## Getting Started
-1.  **Zero Hour:** Read **[PREFLIGHT.md](PREFLIGHT.md)** immediately. Do this *before* your hardware arrives. It includes the Simulator and Software Setup.
-2.  **Prerequisites:** Read the **[SYLLABUS.md](SYLLABUS.md)** and **[Hardware Foundations](curriculum/Support/Hardware/Hardware_Foundations.md)**.
-3.  **Environment:** Follow the **[Pi Zero Survival Guide](curriculum/Support/Setup/PI_ZERO_SURVIVAL_GUIDE.md)** for initial setup.
-4.  **Labs:** Start with **[Lab 0.1](src/Labs/Phase_1_The_Mechanic/Module_00_The_Build/lab_0_1_realtime_jitter.py)** to verify your timing budget.
+1.  **Zero Hour:** Read **[PREFLIGHT.md](PREFLIGHT.md)** immediately to understand the scope.
+2.  **Tool Up:** Review the **[Squid Tool Kit](curriculum/Support/Hardware/TOOL_KIT.md)**. You cannot build this without a soldering iron and a multimeter.
+3.  **The Build:** Follow the **[Wiring Guide](curriculum/Support/Hardware/WIRING_GUIDE.md)** and **[Assembly Guide](curriculum/Support/Hardware/ASSEMBLY_GUIDE.md)**. This is where 90% of projects fail. Take your time.
+4.  **Environment:** Follow the **[Pi Zero Survival Guide](curriculum/Support/Setup/PI_ZERO_SURVIVAL_GUIDE.md)** to configure the Linux OS for Real-Time performance.
+5.  **First Code:** Start with **[Lab 0.1](src/Labs/Phase_1_The_Mechanic/Module_00_The_Build/lab_0_1_realtime_jitter.py)** to verify your timing budget.
 
 ## The Burnout Shield
 This curriculum is academically dense. To ensure completion:
